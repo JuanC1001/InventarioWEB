@@ -1,91 +1,54 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package rnegocio.funciones;
 
-package rnegocio.entidades;
-import AccesoADatos.*;
-import java.sql.*;
-import java.util.*;
+import AccesoADatos.Comando;
+import AccesoADatos.Conexion;
+import AccesoADatos.Global;
+import AccesoADatos.Parametro;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import rnegocio.entidades.Cliente;
+
 /**
  *
- * @author Jc
+ * @author MI PC
  */
-public class Producto {
-  private int productoid;
-  private String nombreproducto;
-
-    public Producto() {
-    }
-
-    public Producto(int productoid, String nombreproducto) {
-        this.productoid = productoid;
-        this.nombreproducto = nombreproducto;
-    }
-
-    /**
-     * @return the productoid
-     */
-    public int getProductoid() {
-        return productoid;
-    }
-
-    /**
-     * @param productoid the productoid to set
-     */
-    public void setProductoid(int productoid) {
-        this.productoid = productoid;
-    }
-
-    /**
-     * @return the nombreproducto
-     */
-    public String getNombreproducto() {
-        return nombreproducto;
-    }
-
-    /**
-     * @param nombreproducto the nombreproducto to set
-     */
-    public void setNombreproducto(String nombreproducto) {
-        this.nombreproducto = nombreproducto;
-    }
-  public static ArrayList<Producto> producto_buscartodos() throws Exception {
-        System.out.println("estoy al inicio");
+public class FCliente {
+     public static ArrayList<Cliente> cliente_buscartodo() throws Exception {
         //CREO LISTA QUE RECIBIRA LOS DATOS DEL RESULSET
-        ArrayList<Producto> lista = new ArrayList<Producto>();
-        Producto obj = new Producto();
+        ArrayList<Cliente> lista = new ArrayList<   Cliente>();
+        Cliente obj = new Cliente();
         ResultSet rs = null;
         //LLAMO LA CONEXION
         Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
         //DECLARO UN PREPAREDSTATEMENT QUE EJECUTARA LA SQL
         PreparedStatement preStm = null;
-        System.out.println("estoy antes del try");
 
         try {
-            System.out.println("estoy adentro dentro del try");
-
             //declaro mi sql
-            String sql = "select *from public.productos_buscartodos();";
-            System.out.println("estoy DESPUES SELECT");
-
+            String sql = "select * from public.cliente_buscartodo()";
             //creo mi preparedstatement
-            System.out.println("estoy PREPARESTATETST");
-
             preStm = con.creaPreparedSmt(sql);
-            System.out.println("estoy DESPUES PREPARESTATETST");
-
             //ejecuto el prepardestatement y le asigno a mi resulset
-            System.out.println("estoy antes de la conexion ");
 
             rs = con.ejecutaPrepared(preStm);
-            System.out.println("estoy desues de la conexion ");
-
             obj = null;
-            System.out.println("estoy por entrar");
-
             while (rs.next()) {
-                obj = new Producto();
-                obj.setProductoid(rs.getInt("pproductoid"));
-                obj.setNombreproducto(rs.getString("pnombreproducto"));
+                obj = new Cliente();
+                obj.setClienteid(rs.getInt("pclienteid"));
+                obj.setNombre(rs.getString("pnombre"));
+                obj.setApellido(rs.getString("papellido"));
+                obj.setDireccion(rs.getString("pdireccion"));
+                obj.setTelefono(rs.getString("ptelefono"));
+                obj.setCedula(rs.getString("pcedula"));
+
                 lista.add(obj);
-                System.out.println("estoy adentro");
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -98,9 +61,10 @@ public class Producto {
 
     }
 
-    public static Producto producto_buscarporid(int piproductoid) throws Exception {
+    public static ArrayList<Cliente> cliente_buscartodo (int piclienteid) throws Exception {
         //CREO LISTA QUE RECIBIRA LOS DATOS DEL RESULSET
-        Producto obj = new Producto();
+        ArrayList<Cliente> lista = new ArrayList<Cliente>();
+        Cliente obj = new Cliente();
         ResultSet rs = null;
         //LLAMO LA CONEXION
         Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
@@ -109,18 +73,19 @@ public class Producto {
 
         try {
             //declaro mi sql
-            String sql = "select * from public.producto_buscarporid(?)";
+            String sql = "select * from public.cliente_buscarporid(?)";
             //creo mi preparedstatement
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset
-            preStm.setInt(1, piproductoid);
+            preStm.setInt(1, piclienteid);
             rs = con.ejecutaPrepared(preStm);
             obj = null;
             while (rs.next()) {
-                obj = new Producto();
-                obj.setProductoid(rs.getInt("pproductoid"));
-                obj.setNombreproducto(rs.getString("pnombreproducto"));
+                obj = new Cliente();
+                obj.setClienteid(rs.getInt("pclienteid"));
+                obj.setNombre(rs.getString("pnombre"));
 
+                lista.add(obj);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -129,11 +94,11 @@ public class Producto {
             preStm.close();
             con.desconectar();
         }
-        return obj;
+        return lista;
 
     }
 
-    public static boolean producto_insertar(Producto producto) throws Exception {
+    public static boolean cliente_insertar(Cliente cliente) throws Exception {
         boolean respuesta = false;
         Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
         try {
@@ -142,11 +107,51 @@ public class Producto {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("select * from public.producto_insertar(?)");
+            cmd.setSetenciaSql("select * from public.cliente_insertar(?)");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
-            parametros.add(new Parametro(1, producto.getNombreproducto()));
+            parametros.add(new Parametro(1, cliente.getClienteid()));
+            parametros.add(new Parametro(2, cliente.getNombre()));
+            parametros.add(new Parametro(3, cliente.getApellido()));
+            parametros.add(new Parametro(4, cliente.getDireccion()));
+            parametros.add(new Parametro(5, cliente.getTelefono()));
+            parametros.add(new Parametro(6, cliente.getCedula()));
+            //llenar el comando con los parametros
+            cmd.setLstParametros(parametros);
+            comandos.add(cmd);
+            //llamamos al funcion que ejecuta la transaccion en la base de datos
+            respuesta = con.ejecutaPreparedTransaccion(comandos);
+
+        } catch (SQLException e) {
+            throw new Exception(e.getMessage());
+        } finally {
+            con.desconectar();
+        }
+        return respuesta;
+
+    }
+
+    public static boolean cliente_editar(Cliente cliente) throws Exception {
+        boolean respuesta = false;
+        Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
+        try {
+            //CREAMOS EL ARRAYLIST DE LOS COMANDOS O SENTENCIAS SQL
+            ArrayList<Comando> comandos = new ArrayList<Comando>();
+            //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
+            Comando cmd = new Comando();
+            //SETEAMOS LA FUNCION AL COMAND0
+            cmd.setSetenciaSql("select * from facturacion.fn_cliente_editar(?,?,?,?,?,?)");
+            //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
+            ArrayList<Parametro> parametros = new ArrayList<Parametro>();
+            //llenamos el arraylist con todos los parametros
+
+            parametros.add(new Parametro(1, cliente.getClienteid()));
+            parametros.add(new Parametro(2, cliente.getNombre()));
+            parametros.add(new Parametro(3, cliente.getApellido()));
+            parametros.add(new Parametro(4, cliente.getDireccion()));
+            parametros.add(new Parametro(5, cliente.getTelefono()));
+            parametros.add(new Parametro(6, cliente.getCedula()));
 
             //llenar el comando con los parametros
             cmd.setLstParametros(parametros);
@@ -163,7 +168,7 @@ public class Producto {
 
     }
 
-    public static boolean producto_editar(Producto producto) throws Exception {
+    public static boolean cliente_eliminar(int pscactbevidenid) throws Exception {
         boolean respuesta = false;
         Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
         try {
@@ -172,39 +177,7 @@ public class Producto {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("select * from public.producto_editar(?,?)");
-            //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
-            ArrayList<Parametro> parametros = new ArrayList<Parametro>();
-            //llenamos el arraylist con todos los parametros
-
-            parametros.add(new Parametro(1, producto.getProductoid()));
-            parametros.add(new Parametro(2, producto.getNombreproducto()));
-
-            //llenar el comando con los parametros
-            cmd.setLstParametros(parametros);
-            comandos.add(cmd);
-            //llamamos al funcion que ejecuta la transaccion en la base de datos
-            respuesta = con.ejecutaPreparedTransaccion(comandos);
-
-        } catch (SQLException e) {
-            throw new Exception(e.getMessage());
-        } finally {
-            con.desconectar();
-        }
-        return respuesta;
-
-    }
-
-    public static boolean producto_eliminar(int pscactbevidenid) throws Exception {
-        boolean respuesta = false;
-        Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
-        try {
-            //CREAMOS EL ARRAYLIST DE LOS COMANDOS O SENTENCIAS SQL
-            ArrayList<Comando> comandos = new ArrayList<Comando>();
-            //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
-            Comando cmd = new Comando();
-            //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("select * from public.producto_eliminar(?)");
+            cmd.setSetenciaSql("select * from public.cliente_eliminar(?)");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
@@ -223,7 +196,4 @@ public class Producto {
         return respuesta;
 
     }
-  
 }
-
-
