@@ -33,7 +33,7 @@ public class FProducto {
 
         try {
             //declaro mi sql
-            String sql = "select * from public.producto_buscartodos()";
+            String sql = "SELECT *from facturacion.producto_listar();";
             //creo mi preparedstatement
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset
@@ -42,9 +42,12 @@ public class FProducto {
             obj = null;
             while (rs.next()) {
                 obj = new Producto();
-                obj.setProductoid(rs.getInt("pproductoid"));
-                obj.setNombreproducto(rs.getString("pnombreproducto"));
-
+                obj.setCodigo(rs.getInt("pcodigo"));
+                obj.setNombre(rs.getString("pnombre"));
+                obj.setStock(rs.getDouble("pstock"));
+                obj.setPrecio_compra(rs.getDouble("pprecio_venta"));
+                obj.setPrecio_compra(rs.getDouble("pprecio_compra"));
+                obj.setCategoria(FCategoria.categoria_buscarporid(rs.getInt("pcodigo_categoria")));
                 lista.add(obj);
             }
         } catch (SQLException e) {
@@ -70,7 +73,7 @@ public class FProducto {
 
         try {
             //declaro mi sql
-            String sql = "select * from public.producto_buscarporid(?)";
+            String sql = "SELECT *from facturacion.producto_buscar(?);";
             //creo mi preparedstatement
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset
@@ -79,8 +82,12 @@ public class FProducto {
             obj = null;
             while (rs.next()) {
                 obj = new Producto();
-                obj.setProductoid(rs.getInt("pproductoid"));
-                obj.setNombreproducto(rs.getString("pnombreproducto"));
+                obj.setCodigo(rs.getInt("pcodigo"));
+                obj.setNombre(rs.getString("pnombre"));
+                obj.setStock(rs.getDouble("pstock"));
+                obj.setPrecio_compra(rs.getDouble("pprecio_venta"));
+                obj.setPrecio_compra(rs.getDouble("pprecio_compra"));
+                obj.setCategoria(FCategoria.categoria_buscarporid(rs.getInt("pcodigo_categoria")));
 
                 lista.add(obj);
             }
@@ -104,12 +111,15 @@ public class FProducto {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("select * from public.producto_insertar(?)");
+            cmd.setSetenciaSql("SELECT *from facturacion.producto_insertar(?, ?, ?, ?, ?);");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
-            parametros.add(new Parametro(1, producto.getNombreproducto()));
-
+            parametros.add(new Parametro(1, producto.getNombre()));
+            parametros.add(new Parametro(2, producto.getStock()));
+            parametros.add(new Parametro(3, producto.getPrecio_venta()));
+            parametros.add(new Parametro(4, producto.getPrecio_compra()));
+            parametros.add(new Parametro(5, producto.getCategoria().getCodigo()));
             //llenar el comando con los parametros
             cmd.setLstParametros(parametros);
             comandos.add(cmd);
@@ -139,8 +149,8 @@ public class FProducto {
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
 
-            parametros.add(new Parametro(1, producto.getProductoid()));
-            parametros.add(new Parametro(2, producto.getNombreproducto()));
+            parametros.add(new Parametro(1, producto.getCodigo()));
+            parametros.add(new Parametro(2, producto.getNombre()));
 
             //llenar el comando con los parametros
             cmd.setLstParametros(parametros);

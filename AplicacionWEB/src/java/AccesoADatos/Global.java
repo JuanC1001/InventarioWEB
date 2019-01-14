@@ -9,7 +9,7 @@ package AccesoADatos;
  * @author root
  */
 public class Global { 
-    public static final  String url="jdbc:postgresql://localhost:5432/sistema_facturacion2";
+    public static final  String url="jdbc:postgresql://localhost:5432/sistema_inventario";
     public static final  String user="postgres";
     public static final  String pass="sexto";
     public static final  String driver="org.postgresql.Driver";
