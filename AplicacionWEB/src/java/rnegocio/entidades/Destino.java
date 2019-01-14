@@ -7,16 +7,17 @@ package rnegocio.entidades;
 
 /**
  *
- * @author Usuario
+ * @author MI PC
  */
-public class Categoria {
+public class Destino {
+
     private int codigo;
     private String nombre;
 
-    public Categoria() {
+    public Destino() {
     }
 
-    public Categoria(int codigo, String nombre) {
+    public Destino(int codigo, String nombre) {
         this.codigo = codigo;
         this.nombre = nombre;
     }
@@ -36,6 +37,5 @@ public class Categoria {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-    
-    
+
 }
