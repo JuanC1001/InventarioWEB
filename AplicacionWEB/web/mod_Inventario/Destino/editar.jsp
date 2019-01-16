@@ -5,6 +5,7 @@
 --%>
 
 
+<%@page import="rnegocio.funciones.FDestino"%>
 <%@page import="rnegocio.entidades.Destino"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
@@ -15,7 +16,7 @@
 %>
 <%
     int codigo = Integer.parseInt(request.getParameter("codigo"));
-    destino = Destino.destino_buscarporid(codigo);
+    destino = FDestino.destino_buscarporid(codigo);
 
 %>
 <!DOCTYPE html>

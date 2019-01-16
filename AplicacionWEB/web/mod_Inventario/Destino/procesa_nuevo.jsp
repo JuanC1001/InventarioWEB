@@ -4,14 +4,31 @@
     Author     : MI PC
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+
+
+<%@page import="rnegocio.funciones.FDestino"%>
+<%@page import="rnegocio.entidades.Destino"%>
+<% 
+  String prueba=request.getParameter("descripcion_destino");
+  
+ 
+ out.println(prueba);
+  
+  
+%>
+
+<%
+    try {
+            Destino destino=new Destino();
+            destino.setDescripcion(request.getParameter("descripcion_destino"));
+           boolean result= FDestino.destino_insertar(destino);
+             if (result)
+                out.println("<script> alert('Se ha guardado correctamente...'); location.replace('listar.jsp');</script>");
+            else 
+                out.println("<script> alert('No se ha guardado correctamente...'); location.replace('listar.jsp');</script>");
+
+        } catch (Exception e) {
+            out.print(e.getMessage());
+        }
+
+%>
