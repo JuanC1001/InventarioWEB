@@ -32,7 +32,7 @@ public class FDestino {
         PreparedStatement preStm = null;
         try {
             //declaro mi sql
-            String sql = "SELECT codigo, descripcion FROM facturacion.destino;";
+            String sql = "SELECT *from facturacion.destino_listar();";
             //creo mi preparedstatement
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset
@@ -40,8 +40,8 @@ public class FDestino {
             obj = null;
             while (rs.next()) {
                 obj = new Destino();
-                obj.setCodigo(rs.getInt("codigo"));
-                obj.setDescripcion(rs.getString("descripcion"));
+                obj.setCodigo(rs.getInt("pcodigo"));
+                obj.setDescripcion(rs.getString("pdescripcion"));
 
                 lista.add(obj);
             }
@@ -67,7 +67,7 @@ public class FDestino {
 
         try {
             //declaro mi sql
-            String sql = "SELECT codigo, descripcion FROM facturacion.destino where codigo=?;";
+            String sql = "SELECT *from facturacion.destino_buscar(?);";
             //creo mi preparedstatement
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset
@@ -76,8 +76,8 @@ public class FDestino {
             obj = null;
             while (rs.next()) {
                 obj = new Destino();
-                obj.setCodigo(rs.getInt("codigo"));
-                obj.setDescripcion(rs.getString("descripcion"));
+                obj.setCodigo(rs.getInt("pcodigo"));
+                obj.setDescripcion(rs.getString("pdescripcion"));
 
             }
         } catch (SQLException e) {
@@ -100,7 +100,7 @@ public class FDestino {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("select * from public.destino_insertar(?)");
+            cmd.setSetenciaSql("select * from facturacion.destino_insertar(?)");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
@@ -130,7 +130,7 @@ public class FDestino {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("select * from public.destino_editar(?,?)");
+            cmd.setSetenciaSql("select * from facturacion.destino_editar(?,?)");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
@@ -162,7 +162,7 @@ public class FDestino {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("select * from public.destino_eliminar(?)");
+            cmd.setSetenciaSql("select * from facturacion.destino_eliminar(?)");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros

@@ -6,8 +6,8 @@
 package rnegocio.funciones;
 
 import java.util.ArrayList;
-import rnegocio.funciones.FProducto;
-import rnegocio.entidades.Producto;
+import rnegocio.funciones.FDestino;
+import rnegocio.entidades.Destino;
 
 /**
  *
@@ -20,16 +20,13 @@ public class Pruebas {
      */
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-        ArrayList<Producto> lista = new ArrayList<Producto>();
-        lista = FProducto.producto_buscartodos();
+        ArrayList<Destino> lista = new ArrayList<Destino>();
+        lista = FDestino.destino_listar();
         if (lista.size() != 0) {
-            for (Producto rec : lista) {
+            for (Destino rec : lista) {
                 System.out.println(rec.getCodigo());
-                System.out.println(rec.getNombre());
-                System.out.println(rec.getStock());
-                System.out.println(rec.getPrecio_venta());
-                System.out.println(rec.getPrecio_compra());
-                System.out.println(rec.getCategoria().getNombre());
+                System.out.println(rec.getDescripcion());
+
             }
         } else {
             System.out.println("No hay registro");
