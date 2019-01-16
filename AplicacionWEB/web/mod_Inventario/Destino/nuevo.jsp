@@ -16,7 +16,7 @@
         
         
           <form method="POST"  action="procesa_nuevo.jsp">
-            <input type="text" class="form-control" placeholder="Nombre Destino" required id="nombre_clientes" name="nombre_destino"/>
+            <input type="text" class="form-control" placeholder="Descripcion Destino" required id="descripcion_destino" name="descripcion_destino"/>
           
             <div class="modal-footer">
                 <button id="btn_guardar" name="btn_guardar" type="submit" class="btn btn-primary" >Guardar</button>

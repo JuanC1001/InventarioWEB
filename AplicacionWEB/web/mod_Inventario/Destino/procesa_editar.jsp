@@ -3,15 +3,26 @@
     Created on : 16-ene-2019, 17:15:03
     Author     : MI PC
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="rnegocio.funciones.FDestino"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*,rnegocio.entidades.*"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<%
+    try {
+            Destino destino=new Destino();
+            destino.setCodigo(Integer.valueOf(request.getParameter("codigo")));
+            destino.setDescripcion(request.getParameter("descripcion_destino"));
+
+            
+            
+           boolean result= FDestino.destino_editar(destino);
+             if (result)
+                out.println("<script> alert('Se ha guardado correctamente...'); location.replace('listar.jsp');</script>");
+            else 
+                out.println("<script> alert('No se ha guardado correctamente...'); location.replace('listar.jsp');</script>");
+
+        } catch (Exception e) {
+            out.print(e.getMessage());
+        }
+
+%>
+
