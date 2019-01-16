@@ -56,10 +56,8 @@
          
 <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">                <thead>
                 <th>Codigo</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Telefono</th>
-                <th>Email</th>
+                <th>Descripcion</th>
+                
                  <th></th>
                 </thead>
                 <tbody>
@@ -83,7 +81,7 @@
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Editar Cliente</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Editar Destino</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
