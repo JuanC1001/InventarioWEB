@@ -32,7 +32,7 @@ public class FDestino {
         PreparedStatement preStm = null;
         try {
             //declaro mi sql
-            String sql = "SELECT codigo, nombre FROM facturacion.destino;";
+            String sql = "SELECT codigo, descripcion FROM facturacion.destino;";
             //creo mi preparedstatement
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset
@@ -41,7 +41,7 @@ public class FDestino {
             while (rs.next()) {
                 obj = new Destino();
                 obj.setCodigo(rs.getInt("codigo"));
-                obj.setNombre(rs.getString("nombre"));
+                obj.setDescripcion(rs.getString("descripcion"));
 
                 lista.add(obj);
             }
@@ -67,7 +67,7 @@ public class FDestino {
 
         try {
             //declaro mi sql
-            String sql = "SELECT codigo, nombre FROM facturacion.destino where codigo=?;";
+            String sql = "SELECT codigo, descripcion FROM facturacion.destino where codigo=?;";
             //creo mi preparedstatement
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset
@@ -77,7 +77,7 @@ public class FDestino {
             while (rs.next()) {
                 obj = new Destino();
                 obj.setCodigo(rs.getInt("codigo"));
-                obj.setNombre(rs.getString("nombre"));
+                obj.setDescripcion(rs.getString("descripcion"));
 
             }
         } catch (SQLException e) {
@@ -104,7 +104,7 @@ public class FDestino {
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
-            parametros.add(new Parametro(1, destino.getNombre()));
+            parametros.add(new Parametro(1, destino.getDescripcion()));
 
             //llenar el comando con los parametros
             cmd.setLstParametros(parametros);
@@ -136,7 +136,7 @@ public class FDestino {
             //llenamos el arraylist con todos los parametros
 
             parametros.add(new Parametro(1, destino.getCodigo()));
-            parametros.add(new Parametro(2, destino.getNombre()));
+            parametros.add(new Parametro(2, destino.getDescripcion()));
 
             //llenar el comando con los parametros
             cmd.setLstParametros(parametros);
