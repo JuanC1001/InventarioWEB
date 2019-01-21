@@ -9,16 +9,26 @@ package rnegocio.entidades;
  *
  * @author Usuario
  */
-public class Rol {
+public class PaginaRol {
     private int codigo;
-    private String nombre;
+    private Pagina pagina;
+    private Rol rol;
 
-    public Rol() {
+    public PaginaRol() {
     }
 
-    public Rol(int codigo, String nombre) {
+    public PaginaRol(int codigo, Pagina pagina, Rol rol) {
         this.codigo = codigo;
-        this.nombre = nombre;
+        this.pagina = pagina;
+        this.rol = rol;
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
 
     public int getCodigo() {
@@ -29,12 +39,12 @@ public class Rol {
         this.codigo = codigo;
     }
 
-    public String getNombre() {
-        return nombre;
+    public Pagina getPagina() {
+        return pagina;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setPagina(Pagina pagina) {
+        this.pagina = pagina;
     }
     
 }
