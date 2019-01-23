@@ -18,17 +18,18 @@ public class Entrada {
     private Date fecha;
     private Producto producto;
     private int cantidad;
+    private Proveedor proveedor;
 
     public Entrada() {
     }
 
-    public Entrada(int codigo, Date fecha, Producto producto, int cantidad) {
+    public Entrada(int codigo, Date fecha, Producto producto, int cantidad, Proveedor proveedor) {
         this.codigo = codigo;
         this.fecha = fecha;
         this.producto = producto;
         this.cantidad = cantidad;
+        this.proveedor = proveedor;
     }
-
 
 
 
@@ -63,6 +64,14 @@ public class Entrada {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
+    }
+
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
     }
 
 }
