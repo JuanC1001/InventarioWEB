@@ -63,7 +63,6 @@ public class FCategoria {
         Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
         //DECLARO UN PREPAREDSTATEMENT QUE EJECUTARA LA SQL
         PreparedStatement preStm = null;
-
         try {
             //declaro mi sql
             String sql = "SELECT codigo, nombre FROM facturacion.categoria where codigo=?;";
