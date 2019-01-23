@@ -16,7 +16,6 @@ public class Producto {
     private Double precio_venta;
     private Double precio_compra;
     private Categoria categoria;
-    private Categoria hk;
 
     public Producto() {
     }
