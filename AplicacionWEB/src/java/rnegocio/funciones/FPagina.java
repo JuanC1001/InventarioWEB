@@ -31,7 +31,7 @@ public class FPagina {
         PreparedStatement preStm = null;
         try {
             //declaro mi sql
-            String sql = "SELECT codigo,url, descripcion FROM usuarios.pagina;";
+            String sql = "SELECT *from usuarios.pagina_listar();";
             //creo mi preparedstatement
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset
@@ -39,9 +39,9 @@ public class FPagina {
             obj = null;
             while (rs.next()) {
                 obj = new Pagina();
-                obj.setCodigo(rs.getInt("codigo"));
-                obj.setUrl(rs.getString("url"));
-                obj.setDescripcion(rs.getString("descripcion"));
+                obj.setCodigo(rs.getInt("pcodigo"));
+                obj.setUrl(rs.getString("purl"));
+                obj.setDescripcion(rs.getString("pdescripcion"));
                 
                 lista.add(obj);
             }
@@ -67,7 +67,7 @@ public class FPagina {
 
         try {
             //declaro mi sql
-            String sql = "SELECT codigo, url, descripcion FROM usuarios.pagina where codigo=?;";
+            String sql = "SELECT *from usuarios.pagina_buscar(?):" ;
             //creo mi preparedstatement
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset
@@ -76,9 +76,9 @@ public class FPagina {
             obj = null;
             while (rs.next()) {
                 obj = new Pagina();
-                obj.setCodigo(rs.getInt("codigo"));
-                obj.setUrl(rs.getString("url"));
-                obj.setDescripcion(rs.getString("descripcion"));
+                obj.setCodigo(rs.getInt("pcodigo"));
+                obj.setUrl(rs.getString("purl"));
+                obj.setDescripcion(rs.getString("pdescripcion"));
                 
 
             }
@@ -102,7 +102,7 @@ public class FPagina {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("select * from usuarios.pagina_insertar(?,?,?)");
+            cmd.setSetenciaSql("select * from usuarios.pagina_insertar(?,?,?);");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
