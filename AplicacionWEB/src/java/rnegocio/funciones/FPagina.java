@@ -67,7 +67,7 @@ public class FPagina {
 
         try {
             //declaro mi sql
-            String sql = "SELECT *from usuarios.pagina_buscar(?):" ;
+            String sql = "SELECT *from usuarios.pagina_buscar(?);" ;
             //creo mi preparedstatement
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset
@@ -134,7 +134,7 @@ public class FPagina {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("select * from usuarios.pagina_editar(?,?,?)");
+            cmd.setSetenciaSql("select * from usuarios.pagina_editar(?,?,?);");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros

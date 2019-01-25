@@ -20,6 +20,7 @@ import rnegocio.entidades.Usuario;
  * @author MI PC
  */
 public class FUsuario {
+
     public static ArrayList<Usuario> usuario_buscartodos() throws Exception {
         //CREO LISTA QUE RECIBIRA LOS DATOS DEL RESULSET
         ArrayList<Usuario> lista = new ArrayList<Usuario>();
@@ -40,9 +41,16 @@ public class FUsuario {
             while (rs.next()) {
                 obj = new Usuario();
                 obj.setCodigo(rs.getInt("pcodigo"));
-                 obj.setApellidos(rs.getString("papellidos"));
+                obj.setApellidos(rs.getString("papellidos"));
+                obj.setClave(rs.getString("pnombres"));
+                obj.setCodigo(rs.getInt("pemail"));
+                obj.setApellidos(rs.getString("pcedula"));
                 obj.setClave(rs.getString("pclave"));
-                
+                obj.setCodigo(rs.getInt("pprimer_acceso"));
+                obj.setApellidos(rs.getString("pultimo_acceso"));
+                obj.setClave(rs.getString("pultimo_ip"));
+                obj.setClave(rs.getString("pfecha_modificacion"));
+
                 lista.add(obj);
             }
         } catch (SQLException e) {
@@ -66,7 +74,7 @@ public class FUsuario {
         PreparedStatement preStm = null;
         try {
             //declaro mi sql
-            String sql = "SELECT codigo, nombre FROM usuarios.usuario where codigo=?;";
+            String sql = "SELECT *from usuarios.usuario_rol_buscar(?);";
             //creo mi preparedstatement
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset
@@ -77,7 +85,14 @@ public class FUsuario {
                 obj = new Usuario();
                 obj.setCodigo(rs.getInt("pcodigo"));
                 obj.setApellidos(rs.getString("papellidos"));
+                obj.setClave(rs.getString("pnombres"));
+                obj.setCodigo(rs.getInt("pemail"));
+                obj.setApellidos(rs.getString("pcedula"));
                 obj.setClave(rs.getString("pclave"));
+                obj.setCodigo(rs.getInt("pprimer_acceso"));
+                obj.setApellidos(rs.getString("pultimo_acceso"));
+                obj.setClave(rs.getString("pultimo_ip"));
+                obj.setClave(rs.getString("pfecha_modificacion"));
 
             }
         } catch (SQLException e) {
@@ -100,13 +115,19 @@ public class FUsuario {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("select * from usuarios.usuario_insertar(?)");
+            cmd.setSetenciaSql("select * from usuarios.usuario_insertar(?,?,?,?,?,?,?,?,?)");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
             parametros.add(new Parametro(1, usuario.getApellidos()));
-            parametros.add(new Parametro(1, usuario.getClave()));
-            
+            parametros.add(new Parametro(2, usuario.getNombres()));
+            parametros.add(new Parametro(3, usuario.getEmail()));
+            parametros.add(new Parametro(4, usuario.getCedula()));
+            parametros.add(new Parametro(5, usuario.getClave()));
+            parametros.add(new Parametro(6, usuario.getPrimer_acceso()));
+            parametros.add(new Parametro(7, usuario.getUltimo_acceso()));
+            parametros.add(new Parametro(8, usuario.getUltima_ip()));
+            parametros.add(new Parametro(9, usuario.getFecha_modificacion()));
 
             //llenar el comando con los parametros
             cmd.setLstParametros(parametros);
@@ -136,10 +157,16 @@ public class FUsuario {
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
-
             parametros.add(new Parametro(1, usuario.getCodigo()));
             parametros.add(new Parametro(2, usuario.getApellidos()));
-            parametros.add(new Parametro(3, usuario.getClave()));
+            parametros.add(new Parametro(3, usuario.getNombres()));
+            parametros.add(new Parametro(4, usuario.getEmail()));
+            parametros.add(new Parametro(5, usuario.getCedula()));
+            parametros.add(new Parametro(6, usuario.getClave()));
+            parametros.add(new Parametro(7, usuario.getPrimer_acceso()));
+            parametros.add(new Parametro(8, usuario.getUltimo_acceso()));
+            parametros.add(new Parametro(9, usuario.getUltima_ip()));
+            parametros.add(new Parametro(10, usuario.getFecha_modificacion()));
 
             //llenar el comando con los parametros
             cmd.setLstParametros(parametros);
@@ -184,5 +211,5 @@ public class FUsuario {
         return respuesta;
 
     }
-  
+
 }

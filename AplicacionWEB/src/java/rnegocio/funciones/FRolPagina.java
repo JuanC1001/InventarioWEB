@@ -19,7 +19,7 @@ import rnegocio.entidades.PaginaRol;
  *
  * @author MI PC
  */
-public class FPaginaRol {
+public class FRolPagina {
     public static ArrayList<PaginaRol> PaginaRol_buscartodos() throws Exception {
         //CREO LISTA QUE RECIBIRA LOS DATOS DEL RESULSET
         ArrayList<PaginaRol> lista = new ArrayList<PaginaRol>();
@@ -31,7 +31,7 @@ public class FPaginaRol {
         PreparedStatement preStm = null;
         try {
             //declaro mi sql
-            String sql = "SELECT codigo, nombre FROM facturacion.PaginaRol;";
+            String sql = "SELECT *from usuarios.rol_pagina_listar();";
             //creo mi preparedstatement
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset
@@ -39,10 +39,9 @@ public class FPaginaRol {
             obj = null;
             while (rs.next()) {
                 obj = new PaginaRol();
-                obj.setCodigo(rs.getInt("codigo"));
-                //obj.setPagina(FPagina.pagina_buscartodos(rs.getInt("pcodigo_pagina")));
-                //obj.setRol(FPaginaRol.PaginaRol_buscartodos(rs.getInt("pcodigo_rol")));
-                
+                obj.setCodigo(rs.getInt("pcodigo"));
+                obj.setPagina(FPagina.pagina_buscarporid(rs.getInt("pcodigo_pagina")));
+                obj.setRol(FRol.rol_buscarporid(rs.getInt("pcodigo_rol")));             
                 lista.add(obj);
             }
         } catch (SQLException e) {
@@ -100,7 +99,7 @@ public class FPaginaRol {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("SELECT *FROM usuarios.rol_pagina_insertar(?,?,?);");
+            cmd.setSetenciaSql("SELECT *from usuarios.rol_pagina_insertar(?,?);");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
@@ -130,7 +129,7 @@ public class FPaginaRol {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("SELECT usuarios.rol_pagina_editar(?,?,?);");
+            cmd.setSetenciaSql("SELECT *from usuarios.rol_pagina_editar(?,?,?);");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
@@ -164,7 +163,7 @@ public class FPaginaRol {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("SELECT usuarios.rol_pagina_eliminar(?);");
+            cmd.setSetenciaSql("SELECT *from usuarios.rol_pagina_eliminar(?);");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
