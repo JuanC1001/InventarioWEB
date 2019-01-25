@@ -16,7 +16,7 @@
         
         
           <form method="POST"  action="procesa_nuevo.jsp">
-            <input type="text" class="form-control" placeholder="usario apellidos" required id="nombre_producto" name="usuario"/>
+            <input type="text" class="form-control" placeholder="usario_apellidos" required id="nombre_producto" name="usuario"/>
           
             <div class="modal-footer">
                 <button id="btn_guardar" name="btn_guardar" type="submit" class="btn btn-primary" >Guardar</button>
