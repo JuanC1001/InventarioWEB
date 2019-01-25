@@ -21,14 +21,14 @@ public class Usuario {
     private String cedula;
     private String clave;
     private Timestamp primer_acceso;
-    private Timestamp utimo_acceso;
+    private Timestamp ultimo_acceso;
     private String ultima_ip;
     private Date fecha_modificacion;
 
     public Usuario() {
     }
 
-    public Usuario(int codigo, String apellidos, String nombres, String email, String cedula, String clave, Timestamp primer_acceso, Timestamp utimo_acceso, String ultima_ip, Date fecha_modificacion) {
+    public Usuario(int codigo, String apellidos, String nombres, String email, String cedula, String clave, Timestamp primer_acceso, Timestamp ultimo_acceso, String ultima_ip, Date fecha_modificacion) {
         this.codigo = codigo;
         this.apellidos = apellidos;
         this.nombres = nombres;
@@ -36,7 +36,7 @@ public class Usuario {
         this.cedula = cedula;
         this.clave = clave;
         this.primer_acceso = primer_acceso;
-        this.utimo_acceso = utimo_acceso;
+        this.ultimo_acceso = ultimo_acceso;
         this.ultima_ip = ultima_ip;
         this.fecha_modificacion = fecha_modificacion;
     }
@@ -105,12 +105,12 @@ public class Usuario {
         this.primer_acceso = primer_acceso;
     }
 
-    public Timestamp getUtimo_acceso() {
-        return utimo_acceso;
+    public Timestamp getUltimo_acceso() {
+        return ultimo_acceso;
     }
 
-    public void setUtimo_acceso(Timestamp utimo_acceso) {
-        this.utimo_acceso = utimo_acceso;
+    public void setUltimo_acceso(Timestamp ultimo_acceso) {
+        this.ultimo_acceso = ultimo_acceso;
     }
 
     public String getUltima_ip() {
