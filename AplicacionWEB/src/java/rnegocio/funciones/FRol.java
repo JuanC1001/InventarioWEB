@@ -31,7 +31,7 @@ public class FRol {
         PreparedStatement preStm = null;
         try {
             //declaro mi sql
-            String sql = "SELECT codigo, nombre FROM facturacion.rol;";
+            String sql = "SELECT *from usuarios.rol_listar();";
             //creo mi preparedstatement
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset
@@ -39,8 +39,8 @@ public class FRol {
             obj = null;
             while (rs.next()) {
                 obj = new Rol();
-                obj.setCodigo(rs.getInt("codigo"));
-                obj.setNombre(rs.getString("nombre"));
+                obj.setCodigo(rs.getInt("pcodigo"));
+                obj.setNombre(rs.getString("pnombre"));
                 
                 lista.add(obj);
             }
@@ -66,7 +66,7 @@ public class FRol {
 
         try {
             //declaro mi sql
-            String sql = "SELECT codigo, nombre FROM facturacion.rol where codigo=?;";
+            String sql = "SELECT *from usuarios.rol_buscar(?);";
             //creo mi preparedstatement
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset
@@ -75,8 +75,8 @@ public class FRol {
             obj = null;
             while (rs.next()) {
                 obj = new Rol();
-                obj.setCodigo(rs.getInt("codigo"));
-                obj.setNombre(rs.getString("nombre"));
+                obj.setCodigo(rs.getInt("pcodigo"));
+                obj.setNombre(rs.getString("pnombre"));
 
             }
         } catch (SQLException e) {
@@ -99,7 +99,7 @@ public class FRol {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("select * from facturacion.rol_insertar(?)");
+            cmd.setSetenciaSql("SELECT *from usuarios.rol_insertar(?);");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
