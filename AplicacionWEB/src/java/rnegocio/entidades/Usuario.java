@@ -15,8 +15,8 @@ import java.util.Date;
 public class Usuario {
 
     private int codigo;
-    private String apellidos;
-    private String nombres;
+    private String apellido;
+    private String nombre;
     private String email;
     private String cedula;
     private String clave;
@@ -30,8 +30,8 @@ public class Usuario {
 
     public Usuario(int codigo, String apellidos, String nombres, String email, String cedula, String clave, Timestamp primer_acceso, Timestamp ultimo_acceso, String ultima_ip, Date fecha_modificacion) {
         this.codigo = codigo;
-        this.apellidos = apellidos;
-        this.nombres = nombres;
+        this.apellido = apellidos;
+        this.nombre = nombres;
         this.email = email;
         this.cedula = cedula;
         this.clave = clave;
@@ -57,20 +57,20 @@ public class Usuario {
         this.codigo = codigo;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setApellido(String apellidos) {
+        this.apellido = apellidos;
     }
 
-    public String getNombres() {
-        return nombres;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
+    public void setNombre(String nombres) {
+        this.nombre = nombres;
     }
 
     public String getEmail() {
