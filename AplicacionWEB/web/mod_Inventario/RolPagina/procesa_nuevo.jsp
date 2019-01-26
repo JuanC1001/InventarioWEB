@@ -8,8 +8,7 @@
 <%@page import="rnegocio.entidades.RolPagina"%>
 <% 
     String prueba=request.getParameter("pagina_RolPagina");
-    String prueba=request.getParameter("rol_RolPagina");
-  
+    
   
  
  out.println(prueba);
@@ -20,8 +19,8 @@
 <%
     try {
             RolPagina rolpagina=new RolPagina();
-               rolpagina.setpagina(request.getParameter("pagina_rolpagina")); 
-               rolpagina.setrol(request.getParameter("rol_rolpagina"));
+               rolpagina.setPagina(request.getParameter("pagina_rolpagina")); 
+               rolpagina.setRol.(request.getParameter("rol_rolpagina"));
            boolean result= FRolPaginaRol.rolpagina_insertar(rolpagina);
              if (result)
                 out.println("<script> alert('Se ha guardado correctamente...'); location.replace('listar.jsp');</script>");

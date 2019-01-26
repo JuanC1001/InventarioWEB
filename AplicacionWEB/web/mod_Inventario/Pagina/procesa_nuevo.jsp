@@ -6,6 +6,7 @@
 
 <%@page import="rnegocio.funciones.FPagina"%>
 <%@page import="rnegocio.entidades.Pagina"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*,rnegocio.entidades.*"%>
 <% 
     String prueba=request.getParameter("url_Pagina");
     String prueba=request.getParameter("descripcion_Pagina");
