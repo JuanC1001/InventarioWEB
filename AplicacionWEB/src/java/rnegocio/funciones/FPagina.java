@@ -41,8 +41,7 @@ public class FPagina {
                 obj = new Pagina();
                 obj.setCodigo(rs.getInt("pcodigo"));
                 obj.setUrl(rs.getString("purl"));
-                obj.setDescripcion(rs.getString("pdescripcion"));
-                
+                obj.setDescripcion(rs.getString("pdescripcion"));                
                 lista.add(obj);
             }
         } catch (SQLException e) {
@@ -166,7 +165,7 @@ public class FPagina {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("select * from usuarios.pagina_eliminar(?)");
+            cmd.setSetenciaSql("SELECT *from usuarios.pagina_eliminar(?);");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros

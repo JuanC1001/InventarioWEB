@@ -6,8 +6,8 @@
 package rnegocio.funciones;
 
 import java.util.ArrayList;
-import rnegocio.funciones.FDestino;
-import rnegocio.entidades.Destino;
+import rnegocio.funciones.FPagina;
+import rnegocio.entidades.Pagina;
 
 /**
  *
@@ -20,12 +20,12 @@ public class Pruebas {
      */
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-        ArrayList<Destino> lista = new ArrayList<Destino>();
-        lista = FDestino.destino_listar();
+        ArrayList<Pagina> lista = new ArrayList<Pagina>();
+        lista = FPagina.pagina_buscartodos();
         if (lista.size() != 0) {
-            for (Destino rec : lista) {
+            for (Pagina rec : lista) {
                 System.out.println(rec.getCodigo());
-                System.out.println(rec.getDescripcion());
+                System.out.println(rec.getUrl());
 
             }
         } else {
