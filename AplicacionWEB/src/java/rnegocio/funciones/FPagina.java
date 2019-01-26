@@ -102,13 +102,12 @@ public class FPagina {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("select * from usuarios.pagina_insertar(?,?,?);");
+            cmd.setSetenciaSql("select *from usuarios.pagina_insertar(?,?);");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
-            parametros.add(new Parametro(1, pagina.getCodigo()));
-            parametros.add(new Parametro(2, pagina.getUrl()));
-            parametros.add(new Parametro(3, pagina.getDescripcion()));
+            parametros.add(new Parametro(1, pagina.getUrl()));
+            parametros.add(new Parametro(2, pagina.getDescripcion()));
 
             //llenar el comando con los parametros
             cmd.setLstParametros(parametros);
