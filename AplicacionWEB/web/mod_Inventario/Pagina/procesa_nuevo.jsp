@@ -9,8 +9,6 @@
 <% 
     String prueba=request.getParameter("url_Pagina");
     String prueba=request.getParameter("descripcion_Pagina");
-  
-  
  
  out.println(prueba);
   
