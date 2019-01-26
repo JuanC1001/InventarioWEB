@@ -1,6 +1,6 @@
 <%-- 
     Document   : nuevo
-    Created on : 16-ene-2019, 17:28:58
+    Created on : 25-ene-2019, 17:06:06
     Author     : Usuario
 --%>
 
@@ -16,7 +16,7 @@
         
         
           <form method="POST"  action="procesa_nuevo.jsp">
-            <input type="text" class="form-control" placeholder="Nombre Categoria" required id="nombre_categoria" name="nombre_categoria"/>
+            <input type="text" class="form-control" placeholder="Nombre" required id="nombre_rol" name="nombre_rol"/>
           
             <div class="modal-footer">
                 <button id="btn_guardar" name="btn_guardar" type="submit" class="btn btn-primary" >Guardar</button>
@@ -26,4 +26,3 @@
           
     </body>
 </html>
-
