@@ -13,17 +13,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import rnegocio.entidades.PaginaRol;
+import rnegocio.entidades.RolPagina;
 
 /**
  *
  * @author MI PC
  */
 public class FRolPagina {
-    public static ArrayList<PaginaRol> PaginaRol_buscartodos() throws Exception {
+    public static ArrayList<RolPagina> PaginaRol_buscartodos() throws Exception {
         //CREO LISTA QUE RECIBIRA LOS DATOS DEL RESULSET
-        ArrayList<PaginaRol> lista = new ArrayList<PaginaRol>();
-        PaginaRol obj = new PaginaRol();
+        ArrayList<RolPagina> lista = new ArrayList<RolPagina>();
+        RolPagina obj = new RolPagina();
         ResultSet rs = null;
         //LLAMO LA CONEXION
         Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
@@ -38,7 +38,7 @@ public class FRolPagina {
             rs = con.ejecutaPrepared(preStm);
             obj = null;
             while (rs.next()) {
-                obj = new PaginaRol();
+                obj = new RolPagina();
                 obj.setCodigo(rs.getInt("pcodigo"));
                 obj.setPagina(FPagina.pagina_buscarporid(rs.getInt("pcodigo_pagina")));
                 obj.setRol(FRol.rol_buscarporid(rs.getInt("pcodigo_rol")));             
@@ -55,9 +55,9 @@ public class FRolPagina {
 
     }
 
-    public static PaginaRol PaginaRol_buscarporid(int piPaginaRolid) throws Exception {
+    public static RolPagina PaginaRol_buscarporid(int piPaginaRolid) throws Exception {
         //CREO LISTA QUE RECIBIRA LOS DATOS DEL RESULSET
-        PaginaRol obj = new PaginaRol();
+        RolPagina obj = new RolPagina();
         ResultSet rs = null;
         //LLAMO LA CONEXION
         Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
@@ -73,7 +73,7 @@ public class FRolPagina {
             rs = con.ejecutaPrepared(preStm);
             obj = null;
             while (rs.next()) {
-                obj = new PaginaRol();
+                obj = new RolPagina();
                 obj.setCodigo(rs.getInt("pcodigo"));
                 obj.setPagina(FPagina.pagina_buscarporid(rs.getInt("pcodigo_pagina")));
                 obj.setRol(FRol.rol_buscarporid(rs.getInt("pcodigo_rol")));
@@ -90,7 +90,7 @@ public class FRolPagina {
 
     }
 
-    public static boolean PaginaRol_insertar(PaginaRol PaginaRol) throws Exception {
+    public static boolean PaginaRol_insertar(RolPagina PaginaRol) throws Exception {
         boolean respuesta = false;
         Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
         try {
@@ -120,7 +120,7 @@ public class FRolPagina {
 
     }
 
-    public static boolean PaginaRol_editar(PaginaRol PaginaRol) throws Exception {
+    public static boolean PaginaRol_editar(RolPagina PaginaRol) throws Exception {
         boolean respuesta = false;
         Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
         try {
