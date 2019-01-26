@@ -4,14 +4,14 @@
     Author     : MI PC
 --%>
 
-<%@page import="rnegocio.funciones.RolPagina"%>
+<%@page import="rnegocio.funciones.FRolPagina"%>
 <%@page import="rnegocio.entidades.RolPagina"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
- List<RolPagina> lista=RolPagina.rolpagina_buscartodos();
+ List<RolPagina> lista=FRolPagina.paginaRol_buscartodos();
  Iterator<RolPagina> itRolPagina=lista.iterator();
 %>
 <!DOCTYPE html>
@@ -68,8 +68,8 @@
                   RolPagina rolpagina=itRolPagina.next();%>
                 <tr>
                    <td><%= rolpagina.getCodigo()%></td>
-                    <td><%= rolpagina.getPagina()%></td>
-                    <td><%= rolpagina.getRol()%></td>
+                    <td><%= rolpagina.getPagina().getUrl()%></td>
+                    <td><%= rolpagina.getRol().getNombre()%></td>
                     
                         <td>
                             <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= rolpagina.getCodigo()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>
