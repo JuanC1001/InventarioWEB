@@ -9,15 +9,15 @@ package rnegocio.entidades;
  *
  * @author Usuario
  */
-public class PaginaRol {
+public class RolPagina {
     private int codigo;
     private Pagina pagina;
     private Rol rol;
 
-    public PaginaRol() {
+    public RolPagina() {
     }
 
-    public PaginaRol(int codigo, Pagina pagina, Rol rol) {
+    public RolPagina(int codigo, Pagina pagina, Rol rol) {
         this.codigo = codigo;
         this.pagina = pagina;
         this.rol = rol;
