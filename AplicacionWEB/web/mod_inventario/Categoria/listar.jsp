@@ -4,8 +4,11 @@
     Author     : Usuario
 --%>
 
-
-
+<%@page import="rnegocio.funciones.*"%>
+<%@page import="rnegocio.entidades.*"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
  List<Categoria> lista=FCategoria.categoria_buscartodos();
  Iterator<Categoria> itCategoria=lista.iterator();
@@ -13,26 +16,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-            <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+       
 
-    <title>Cliente</title>
-<%@include file="../../cabecera.html" %>
-    
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
+        <title>JSP Page</title>
     </head>
     <body>
-        <%@include file="../../menu.html" %>
-
-        <div class="col-lg-12">
-            <h1 class="page-header">Clientes</h1>
-        </div>
-        <%@include file="../../inferior.html" %>
-
-        
-         <!--Sección alerta-->
+         <!--SecciÃ³n alerta-->
         <%
             String alerta="";
             try {
@@ -43,24 +40,25 @@
     if (alerta.equals("si")){%>
         <div class="alert alert-success" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-             <strong>Éxito!</strong> La transacción fue éxitosa!
+             <strong>Ã‰xito!</strong> La transacciÃ³n fue Ã©xitosa!
         </div>
         <%} if(alerta.equals("no")){%>
         <div class="alert alert-danger" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-             <strong>Falló!</strong> La transacción fue fallida!
+             <strong>FallÃ³!</strong> La transacciÃ³n fue fallida!
         </div>
        <% }%>
-        <!--Fin Sección alerta-->
-         <h1>Productos</h1> 
+        <!--Fin SecciÃ³n alerta-->
+         <h1>Categoria</h1> 
            <button type="button" onclick="return modalnuevo();" class="btn btn-primary" data-toggle="modal" data-target="#ModalNuevo"> Nuevo</button>  
           
          
          
 <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">                <thead>
-                <th>Id</th>
-                <th>Nombre Categoria</th>
-                <th></th>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                
+                 <th></th>
                 </thead>
                 <tbody>
                <%while(itCategoria.hasNext()){
@@ -68,11 +66,10 @@
                 <tr>
                    <td><%= categoria.getCodigo()%></td>
                     <td><%= categoria.getNombre()%></td>
-                   
-                   <td>
-                         <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= categoria.getCodigo()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>
-                      <button type="button"  onclick="return modaleditar(<%= categoria.getCodigo()%>)" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditar">Editar</button>  
-
+                        <td>
+                         <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= categoria.getNombre()%>' onclick="return confirm('Â¿EstÃ¡ seguro que desea eliminar este registro?');">Eliminar</a>
+                         
+                        <button type="button"  onclick="return modaledita(<%= categoria.getCodigo()%>)" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditar">Editar</button>         
                    </td>
                 </tr>
                <%}%>                
@@ -133,7 +130,7 @@
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
     
     <script>
-           function modaleditar(codigo){
+           function modaledita(codigo){
            
       
             $('.modal-body').load('editar.jsp?codigo='+codigo,function(){
@@ -147,7 +144,7 @@
 
             });
         }
-         <!--Sección datatable-->
+         <!--SecciÃ³n datatable-->
 	$(document).ready(function() {
             
                 var table = $('#example').DataTable( {
@@ -155,7 +152,7 @@
                     buttons: [ 'copy', 'excel', 'csv', 'pdf', 'colvis' ],
                         language: {
                         "decimal": "",
-                        "emptyTable": "No hay información",
+                        "emptyTable": "No hay informaciÃ³n",
                         "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
                         "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
                         "infoFiltered": "(Filtrado de _MAX_ total entradas)",
@@ -183,15 +180,17 @@
                 table.buttons().container()
                     .appendTo( '#example_wrapper .col-md-6:eq(0)' );
             } );
-         <!--fin Sección datatable-->
-             <!--Sección alerta-->
+         <!--fin SecciÃ³n datatable-->
+             <!--SecciÃ³n alerta-->
       window.setTimeout(function() {
     $(".alert").fadeTo(500, 0).slideUp(500, function(){
         $(this).remove(); 
     });
 }, 4000);
-         <!--fin Sección alerta-->
+         <!--fin SecciÃ³n alerta-->
+ 
  
     </script>
+    
     </body>
 </html>
