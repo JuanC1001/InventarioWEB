@@ -67,7 +67,7 @@
                    <td><%= categoria.getCodigo()%></td>
                     <td><%= categoria.getNombre()%></td>
                         <td>
-                         <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= categoria.getNombre()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>
+                         <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= categoria.getCodigo()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>
                          
                         <button type="button"  onclick="return modaledita(<%= categoria.getCodigo()%>)" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditar">Editar</button>         
                    </td>
