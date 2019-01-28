@@ -31,7 +31,7 @@ public class FRol {
         PreparedStatement preStm = null;
         try {
             //declaro mi sql
-            String sql = "SELECT *from usuarios.rol_listar();";
+            String sql = "SELECT * from usuarios.rol_listar();";
             //creo mi preparedstatement
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset
@@ -39,8 +39,8 @@ public class FRol {
             obj = null;
             while (rs.next()) {
                 obj = new Rol();
-                obj.setCodigo(rs.getInt("pcodigo"));
-                obj.setNombre(rs.getString("pnombre"));
+                obj.setCodigo(rs.getInt("prcodigo"));
+                obj.setNombre(rs.getString("prnombre"));
                 
                 lista.add(obj);
             }
@@ -75,8 +75,8 @@ public class FRol {
             obj = null;
             while (rs.next()) {
                 obj = new Rol();
-                obj.setCodigo(rs.getInt("pcodigo"));
-                obj.setNombre(rs.getString("pnombre"));
+                obj.setCodigo(rs.getInt("prcodigo"));
+                obj.setNombre(rs.getString("prnombre"));
 
             }
         } catch (SQLException e) {
@@ -129,7 +129,7 @@ public class FRol {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("select * from facturacion.rol_editar(?,?)");
+            cmd.setSetenciaSql("select * from usuarios.rol_editar(?,?)");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
@@ -161,7 +161,7 @@ public class FRol {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("select * from facturacion.rol_eliminar(?)");
+            cmd.setSetenciaSql("select * from usuarios.rol_eliminar(?)");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
