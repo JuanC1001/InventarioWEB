@@ -1,7 +1,7 @@
 <%-- 
     Document   : listar
-    Created on : 26-ene-2019, 20:54:59
-    Author     : MI PC
+    Created on : 28/01/2019, 12:11:35
+    Author     : Brayan Macas
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
