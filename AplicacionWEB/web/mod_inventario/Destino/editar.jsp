@@ -28,7 +28,7 @@
     <body>
 
         <form method="POST" action="procesa_editar.jsp">
-                    <h1> Cliente</h1>    
+                    <h1> Destino</h1>    
 
             <input type="hidden" id="codigo" name="codigo" value="<%=destino.getCodigo()%>">
             <input type="text" id="descripcion_destino" name="descripcion_destino" value="<%=destino.getDescripcion()%>"/>
