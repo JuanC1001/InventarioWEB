@@ -76,7 +76,6 @@ public class FCategoria {
                 obj = new Categoria();
                 obj.setCodigo(rs.getInt("codigo"));
                 obj.setNombre(rs.getString("nombre"));
-
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -86,7 +85,6 @@ public class FCategoria {
             con.desconectar();
         }
         return obj;
-
     }
 
     public static boolean categoria_insertar(Categoria categoria) throws Exception {

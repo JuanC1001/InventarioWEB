@@ -19,18 +19,18 @@ public class Entrada {
     private Producto producto;
     private int cantidad;
     private Proveedor proveedor;
-
+    private String detalle;
     public Entrada() {
     }
 
-    public Entrada(int codigo, Date fecha, Producto producto, int cantidad, Proveedor proveedor) {
+    public Entrada(int codigo, Date fecha, Producto producto, int cantidad, Proveedor proveedor, String detalle) {
         this.codigo = codigo;
         this.fecha = fecha;
         this.producto = producto;
         this.cantidad = cantidad;
         this.proveedor = proveedor;
+        this.detalle = detalle;
     }
-
 
 
 
@@ -72,6 +72,14 @@ public class Entrada {
 
     public void setProveedor(Proveedor proveedor) {
         this.proveedor = proveedor;
+    }
+
+    public String getDetalle() {
+        return detalle;
+    }
+
+    public void setDetalle(String detalle) {
+        this.detalle = detalle;
     }
 
 }

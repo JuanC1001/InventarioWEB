@@ -31,7 +31,7 @@ public class FProveedor {
         PreparedStatement preStm = null;
         try {
             //declaro mi sql
-            String sql = "SELECT codigo, nombre FROM facturacion.proveedor;";
+            String sql = "SELECT *from facturacion.proveedor_listar();";
             //creo mi preparedstatement
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset
@@ -39,12 +39,12 @@ public class FProveedor {
             obj = null;
             while (rs.next()) {
                 obj = new Proveedor();
-                obj.setCodigo(rs.getInt("codigo"));
-                obj.setNombre(rs.getString("nombre"));
-                obj.setDireccion(rs.getString("direccion"));
-                obj.setTelefono(rs.getString("telefono"));
-                obj.setRuc(rs.getString("ruc"));
-                obj.setEmail(rs.getString("email"));
+                obj.setCodigo(rs.getInt("pcodigo"));
+                obj.setNombre(rs.getString("pnombre"));
+                obj.setDireccion(rs.getString("pdireccion"));
+                obj.setTelefono(rs.getString("ptelefono"));
+                obj.setRuc(rs.getString("pruc"));
+                obj.setEmail(rs.getString("pemail"));
                 
                 lista.add(obj);
             }
@@ -70,7 +70,7 @@ public class FProveedor {
 
         try {
             //declaro mi sql
-            String sql = "SELECT codigo, nombre, direccion, telefono, ruc, email FROM facturacion.proveedor;";
+            String sql = "SELECT *from facturacion.proveedor_buscar(?);";
             //creo mi preparedstatement
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset
@@ -79,12 +79,12 @@ public class FProveedor {
             obj = null;
             while (rs.next()) {
                 obj = new Proveedor();
-                obj.setCodigo(rs.getInt("codigo"));
-                obj.setNombre(rs.getString("nombre"));
-                obj.setDireccion(rs.getString("direccion"));
-                obj.setTelefono(rs.getString("telefono"));
-                obj.setRuc(rs.getString("ruc"));
-                obj.setEmail(rs.getString("email"));
+                obj.setCodigo(rs.getInt("pcodigo"));
+                obj.setNombre(rs.getString("pnombre"));
+                obj.setDireccion(rs.getString("pdireccion"));
+                obj.setTelefono(rs.getString("ptelefono"));
+                obj.setRuc(rs.getString("pruc"));
+                obj.setEmail(rs.getString("pemail"));
 
             }
         } catch (SQLException e) {
@@ -107,7 +107,7 @@ public class FProveedor {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("select * from facturacion.proveedor_insertar(?,?,?,?,?)");
+            cmd.setSetenciaSql("select *from facturacion.proveedor_insertar(?,?,?,?,?)");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros

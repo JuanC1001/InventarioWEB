@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import rnegocio.entidades.Categoria;
 import rnegocio.entidades.Producto;
 
 /**
@@ -60,17 +61,14 @@ public class FProducto {
         return lista;
 
     }
-
-    public static ArrayList<Producto> producto_buscarporid(int piproductoid) throws Exception {
+    public static Producto producto_buscarporid(int piproductoid) throws Exception {
         //CREO LISTA QUE RECIBIRA LOS DATOS DEL RESULSET
-        ArrayList<Producto> lista = new ArrayList<Producto>();
         Producto obj = new Producto();
         ResultSet rs = null;
         //LLAMO LA CONEXION
         Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
         //DECLARO UN PREPAREDSTATEMENT QUE EJECUTARA LA SQL
         PreparedStatement preStm = null;
-
         try {
             //declaro mi sql
             String sql = "SELECT *from facturacion.producto_buscar(?);";
@@ -88,8 +86,6 @@ public class FProducto {
                 obj.setPrecio_compra(rs.getDouble("pprecio_venta"));
                 obj.setPrecio_compra(rs.getDouble("pprecio_compra"));
                 obj.setCategoria(FCategoria.categoria_buscarporid(rs.getInt("pcodigo_categoria")));
-
-                lista.add(obj);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -98,7 +94,7 @@ public class FProducto {
             preStm.close();
             con.desconectar();
         }
-        return lista;
+        return obj;
 
     }
 

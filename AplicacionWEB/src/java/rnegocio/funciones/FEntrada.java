@@ -37,15 +37,17 @@ public class FEntrada {
             //creo mi preparedstatement
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset
-
             rs = con.ejecutaPrepared(preStm);
             obj = null;
             while (rs.next()) {
                 obj = new Entrada();
                 obj.setCodigo(rs.getInt("pcodigo"));
-                obj.setFecha(rs.getDate("fecha"));
-               // obj.setProducto(FProducto.producto_buscartodos(rs.getInt(""));
-                obj.setCantidad(rs.getInt("cantidad"));
+                obj.setFecha(rs.getDate("pfecha"));
+                obj.setProducto(FProducto.producto_buscarporid(rs.getInt("pcodigo_producto")));
+                obj.setCantidad(rs.getInt("pcantidad"));
+                obj.setProveedor(FProveedor.proveedor_buscarporid(rs.getInt("pcodigo_proveedor")));
+                obj.setDetalle(rs.getString("pdetalle"));
+
                 lista.add(obj);
             }
         } catch (SQLException e) {
@@ -83,7 +85,6 @@ public class FEntrada {
                 obj.setCodigo(rs.getInt("pcodigo"));
                 obj.setFecha(rs.getDate("fecha"));
                 //obj.setProducto(FProducto.producto_buscarporid(rs.getInt("pcodigo_producto"));
-                
 
                 lista.add(obj);
             }
@@ -115,7 +116,7 @@ public class FEntrada {
             parametros.add(new Parametro(2, entrada.getFecha()));
             parametros.add(new Parametro(3, entrada.getProducto().getCodigo()));
             parametros.add(new Parametro(4, entrada.getCantidad()));
-            
+
             //llenar el comando con los parametros
             cmd.setLstParametros(parametros);
             comandos.add(cmd);
@@ -147,7 +148,7 @@ public class FEntrada {
 
             parametros.add(new Parametro(1, entrada.getCodigo()));
             parametros.add(new Parametro(2, entrada.getFecha()));
-            parametros.add (new Parametro(3, entrada.getProducto().getCodigo()));
+            parametros.add(new Parametro(3, entrada.getProducto().getCodigo()));
             parametros.add(new Parametro(4, entrada.getCantidad()));
 
             //llenar el comando con los parametros
