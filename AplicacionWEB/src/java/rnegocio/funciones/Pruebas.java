@@ -6,8 +6,8 @@
 package rnegocio.funciones;
 
 import java.util.ArrayList;
-import rnegocio.funciones.FProveedor;
-import rnegocio.entidades.Proveedor;
+import rnegocio.funciones.FUsuario;
+import rnegocio.entidades.Usuario;
 
 /**
  *
@@ -20,17 +20,15 @@ public class Pruebas {
      */
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-        ArrayList<Proveedor> lista = new ArrayList<Proveedor>();
-        lista = FProveedor.proveedor_buscartodos();
-        if (lista.size() != 0) {
-            for (Proveedor rec : lista) {
-                System.out.println(rec.getCodigo());
-                System.out.println(rec.getNombre());
+        ArrayList<Usuario> lista = new ArrayList<Usuario>();
 
-            }
-        } else {
-            System.out.println("No hay registro");
-        }
+        String usu = "0604459495";
+        String clav = "12345";
+        Usuario user = new Usuario();
+        user=FUsuario.usuario_login(usu, clav);
+        System.err.println(">>" + user.getCodigo());
+        System.err.println(">>" + user.getNombre());
+
     }
 
 }

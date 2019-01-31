@@ -94,7 +94,6 @@ public class FUsuario {
                 obj.setUltima_ip(rs.getString("pultimo_ip"));
                 obj.setFecha_modificacion(rs.getDate("pfecha_modificacion"));
 
-
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -132,6 +131,7 @@ public class FUsuario {
             parametros.add(new Parametro(4, usuario.getEmail()));
             parametros.add(new Parametro(5, pass));
 
+            parametros.add(new Parametro(5, usuario.getClave()));
 
             //llenar el comando con los parametros
             cmd.setLstParametros(parametros);
@@ -216,4 +216,41 @@ public class FUsuario {
 
     }
 
+    public static Usuario usuario_login(String picedula, String piclave) throws Exception {
+        //CREO LISTA QUE RECIBIRA LOS DATOS DEL RESULSET
+        Usuario obj = new Usuario();
+        ResultSet rs = null;
+        //LLAMO LA CONEXION
+        Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
+        //DECLARO UN PREPAREDSTATEMENT QUE EJECUTARA LA SQL
+        PreparedStatement preStm = null;
+            System.err.println("dedula" + picedula);
+            System.err.println("clave" + piclave);
+        try {
+            //declaro mi sql
+            String sql = "SELECT *from usuarios.usuario_login(?,?);";
+            //creo mi preparedstatement
+            preStm = con.creaPreparedSmt(sql);
+            //ejecuto el prepardestatement y le asigno a mi resulset
+
+
+            preStm.setString(1, picedula);
+            preStm.setString(2, piclave);
+            rs = con.ejecutaPrepared(preStm);
+            obj = null;
+            while (rs.next()) {
+                obj = new Usuario();
+                obj.setCodigo(rs.getInt("pcodigo"));
+                obj.setNombre(rs.getString("pnombre"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            rs.close();
+            preStm.close();
+            con.desconectar();
+        }
+        return obj;
+
+    }
 }
