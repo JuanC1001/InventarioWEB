@@ -117,6 +117,12 @@ public class FUsuario {
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
             cmd.setSetenciaSql("select * from usuarios.usuario_insertar(?,?,?,?,?)");
+            //StingEncry
+            
+            StringEncrypter encriptar= new StringEncrypter("loqueustedquiera");
+            String pass=encriptar.encrypt(usuario.getClave());
+            
+            
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
@@ -124,7 +130,7 @@ public class FUsuario {
             parametros.add(new Parametro(2, usuario.getApellido()));
             parametros.add(new Parametro(3, usuario.getCedula()));
             parametros.add(new Parametro(4, usuario.getEmail()));
-            parametros.add(new Parametro(5, usuario.getClave()));
+            parametros.add(new Parametro(5, pass));
 
 
             //llenar el comando con los parametros
