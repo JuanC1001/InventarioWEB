@@ -20,7 +20,7 @@ import rnegocio.entidades.RolPagina;
  * @author MI PC
  */
 public class FRolPagina {
-    public static ArrayList<RolPagina> paginaRol_buscartodos() throws Exception {
+    public static ArrayList<RolPagina> rolpagina_buscartodos() throws Exception {
         //CREO LISTA QUE RECIBIRA LOS DATOS DEL RESULSET
         ArrayList<RolPagina> lista = new ArrayList<RolPagina>();
         RolPagina obj = new RolPagina();
