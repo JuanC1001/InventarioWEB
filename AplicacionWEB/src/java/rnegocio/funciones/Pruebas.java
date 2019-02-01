@@ -26,8 +26,8 @@ public class Pruebas {
         String clav = "12345";
         Usuario user = new Usuario();
         user=FUsuario.usuario_login(usu, clav);
-        System.err.println(">>" + user.getCodigo());
-        System.err.println(">>" + user.getNombre());
+        System.out.print(">>" + user.getCodigo());
+        System.out.print("/" + user.getNombre());
 
     }
 
