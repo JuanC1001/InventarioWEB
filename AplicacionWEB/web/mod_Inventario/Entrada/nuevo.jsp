@@ -28,12 +28,9 @@
                 <option>itProducto.</option>
             </select>
             <input type="text" class="form-control" placeholder="Cantidad" required id="cantidad_entrada" name="cantidad_entrada"/>
-            
             <select class="form-control">
-                
                 <option value="idp">itProveedor.getnombre</option>
             </select>
-            
             <input type="text" class="form-control" placeholder="Detalle " required id="detalle_entrada" name="detalle_entrada"/>
 
             <div class="modal-footer">
