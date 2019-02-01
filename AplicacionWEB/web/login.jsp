@@ -17,18 +17,14 @@
     try {        
         String nombre1= request.getParameter("nombre");
         String clave1= request.getParameter("clave");
-        out.print("<script>alert("+nombre1+");</script>");
-        out.print("<script>alert("+clave1+");</script>");
 
         //String claveencritada=StringEncrypter.StringEncrypter(clave1);
         //out.print("<script>alert("+claveencritada+");</script>");
         usuario= FUsuario.usuario_login(nombre1, clave1);
-        out.print("<script>alert("+usuario.getCodigo()+");</script>");        
         if(usuario!=null){
               out.println("<script>  location.replace('index.html');</script>");
         }else{
-            out.print("<script>alert("+nombre1+");</script>");        
-            out.println("<script>  location.replace('login.jsp');</script>");
+            out.println("<script>  location.replace('pages/login.html');</script>");
         }
         } catch (Exception e) {
         }
