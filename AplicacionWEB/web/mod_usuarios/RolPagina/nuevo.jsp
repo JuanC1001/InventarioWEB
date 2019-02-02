@@ -1,7 +1,7 @@
 <%-- 
     Document   : nuevo
-    Created on : 16-ene-2019, 17:28:58
-    Author     : Usuario
+    Created on : 25-ene-2019, 18:13:15
+    Author     : MI PC
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,14 +9,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Nueva Categoria</title>
+        <title>JSP Page</title>
         
     </head>
     <body>
         
         
           <form method="POST"  action="procesa_nuevo.jsp">
-            <input type="text" class="form-control" placeholder="Nombre Categoria" required id="nombre_categoria" name="nombre_categoria"/>
+            <input type="text" class="form-control" placeholder="Pagina RolPagina" required id="pagina_rolpagina" name="Pagina_rolpagina"/>
+            <input type="text" class="form-control" placeholder="Rol RolPagina" required id="rol_rolpagina" name="rol_rolpagina"/>
           
             <div class="modal-footer">
                 <button id="btn_guardar" name="btn_guardar" type="submit" class="btn btn-primary" >Guardar</button>
@@ -26,4 +27,3 @@
           
     </body>
 </html>
-

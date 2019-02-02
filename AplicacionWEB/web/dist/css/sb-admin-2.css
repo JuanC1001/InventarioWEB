@@ -24,6 +24,19 @@ body {
     padding: 0px 15px;
     background-color: white;
 }
+
+#inicio {
+    width: 99%;
+    padding: 0px 0px;
+    display: inline-block;
+}
+
+.btniniciar{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 .header {
     display: block;
     margin-right: 0;

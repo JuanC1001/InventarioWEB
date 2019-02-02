@@ -1,17 +1,16 @@
 <%-- 
     Document   : listar
-    Created on : 16-ene-2019, 17:07:24
+    Created on : 25-ene-2019, 17:35:03
     Author     : Usuario
 --%>
-
 <%@page import="rnegocio.funciones.*"%>
 <%@page import="rnegocio.entidades.*"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
- List<Categoria> lista=FCategoria.categoria_buscartodos();
- Iterator<Categoria> itCategoria=lista.iterator();
+ List<Rol> lista=FRol.rol_buscartodos();
+ Iterator<Rol> itRol=lista.iterator();
 %>
 <!DOCTYPE html>
 <html>
@@ -24,15 +23,11 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
        
+
         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
-        
-        <title>Categoria</title>
- 
-            <%@include file="../../cabecera.html" %>
+        <title>JSP Page</title>
     </head>
     <body>
-    <%@include file="../../menu.html" %>
-    <div id="page-wrapper">
          <!--Sección alerta-->
         <%
             String alerta="";
@@ -53,7 +48,7 @@
         </div>
        <% }%>
         <!--Fin Sección alerta-->
-         <h1>Categoria</h1> 
+         <h1>Rol</h1> 
            <button type="button" onclick="return modalnuevo();" class="btn btn-primary" data-toggle="modal" data-target="#ModalNuevo"> Nuevo</button>  
           
          
@@ -65,15 +60,15 @@
                  <th></th>
                 </thead>
                 <tbody>
-               <%while(itCategoria.hasNext()){
-                  Categoria categoria=itCategoria.next();%>
+               <%while(itRol.hasNext()){
+                  Rol rol=itRol.next();%>
                 <tr>
-                   <td><%= categoria.getCodigo()%></td>
-                    <td><%= categoria.getNombre()%></td>
+                   <td><%= rol.getCodigo()%></td>
+                    <td><%= rol.getNombre()%></td>
                         <td>
-                         <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= categoria.getCodigo()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>
+                         <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= rol.getCodigo()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>
                          
-                        <button type="button"  onclick="return modaledita(<%= categoria.getCodigo()%>)" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditar">Editar</button>         
+                        <button type="button"  onclick="return modaledita(<%= rol.getCodigo()%>)" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditar">Editar</button>         
                    </td>
                 </tr>
                <%}%>                
@@ -85,7 +80,7 @@
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Editar Categoria</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Editar Rol</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -104,7 +99,7 @@
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Nueva Categoria</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Nuevo Rol</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -132,20 +127,6 @@
     <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
-    
-    
-    
-    <script src="vendor/jquery/jquery.min.js"></script>
-<!-- Bootstrap Core JavaScript -->
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!-- Metis Menu Plugin JavaScript -->
-<script src="vendor/metisMenu/metisMenu.min.js"></script>
-<!-- Morris Charts JavaScript -->
-<script src="vendor/raphael/raphael.min.js"></script>
-<script src="vendor/morrisjs/morris.min.js"></script>
-<script src="data/morris-data.js"></script>
-<!-- Custom Theme JavaScript -->
-<script src="dist/js/sb-admin-2.js"></script>
     
     <script>
            function modaledita(codigo){
@@ -209,6 +190,6 @@
  
  
     </script>
-</div>    
+    
     </body>
 </html>

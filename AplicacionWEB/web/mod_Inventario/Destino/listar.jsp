@@ -27,8 +27,10 @@
 
         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
         <title>JSP Page</title>
+            <%@include file="../../cabecera.html" %>
     </head>
     <body>
+    <%@include file="../../menu.html" %>
          <!--Sección alerta-->
         <%
             String alerta="";

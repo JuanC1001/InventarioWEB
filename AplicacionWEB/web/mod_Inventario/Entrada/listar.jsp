@@ -36,8 +36,10 @@
         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
         <title>Entrada</title>
 
+            <%@include file="../../cabecera.html" %>
     </head>
     <body>
+    <%@include file="../../menu.html" %>
         <div class="col-lg-12">
             <h1 class="page-header">Entradas</h1>
         </div>
