@@ -4,14 +4,32 @@
     Author     : MI PC
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*,rnegocio.funciones.*,rnegocio.entidades.*"%>
+
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<%
+    try {
+            UsuarioRol usuarioRol=new UsuarioRol();
+            Rol rol=new Rol();
+            int codigo= Integer.parseInt(request.getParameter("rol"));
+                        int codigo= Integer.parseInt(request.getParameter("rol"));
+                        
+            Usuario usuario=new Usuario();
+            int codigo= Integer.parseInt(request.getParameter("usuario"));
+                        int codigo= Integer.parseInt(request.getParameter("usuario"));            
+            //out.print("<script>alert("+codigo_categoria+");</script>");
+
+            usuarioRol.setEstado(request.getParameter("estado_usuarioRol"));
+        
+            
+           boolean result= FUsuarioRol.UsuarioRol_insertar(UsuarioRol);
+             if (result)
+                out.println("<script>  location.replace('listar.jsp?alerta=si');</script>");
+            else 
+                out.println("<script>  location.replace('listar.jsp?alerta=no');</script>");
+
+        } catch (Exception e) {
+            out.print(e.getMessage());
+        }
+
+%>

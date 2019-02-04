@@ -4,14 +4,19 @@
     Author     : MI PC
 --%>
 
+<%@page import="rnegocio.funciones.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<%
+try {
+       boolean result =FUsuarioRol.UsuarioRol_eliminar(Integer.valueOf(request.getParameter("codigo")));
+        if (result)
+       out.println("<script> alert('Se ha eliminado correctamente...'); location.replace('listar.jsp');</script>");
+        else 
+       out.println("<script> alert('No se ha eliminado correctamente...'); location.replace('listar.jsp');</script>");
+
+       
+    } catch (Exception e) {
+        out.print(e.toString());
+    }
+%>

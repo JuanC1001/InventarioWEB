@@ -18,7 +18,7 @@
         
          int codigo= Integer.parseInt(request.getParameter("codigo"));
       //  out.print("<script>alert("+codigo+");</script>");
-         usuarioRol=FUsuarioRol.usuarioRol_buscarporid(codigo);
+         usuarioRol=FUsuarioRol.UsuarioRol_buscarporid(codigo);
         
         
         
@@ -41,8 +41,8 @@
         
           <form method="POST" action="procesa_editar.jsp">
               <input type="hidden" id="codigo" name="codigo" value="<%=usuarioRol.getCodigo()%>">
-              <input type="text" required class="form-contusuarioRol" placeholder="Nombre UsuarioRol" id="nombre_usuarioRol" value="<%=usuarioRol.getNombre()%>" name="nombre_usuarioRol"/>
-          
+              
+              <input type="text" required class="form-control" placeholder="Estado UsuarioRol" id="estado_usuarioRol" value="<%=usuarioRol.getEstado()%>" name="estado_usuarioRol"/>
             <div class="modal-footer">
                 <button id="btn_guardar" name="btn_guardar" type="submit" class="btn btn-primary" >Guardar</button>
                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

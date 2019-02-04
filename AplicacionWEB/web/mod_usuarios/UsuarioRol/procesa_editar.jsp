@@ -4,20 +4,23 @@
     Author     : Brayan Macas
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*,rnegocio.funciones.FUsuarioRol,rnegocio.entidades.*"%>
+<%@page import="rnegocio.funciones.FUsuarioRol"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*,rnegocio.entidades.*"%>
 <!DOCTYPE html>
 <%
     try {
-            UsuarioRol usuarioRol=new UsuarioRol();
-            usuarioRol.setRol(request.getParameter("rol_usuarioRol"));
-            usuarioRol.setUsuario(request.getParameter("usuario_usuarioRol"));
-            usuarioRol.setEstado(request.getParameter("estado_usuarioRol"));
-            usuarioRol.setCodigo(Integer.valueOf(request.getParameter("codigo")));
-           boolean result= FUsuarioRol.usuarioRol_editar(usuarioRol);
+            FUsuarioRol usuarioRol=new FUsuarioRol();
+           usuarioRol.setCodigo(Integer.valueOf(request.getParameter("codigo")));
+           usuarioRol.setEstado(request.getParameter("estado_usuarioRol"));
+            
+
+            
+            
+           boolean result= FUsuarioRol.UsuarioRol_editar(UsuarioRol);
              if (result)
-                out.println("<script>  location.replace('listar.jsp?alerta=si');</script>");
+                out.println("<script> alert('Se ha guardado correctamente...'); location.replace('listar.jsp');</script>");
             else 
-                out.println("<script>  location.replace('listar.jsp?alerta=no');</script>");
+                out.println("<script> alert('No se ha guardado correctamente...'); location.replace('listar.jsp');</script>");
 
         } catch (Exception e) {
             out.print(e.getMessage());
