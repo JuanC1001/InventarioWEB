@@ -26,8 +26,6 @@ public class FDestino {
         ArrayList<Destino> lista = new ArrayList<Destino>();
         Destino obj = new Destino();
         ResultSet rs = null;
-                    System.out.println("hola");
-
         //LLAMO LA CONEXION
         Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
         //DECLARO UN PREPAREDSTATEMENT QUE EJECUTARA LA SQL
@@ -44,7 +42,6 @@ public class FDestino {
                 obj = new Destino();
                 obj.setCodigo(rs.getInt("pcodigo"));
                 obj.setDescripcion(rs.getString("pdescripcion"));
-
                 lista.add(obj);
             }
         } catch (SQLException e) {

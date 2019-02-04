@@ -10,8 +10,7 @@
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%
- List<Categoria> lista=FCategoria.categoria_buscartodos();
- Iterator<Categoria> itCategoria=lista.iterator();
+ List<Categoria> listaproducto=FCategoria.categoria_buscartodos();
 %>
 <!DOCTYPE html>
 <html>
@@ -25,9 +24,9 @@
             <input type="text" class="form-control" placeholder="Stock Actual" required id="stock_producto" name="stock_producto"/>
             <input type="text" class="form-control" placeholder="Precio Venta" required id="precio_venta_producto" name="precio_venta_producto"/>
             <input type="text" class="form-control" placeholder="Precio Compra" required id="precio_compra_producto" name="precio_compra_producto"/>            
-            <select  name="categoria">
+            <select  class="form-control" name="categoria">
                 <%
-                    for(Categoria cat: lista){%>
+                    for(Categoria cat: listaproducto){%>
                     <option value="<%=cat.getCodigo()%>"> <%=cat.getNombre()%></option>
                 <%
                    }
