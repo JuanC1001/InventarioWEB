@@ -41,6 +41,13 @@ public class Usuario {
         this.fecha_modificacion = fecha_modificacion;
     }
 
+    public Usuario(String usu, String usu0, String usu1, String usu2, String usu3) {
+        this.apellido = usu;
+        this.nombre = usu0;
+        this.email = usu1;
+        this.cedula = usu2;
+        this.clave = usu3;    }
+
     public Date getFecha_modificacion() {
         return fecha_modificacion;
     }

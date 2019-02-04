@@ -74,7 +74,7 @@ public class FUsuario {
         PreparedStatement preStm = null;
         try {
             //declaro mi sql
-            String sql = "SELECT *from usuarios.usuario_rol_buscar(?);";
+            String sql = "SELECT *from usuarios.usuario_buscar(?);";
             //creo mi preparedstatement
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset
@@ -110,12 +110,14 @@ public class FUsuario {
         boolean respuesta = false;
         Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
         try {
+            StringEncrypter encriptar = new StringEncrypter("loquesea");
+            String claveencriptada = encriptar.encrypt(usuario.getClave());
             //CREAMOS EL ARRAYLIST DE LOS COMANDOS O SENTENCIAS SQL
             ArrayList<Comando> comandos = new ArrayList<Comando>();
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("select * from usuarios.usuario_insertar(?,?,?,?,?)");
+            cmd.setSetenciaSql("select *from usuarios.usuario_insertar(?,?,?,?,?);");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
@@ -123,8 +125,7 @@ public class FUsuario {
             parametros.add(new Parametro(2, usuario.getApellido()));
             parametros.add(new Parametro(3, usuario.getCedula()));
             parametros.add(new Parametro(4, usuario.getEmail()));
-            parametros.add(new Parametro(5, usuario.getClave()));
-
+            parametros.add(new Parametro(5, claveencriptada));
             //llenar el comando con los parametros
             cmd.setLstParametros(parametros);
             comandos.add(cmd);
@@ -179,7 +180,7 @@ public class FUsuario {
 
     }
 
-    public static boolean usuario_eliminar(int pscactbevidenid) throws Exception {
+    public static boolean usuario_eliminar(int codigo) throws Exception {
         boolean respuesta = false;
         Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
         try {
@@ -188,11 +189,11 @@ public class FUsuario {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("select * from usuarios.usuario_eliminar(?)");
+            cmd.setSetenciaSql("select * from usuarios.usuario_eliminar(?);");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
-            parametros.add(new Parametro(1, pscactbevidenid));
+            parametros.add(new Parametro(1, codigo));
             //llenar el comando con los parametros
             cmd.setLstParametros(parametros);
             comandos.add(cmd);
@@ -212,12 +213,12 @@ public class FUsuario {
         //CREO LISTA QUE RECIBIRA LOS DATOS DEL RESULSET
         Usuario obj = new Usuario();
         ResultSet rs = null;
+        StringEncrypter encriptar = new StringEncrypter("loquesea");
+        String pclaveencriptada = encriptar.encrypt(piclave);
         //LLAMO LA CONEXION
         Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
         //DECLARO UN PREPAREDSTATEMENT QUE EJECUTARA LA SQL
         PreparedStatement preStm = null;
-            System.err.println("dedula" + picedula);
-            System.err.println("clave" + piclave);
         try {
             //declaro mi sql
             String sql = "SELECT *from usuarios.usuario_login(?,?);";
@@ -225,9 +226,8 @@ public class FUsuario {
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset
 
-
             preStm.setString(1, picedula);
-            preStm.setString(2, piclave);
+            preStm.setString(2, pclaveencriptada);
             rs = con.ejecutaPrepared(preStm);
             obj = null;
             while (rs.next()) {

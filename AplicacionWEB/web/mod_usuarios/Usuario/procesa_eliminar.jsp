@@ -11,9 +11,9 @@
 try {
        boolean result =FUsuario.usuario_eliminar(Integer.valueOf(request.getParameter("codigo")));
         if (result)
-       out.println("<script> alert('Se ha eliminado correctamente...'); location.replace('listar.jsp');</script>");
+                out.println("<script>  location.replace('listar.jsp?alerta=si');</script>");
         else 
-       out.println("<script> alert('No se ha eliminado correctamente...'); location.replace('listar.jsp');</script>");
+                out.println("<script>  location.replace('listar.jsp?alerta=no');</script>");
 
        
     } catch (Exception e) {

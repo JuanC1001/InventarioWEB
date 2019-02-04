@@ -4,14 +4,24 @@
     Author     : Usuario
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*,rnegocio.funciones.FCategoria,rnegocio.entidades.*"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*,rnegocio.funciones.*,rnegocio.entidades.*"%>
 <!DOCTYPE html>
 <%
     try {
             Categoria categoria=new Categoria();
-            categoria.setNombre(request.getParameter("nombre_categoria"));
-            categoria.setCodigo(Integer.valueOf(request.getParameter("codigo")));
-           boolean result= FCategoria.categoria_editar(categoria);
+            Producto producto=new Producto();
+            
+            producto.setCodigo(Integer.valueOf(request.getParameter("codigo")));
+            
+            int codigo_categoria= Integer.parseInt(request.getParameter("categoria"));
+            //out.print("<script>alert("+codigo_categoria+");</script>");
+            producto.setNombre(request.getParameter("nombre_producto"));
+            producto.setStock(Double.parseDouble(request.getParameter("stock_producto")));
+            producto.setPrecio_venta(Double.parseDouble(request.getParameter("precio_venta_producto")));
+            producto.setPrecio_compra(Double.parseDouble(request.getParameter("precio_compra_producto")));
+            producto.setCategoria(FCategoria.categoria_buscarporid(codigo_categoria));
+            
+           boolean result= FProducto.producto_editar(producto);
              if (result)
                 out.println("<script>  location.replace('listar.jsp?alerta=si');</script>");
             else 

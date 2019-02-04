@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <%
 try {
-       boolean result =FCategoria.categoria_eliminar(Integer.valueOf(request.getParameter("codigo")));
+       boolean result =FProducto.producto_eliminar(Integer.valueOf(request.getParameter("codigo")));
         if (result)
                 out.println("<script>  location.replace('listar.jsp?alerta=si');</script>");
             else 

@@ -46,7 +46,7 @@ public class FProducto {
                 obj.setCodigo(rs.getInt("pcodigo"));
                 obj.setNombre(rs.getString("pnombre"));
                 obj.setStock(rs.getDouble("pstock"));
-                obj.setPrecio_compra(rs.getDouble("pprecio_venta"));
+                obj.setPrecio_venta(rs.getDouble("pprecio_venta"));
                 obj.setPrecio_compra(rs.getDouble("pprecio_compra"));
                 obj.setCategoria(FCategoria.categoria_buscarporid(rs.getInt("pcodigo_categoria")));
                 lista.add(obj);
@@ -83,7 +83,7 @@ public class FProducto {
                 obj.setCodigo(rs.getInt("pcodigo"));
                 obj.setNombre(rs.getString("pnombre"));
                 obj.setStock(rs.getDouble("pstock"));
-                obj.setPrecio_compra(rs.getDouble("pprecio_venta"));
+                obj.setPrecio_venta(rs.getDouble("pprecio_venta"));
                 obj.setPrecio_compra(rs.getDouble("pprecio_compra"));
                 obj.setCategoria(FCategoria.categoria_buscarporid(rs.getInt("pcodigo_categoria")));
             }
@@ -140,13 +140,17 @@ public class FProducto {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("select * from public.producto_editar(?,?)");
+            cmd.setSetenciaSql("SELECT *from facturacion.producto_editar(?,?,?,?,?,?);");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
 
             parametros.add(new Parametro(1, producto.getCodigo()));
             parametros.add(new Parametro(2, producto.getNombre()));
+            parametros.add(new Parametro(3, producto.getStock()));
+            parametros.add(new Parametro(4, producto.getPrecio_venta()));
+            parametros.add(new Parametro(5, producto.getPrecio_compra()));
+            parametros.add(new Parametro(6, producto.getCategoria().getCodigo()));
 
             //llenar el comando con los parametros
             cmd.setLstParametros(parametros);
@@ -163,7 +167,7 @@ public class FProducto {
 
     }
 
-    public static boolean producto_eliminar(int pscactbevidenid) throws Exception {
+    public static boolean producto_eliminar(int codigo_producto) throws Exception {
         boolean respuesta = false;
         Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
         try {
@@ -172,11 +176,11 @@ public class FProducto {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("select * from public.producto_eliminar(?)");
+            cmd.setSetenciaSql("SELECT *from facturacion.producto_eliminar(?);");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
-            parametros.add(new Parametro(1, pscactbevidenid));
+            parametros.add(new Parametro(1, codigo_producto));
             //llenar el comando con los parametros
             cmd.setLstParametros(parametros);
             comandos.add(cmd);

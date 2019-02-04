@@ -11,6 +11,7 @@
             Categoria categoria=new Categoria();
             categoria.setNombre(request.getParameter("nombre_categoria"));
             categoria.setCodigo(Integer.valueOf(request.getParameter("codigo")));
+            
            boolean result= FCategoria.categoria_editar(categoria);
              if (result)
                 out.println("<script>  location.replace('listar.jsp?alerta=si');</script>");

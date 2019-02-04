@@ -1,31 +1,9 @@
-<%-- 	
-    Document   : listar	
-    Created on : 25-ene-2019, 16:53:32	
-    Author     : MI PC	
---%>	
-
- <%@page import="rnegocio.funciones.FUsuario"%>	
-<%@page import="rnegocio.entidades.Usuario"%>	
-<%@page import="java.util.Iterator"%>	
-<%@page import="java.util.List"%>	
-<%@page contentType="text/html" pageEncoding="UTF-8"%>	
-
-     <link href="../../pages/index.html" rel="stylesheet">	
-
-     <!-- Bootstrap Core CSS -->	
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">	
-
-     <!-- MetisMenu CSS -->	
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">	
-
-     <!-- Social Buttons CSS -->	
-    <link href="../vendor/bootstrap-social/bootstrap-social.css" rel="stylesheet">	
-
-     <!-- Custom CSS -->	
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">	
-
-     <!-- Custom Fonts -->	
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">	
+<%@page import="rnegocio.funciones.*"%>
+<%@page import="rnegocio.entidades.*"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <%	
  List<Usuario> lista=FUsuario.usuario_buscartodos();	
  Iterator<Usuario> itUsuario=lista.iterator();	
@@ -33,44 +11,24 @@
 <!DOCTYPE html>	
 <html>	
     <head>	
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">	
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">	
-	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">	
-	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">	
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>	
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>	
+         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+          <!-- Bootstrap Core CSS -->
+        <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- MetisMenu CSS -->
+        <link href="../../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="../../dist/css/sb-admin-2.css" rel="stylesheet">
+        <!-- Morris Charts CSS -->
+        <link href="../../vendor/morrisjs/morris.css" rel="stylesheet">
+        <!-- Custom Fonts -->
+        <link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-
-         <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>	
-        <title>Usuarios</title>	
-
-
-                 <meta charset="utf-8">	
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">	
-        <meta name="viewport" content="width=device-width, initial-scale=1">	
-        <meta name="description" content="">	
-        <meta name="author" content="">	
-        <!-- Bootstrap Core CSS -->	
-        <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">	
-        <!-- MetisMenu CSS -->	
-        <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">	
-        <!-- Custom CSS -->	
-        <link href="../dist/css/sb-admin-2.css" rel="stylesheet">	
-        <!-- Morris Charts CSS -->	
-        <link href="../vendor/morrisjs/morris.css" rel="stylesheet">	
-        <!-- Custom Fonts -->	
-        <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">	
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->	
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->	
-        <!--[if lt IE 9]>	
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>	
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>	
-        <![endif]-->	
-            <%@include file="../../cabecera.html" %>
+        <title>Usuario</title>
+    <%@include file="../../cabecera_1.html" %>
     </head>
     <body>
-    <%@include file="../../menu.html" %>    
+    <%@include file="../../menu_1.html" %> 
+    <div id="page-wrapper">
 
  <!--Sección alerta-->	
         <%	
@@ -103,12 +61,6 @@
                 <th>Apellido</th>	
                 <th>Cedula</th>	
                 <th>Email</th>	
-                <th>Clave</th>	
-                <th>Primer Acceso</th>	
-                <th>Ultimo Acceso</th>	
-                <th>Ultima Ip</th>	
-                <th>Fecha</th>               	
-
                   <th></th>	
                 </thead>	
                 <tbody>	
@@ -120,14 +72,8 @@
                     <td><%= usuario.getApellido()%></td>	
                     <td><%= usuario.getCedula()%></td>	
                     <td><%= usuario.getEmail()%></td>	
-                    <td><%= usuario.getClave()%></td>	
-                    <td><%= usuario.getPrimer_acceso()%></td>	
-                    <td><%= usuario.getUltimo_acceso()%></td>	
-                    <td><%= usuario.getUltima_ip()%></td>	
-                    <td><%= usuario.getFecha_modificacion()%></td>	
-                     <td>	
-                            <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= usuario.getNombre()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>	
-
+                     <td>	                         
+                            <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= usuario.getCodigo()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>	
                          <button type="button"  onclick="return modaledita(<%= usuario.getCodigo()%>)" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditar">Editar</button>         	
                    </td>	
                 </tr>	
@@ -171,23 +117,19 @@
               </div>	
             </div>	
           </div>       	
-                </div>	
-             </div>   	
-
-          <script src="https://code.jquery.com/jquery-3.3.1.js"></script>	
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>	
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>	
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>	
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap4.min.js"></script>	
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>	
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>	
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>	
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>	
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>	
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>	
-    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>	
-    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>	
-
+    
+    <script src="vendor/jquery/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!-- Metis Menu Plugin JavaScript -->
+<script src="vendor/metisMenu/metisMenu.min.js"></script>
+<!-- Morris Charts JavaScript -->
+<script src="vendor/raphael/raphael.min.js"></script>
+<script src="vendor/morrisjs/morris.min.js"></script>
+<script src="data/morris-data.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="dist/js/sb-admin-2.js"></script>
+    
      <script>	
            function modaledita(codigo){	
            	
@@ -245,6 +187,6 @@
  	
  	
     </script>	
-
+</div>
      </body>	
 </html>

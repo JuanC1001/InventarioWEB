@@ -21,10 +21,11 @@
         //String claveencritada=StringEncrypter.StringEncrypter(clave1);
         //out.print("<script>alert("+claveencritada+");</script>");
         usuario= FUsuario.usuario_login(nombre1, clave1);
+        
         if(usuario!=null){
               out.println("<script>  location.replace('index.html');</script>");
         }else{
-            out.println("<script>  location.replace('pages/login.html');</script>");
+            out.println("<script>  location.replace('inicio.html');</script>");
         }
         } catch (Exception e) {
         }

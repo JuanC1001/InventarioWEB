@@ -31,11 +31,8 @@ body {
     display: inline-block;
 }
 
-.btniniciar{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.btniniciar{    
+    padding: 3px 0px;
 }
 .header {
     display: block;
@@ -190,7 +187,6 @@ body {
 }
 .chat-panel .panel-body {
     height: 350px;
-    overflow-y: scroll;
 }
 .login-panel {
     margin-top: 25%;

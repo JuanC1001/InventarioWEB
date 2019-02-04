@@ -22,12 +22,13 @@ public class Pruebas {
         // TODO code application logic here
         ArrayList<Usuario> lista = new ArrayList<Usuario>();
 
-        String usu = "0604459495";
-        String clav = "12345";
-        Usuario user = new Usuario();
-        user=FUsuario.usuario_login(usu, clav);
-        System.err.println(">>" + user.getCodigo());
-        System.err.println(">>" + user.getNombre());
+        int clav = 1;
+        Usuario usuario=new Usuario("usu", "usu", "usu", "usu", "usu");
+        
+//        Usuario user = new Usuario();
+        Boolean resp = FUsuario.usuario_insertar(usuario);
+//       System.err.println(">>" + user.getCodigo());
+//        System.err.println(">>" + user.getNombre());
 
     }
 
