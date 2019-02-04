@@ -60,7 +60,9 @@
                 <th>Nombre</th>	
                 <th>Apellido</th>	
                 <th>Cedula</th>	
-                <th>Email</th>	
+                <th>Email</th>
+                <th>Claveencryp</th>	
+
                   <th></th>	
                 </thead>	
                 <tbody>	
@@ -72,6 +74,8 @@
                     <td><%= usuario.getApellido()%></td>	
                     <td><%= usuario.getCedula()%></td>	
                     <td><%= usuario.getEmail()%></td>	
+                    <td><%= usuario.getClave()%></td>	
+                    
                      <td>	                         
                             <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= usuario.getCodigo()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>	
                          <button type="button"  onclick="return modaledita(<%= usuario.getCodigo()%>)" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditar">Editar</button>         	
