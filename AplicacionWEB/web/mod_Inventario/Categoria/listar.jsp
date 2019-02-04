@@ -21,8 +21,9 @@
  
         <%@include file="../../cabecera.html" %>
     </head>
-    <body>
+    <body>   
     <%@include file="../../menu.html" %>
+    
     <div id="page-wrapper">
          <!--Sección alerta-->
         <%

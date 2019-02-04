@@ -11,12 +11,13 @@
 
 
 <%
- List<Producto> listaproducto=FProducto.categoria_buscartodos();
+ List<Producto> listaproducto=FProducto.producto_buscartodos();
+%>
+<%
+ List<Proveedor> listaproveedor=FProveedor.proveedor_buscartodos();
 %>
 <!DOCTYPE html>
-<%
- List<Proveedor> listaproveedor=FProveedor.categoria_buscartodos();
-%>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -35,7 +36,14 @@
             </select>  
             <input type="text" class="form-control" placeholder="Cantidad" required id="cantidad_entrada" name="cantidad_entrada"/>
 
-
+            <select name="proveedores" class="form-control">
+                <%
+                    for(Proveedor proveedor: listaproveedor){%>
+                <option value="<%=proveedor.getCodigo()%>"><%=proveedor.getNombre()%></option>
+                <%
+                    }
+                %>
+            </select>  
 
             <input type="text" class="form-control" placeholder="Detalle " required id="detalle_entrada" name="detalle_entrada"/>
 
