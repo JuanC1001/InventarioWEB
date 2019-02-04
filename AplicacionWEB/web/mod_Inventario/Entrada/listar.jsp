@@ -31,8 +31,12 @@
 <%@include file="../../cabecera.html" %>
     </head>
     <body>
+        
     <%@include file="../../menu.html" %>
+    
     <div id="page-wrapper">
+        
+        
         <div class="col-lg-12">
             <h1 class="page-header">Entradas</h1>
         </div>
@@ -136,6 +140,7 @@
 <script src="data/morris-data.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="dist/js/sb-admin-2.js"></script>
+
     <script>
                         function modaleditar(codigo){
 

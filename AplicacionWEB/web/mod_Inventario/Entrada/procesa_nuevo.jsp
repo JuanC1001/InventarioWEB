@@ -5,21 +5,28 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*,rnegocio.funciones.*,rnegocio.entidades.*"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.sql.Date"%>
+
 
 <!DOCTYPE html>
 <%
     try {
             Entrada entrada=new Entrada();
-            Categoria categ=new Categoria();
-            int codigo_categoria= Integer.parseInt(request.getParameter("producto"));
-                        int codigo_categoria= Integer.parseInt(request.getParameter("categoria"));
+            int codigo_producto= Integer.parseInt(request.getParameter("producto"));
+            int codigo_proveedor= Integer.parseInt(request.getParameter("proveedor"));
             //out.print("<script>alert("+codigo_categoria+");</script>");
 
-            entrada.setNombre(request.getParameter("nombre_entrada"));
-            entrada.setStock(Double.parseDouble(request.getParameter("stock_entrada")));
-            entrada.setPrecio_venta(Double.parseDouble(request.getParameter("precio_venta_entrada")));
-            entrada.setPrecio_compra(Double.parseDouble(request.getParameter("precio_compra_entrada")));
-            entrada.setCategoria(FCategoria.categoria_buscarporid(codigo_categoria));
+            entrada.setFecha(Date.valueOf(request.getParameter("nombre_entrada")));
+            
+            entrada.setProducto(FProducto.producto_buscarporid(codigo_producto));
+            
+            entrada.setCantidad(Integer.parseInt(request.getParameter("cantidad_entrada")));
+            
+            entrada.setProveedor(FProveedor.proveedor_buscarporid(codigo_proveedor));
+
+            entrada.setDetalle(request.getParameter("detalle_entrada"));
+            
             
            boolean result= FEntrada.entrada_insertar(entrada);
              if (result)
