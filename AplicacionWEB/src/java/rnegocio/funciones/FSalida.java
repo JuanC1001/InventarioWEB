@@ -42,7 +42,7 @@ public class FSalida {
             while (rs.next()) {
                 obj = new Salida();
                 obj.setCodigo(rs.getInt("pcodigo"));
-                obj.setFecha(rs.getDate("pfecha"));
+                obj.setFecha(rs.getString("pfecha"));
                 
                 obj.setProducto(FProducto.producto_buscarporid(rs.getInt("pcodigo_producto")));
                 
@@ -87,7 +87,7 @@ public class FSalida {
             while (rs.next()) {
                 obj = new Salida();
                 obj.setCodigo(rs.getInt("pcodigo"));
-                obj.setFecha(rs.getDate("pfecha"));
+                obj.setFecha(rs.getString("pfecha"));
                 
                 obj.setProducto(FProducto.producto_buscarporid(rs.getInt("pcodigo_producto")));
                 

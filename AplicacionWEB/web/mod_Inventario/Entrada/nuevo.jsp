@@ -26,7 +26,7 @@
     <body>
         <form method="POST"  action="procesa_nuevo.jsp">
             <input type="text" class="form-control" placeholder="Fecha" required id="fecha_entrada" name="fecha_entrada"/>
-            <select name="producto" class="form-control">
+            <select id="producto" name="producto" class="form-control">
                 <%
                     for(Producto producto: listaproducto){%>
                 <option value="<%=producto.getCodigo()%>"><%=producto.getNombre()%></option>
@@ -36,7 +36,7 @@
             </select>  
             <input type="text" class="form-control" placeholder="Cantidad" required id="cantidad_entrada" name="cantidad_entrada"/>
 
-            <select name="proveedor" class="form-control">
+            <select id="proveedor" name="proveedor" class="form-control">
                 <%
                     for(Proveedor proveedor: listaproveedor){%>
                 <option value="<%=proveedor.getCodigo()%>"><%=proveedor.getNombre()%></option>

@@ -15,7 +15,7 @@ import java.util.Date;
 public class Entrada {
 
     private int codigo;
-    private Date fecha;
+    private String  fecha;
     private Producto producto;
     private int cantidad;
     private Proveedor proveedor;
@@ -23,7 +23,7 @@ public class Entrada {
     public Entrada() {
     }
 
-    public Entrada(int codigo, Date fecha, Producto producto, int cantidad, Proveedor proveedor, String detalle) {
+    public Entrada(int codigo, String fecha, Producto producto, int cantidad, Proveedor proveedor, String detalle) {
         this.codigo = codigo;
         this.fecha = fecha;
         this.producto = producto;
@@ -31,7 +31,6 @@ public class Entrada {
         this.proveedor = proveedor;
         this.detalle = detalle;
     }
-
 
 
     public int getCodigo() {
@@ -42,11 +41,11 @@ public class Entrada {
         this.codigo = codigo;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

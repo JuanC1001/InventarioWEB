@@ -5,9 +5,12 @@
  */
 package rnegocio.funciones;
 
+import java.sql.Date;
 import java.util.ArrayList;
-import rnegocio.funciones.FUsuario;
-import rnegocio.entidades.Usuario;
+import rnegocio.funciones.FEntrada;
+import rnegocio.entidades.Entrada;
+import rnegocio.entidades.Producto;
+import rnegocio.entidades.Proveedor;
 
 /**
  *
@@ -20,13 +23,17 @@ public class Pruebas {
      */
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-        ArrayList<Usuario> lista = new ArrayList<Usuario>();
+        ArrayList<Entrada> lista = new ArrayList<Entrada>();
+        Producto producto=new Producto();
+        Proveedor proveedor=new Proveedor();
+        producto=FProducto.producto_buscarporid(428);
+        proveedor=FProveedor.proveedor_buscarporid(1);
 
         int clav = 1;
-        Usuario usuario=new Usuario("usu", "usu", "usu", "usu", "usu");
+        Entrada entrada=new Entrada(1,null, producto, 500, proveedor, "hola");
         
-//        Usuario user = new Usuario();
-        Boolean resp = FUsuario.usuario_insertar(usuario);
+//        Entrada user = new Entrada();
+        Boolean resp = FEntrada.entrada_insertar(entrada);
 //       System.err.println(">>" + user.getCodigo());
 //        System.err.println(">>" + user.getNombre());
 

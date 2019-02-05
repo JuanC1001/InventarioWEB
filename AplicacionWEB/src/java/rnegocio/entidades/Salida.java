@@ -5,8 +5,6 @@
  */
 package rnegocio.entidades;
 
-import java.util.Date;
-
 /**
  *
  * @author MI PC
@@ -14,7 +12,7 @@ import java.util.Date;
 public class Salida {
 
     private int codigo;
-    private Date fecha;
+    private String fecha;
     private Producto producto;
     private int cantidad;
     private Destino destino;
@@ -23,7 +21,7 @@ public class Salida {
     public Salida() {
     }
 
-    public Salida(int codigo, Date fecha, Producto producto, int cantidad, Destino destino, String detalle) {
+    public Salida(int codigo, String fecha, Producto producto, int cantidad, Destino destino, String detalle) {
         this.codigo = codigo;
         this.fecha = fecha;
         this.producto = producto;
@@ -48,11 +46,11 @@ public class Salida {
         this.codigo = codigo;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

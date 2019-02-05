@@ -20,8 +20,9 @@
         <title>Producto</title>
         <%@include file="../../cabecera.html" %>
     </head>
-    <body>
+    <body>   
     <%@include file="../../menu.html" %>
+    
     <div id="page-wrapper">
          <!--Sección alerta-->
         <%
@@ -45,10 +46,9 @@
         <!--Fin Sección alerta-->
          <h1>Producto</h1> 
            <button type="button" onclick="return modalnuevo();" class="btn btn-primary" data-toggle="modal" data-target="#ModalNuevo"> Nuevo</button>  
-          
-         
-         
-<table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">                <thead>
+                            
+<table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">                
+    <thead>
                 <th>Codigo</th>
                 <th>Nombre</th>
                 <th>Stock</th>
@@ -114,18 +114,7 @@
             </div>
           </div>       
                 
-    <script src="../../../vendor/jquery/jquery.min.js"></script>
-<!-- Bootstrap Core JavaScript -->
-<script src="../../../vendor/bootstrap/js/bootstrap.min.js"></script>
-<!-- Metis Menu Plugin JavaScript -->
-<script src="../../../vendor/metisMenu/metisMenu.min.js"></script>
-<!-- Morris Charts JavaScript -->
-<script src="../../../vendor/raphael/raphael.min.js"></script>
-<script src="../../../vendor/morrisjs/morris.min.js"></script>
-<script src="../../../data/morris-data.js"></script>
-<!-- Custom Theme JavaScript -->
-<script src="../../../dist/js/sb-admin-2.js"></script>
-    
+
     <script>
            function modaledita(codigo){
            

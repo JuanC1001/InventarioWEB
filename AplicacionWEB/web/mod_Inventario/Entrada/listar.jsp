@@ -37,9 +37,7 @@
     <div id="page-wrapper">
         
         
-        <div class="col-lg-12">
-            <h1 class="page-header">Entradas</h1>
-        </div>
+
         <!--Sección alerta-->
         <%
             String alerta="";
@@ -51,14 +49,17 @@
     if (alerta.equals("si")){%>
         <div class="alert alert-success" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <strong>Éxito!</strong> La transacción fue éxitosa!
+             <strong>Éxito!</strong> La transacción fue éxitosa!
         </div>
         <%} if(alerta.equals("no")){%>
         <div class="alert alert-danger" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <strong>Falló!</strong> La transacción fue fallida!
+             <strong>Falló!</strong> La transacción fue fallida!
         </div>
-        <% }%>
+       <% }%>
+               <div class="col-lg-12">
+            <h1 class="page-header">Entradas</h1>
+        </div>
         <!--Fin Sección alerta-->
         <button type="button" onclick="return modalnuevo();" class="btn btn-primary" data-toggle="modal" data-target="#ModalNuevo"> Nuevo</button>  
 
@@ -78,9 +79,9 @@
             <tr>
                 <td><%= entrada.getCodigo()%></td>
                 <td><%= entrada.getFecha()%></td>
-                <td><%= entrada.getProducto()%></td>
+                <td><%= entrada.getProducto().getNombre()%></td>
                 <td><%= entrada.getCantidad()%></td>                
-                <td><%= entrada.getProveedor()%></td>
+                <td><%= entrada.getProveedor().getNombre()%></td>
                 <td><%= entrada.getDetalle()%></td>                
                 <td>
                     <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= entrada.getCodigo()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>

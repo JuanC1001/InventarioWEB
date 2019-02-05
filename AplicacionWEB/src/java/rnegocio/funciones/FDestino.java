@@ -41,7 +41,7 @@ public class FDestino {
             while (rs.next()) {
                 obj = new Destino();
                 obj.setCodigo(rs.getInt("pcodigo"));
-                obj.setDescripcion(rs.getString("pdescripcion"));
+                obj.setNombre(rs.getString("pdescripcion"));
                 lista.add(obj);
             }
         } catch (SQLException e) {
@@ -76,7 +76,7 @@ public class FDestino {
             while (rs.next()) {
                 obj = new Destino();
                 obj.setCodigo(rs.getInt("pcodigo"));
-                obj.setDescripcion(rs.getString("pdescripcion"));
+                obj.setNombre(rs.getString("pdescripcion"));
 
             }
         } catch (SQLException e) {
@@ -103,7 +103,7 @@ public class FDestino {
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
-            parametros.add(new Parametro(1, destino.getDescripcion()));
+            parametros.add(new Parametro(1, destino.getNombre()));
 
             //llenar el comando con los parametros
             cmd.setLstParametros(parametros);
@@ -135,7 +135,7 @@ public class FDestino {
             //llenamos el arraylist con todos los parametros
 
             parametros.add(new Parametro(1, destino.getCodigo()));
-            parametros.add(new Parametro(2, destino.getDescripcion()));
+            parametros.add(new Parametro(2, destino.getNombre()));
 
             //llenar el comando con los parametros
             cmd.setLstParametros(parametros);

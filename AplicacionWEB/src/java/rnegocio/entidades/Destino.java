@@ -21,14 +21,14 @@ import java.util.ArrayList;
 public class Destino {
 
     private int codigo;
-    private String descripcion;
+    private String nombre;
 
     public Destino() {
     }
 
-    public Destino(int codigo, String descripcion) {
+    public Destino(int codigo, String nombre) {
         this.codigo = codigo;
-        this.descripcion = descripcion;
+        this.nombre = nombre;
     }
 
     public int getCodigo() {
@@ -39,12 +39,12 @@ public class Destino {
         this.codigo = codigo;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
  
    

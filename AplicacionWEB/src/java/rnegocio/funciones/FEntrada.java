@@ -9,7 +9,6 @@ import AccesoADatos.Comando;
 import AccesoADatos.Conexion;
 import AccesoADatos.Global;
 import AccesoADatos.Parametro;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -43,14 +42,14 @@ public class FEntrada {
             while (rs.next()) {
                 obj = new Entrada();
                 obj.setCodigo(rs.getInt("pcodigo"));
-                obj.setFecha(rs.getDate("pfecha"));
-                
+                obj.setFecha(rs.getString("pfecha"));
+
                 obj.setProducto(FProducto.producto_buscarporid(rs.getInt("pcodigo_producto")));
-                
+
                 obj.setCantidad(rs.getInt("pcantidad"));
-                
+
                 obj.setProveedor(FProveedor.proveedor_buscarporid(rs.getInt("pcodigo_proveedor")));
-                
+
                 obj.setDetalle(rs.getString("pdetalle"));
 
                 lista.add(obj);
@@ -88,7 +87,7 @@ public class FEntrada {
             while (rs.next()) {
                 obj = new Entrada();
                 obj.setCodigo(rs.getInt("pcodigo"));
-                obj.setFecha(rs.getDate("fecha"));
+                obj.setFecha(rs.getString("fecha"));
                 //obj.setProducto(FProducto.producto_buscarporid(rs.getInt("pcodigo_producto"));
 
                 lista.add(obj);
@@ -113,14 +112,15 @@ public class FEntrada {
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("SELECT *from facturacion.entrada_insertar(?, ?, ?, ?);");
+            cmd.setSetenciaSql("SELECT *from facturacion.entrada_insertar(?, ?, ?, ?, ?);");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
-            parametros.add(new Parametro(1, entrada.getCodigo()));
-            parametros.add(new Parametro(2, entrada.getFecha()));
-            parametros.add(new Parametro(3, entrada.getProducto().getCodigo()));
-            parametros.add(new Parametro(4, entrada.getCantidad()));
+            parametros.add(new Parametro(1, null));
+            parametros.add(new Parametro(2, entrada.getProducto().getCodigo()));
+            parametros.add(new Parametro(3, entrada.getCantidad()));
+            parametros.add(new Parametro(4, entrada.getProveedor().getCodigo()));
+            parametros.add(new Parametro(5, entrada.getDetalle()));
 
             //llenar el comando con los parametros
             cmd.setLstParametros(parametros);
