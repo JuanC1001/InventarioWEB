@@ -10,17 +10,21 @@
 <%
     try {
             UsuarioRol usuarioRol=new UsuarioRol();
-            Rol rol=new Rol();
-            int codigo= Integer.parseInt(request.getParameter("rol"));
-                        int codigo= Integer.parseInt(request.getParameter("rol"));
+            //Rol rol=new Rol();
+            int codigo_rol= Integer.parseInt(request.getParameter("rol"));
+            //Usuario usuario=new Usuario();
+            int codigo_usuario= Integer.parseInt(request.getParameter("usuario"));
+         
                         
-            Usuario usuario=new Usuario();
-            int codigo= Integer.parseInt(request.getParameter("usuario"));
-                        int codigo= Integer.parseInt(request.getParameter("usuario"));            
+            
+                                    
             //out.print("<script>alert("+codigo_categoria+");</script>");
+            usuarioRol.setRol(FRol.rol_buscarporid(codigo_rol));
+            usuarioRol.setUsuario(FUsuario.usuario_buscarporid(codigo_usuario));
 
             usuarioRol.setEstado(request.getParameter("estado_usuarioRol"));
-        
+            
+ 
             
            boolean result= FUsuarioRol.UsuarioRol_insertar(UsuarioRol);
              if (result)
