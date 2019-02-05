@@ -9,9 +9,11 @@
 <!DOCTYPE html>
 <%
     try {
-            FUsuarioRol usuarioRol=new FUsuarioRol();
+           UsuarioRol usuarioRol=new UsuarioRol();
            usuarioRol.setCodigo(Integer.valueOf(request.getParameter("codigo")));
-           usuarioRol.setEstado(request.getParameter("estado_usuarioRol"));
+           usuarioRol.setRol(Integer.valueOf(request.getParameter("codigo_rol")));
+           usuarioRol.setUsuario(Integer.valueOf(request.getParameter("codigo_usuario")));
+           usuarioRol.setEstado(Integer.valueOf(request.getParameter("estado_usuarioRol")));
             
 
             
