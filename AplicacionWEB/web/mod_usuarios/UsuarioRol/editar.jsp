@@ -10,6 +10,13 @@
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%
+ List<Rol> listarol=FRol.rol_buscartodos();
+%>
+<%
+ List<Usuario> listausuario=FUsuario.usuario_buscartodos();
+%>
+
 <%!
    UsuarioRol usuarioRol= new UsuarioRol();
 %>
@@ -41,7 +48,22 @@
         
           <form method="POST" action="procesa_editar.jsp">
               <input type="hidden" id="codigo" name="codigo" value="<%=usuarioRol.getCodigo()%>">
-              
+              <select name="roles" class="form-control">
+                <%
+                    for(Rol rol: listarol){%>
+                <option value="<%=rol.getCodigo()%>"><%=rol.getNombre()%></option>
+                <%
+                    }
+                %>
+            </select>
+            <select name="usuarios" class="form-control">
+                <%
+                    for(Usuario usuario: listausuario){%>
+                <option value="<%=usuario.getCodigo()%>"><%=usuario.getNombre()%></option>
+                <%
+                    }
+                %>
+            </select>
               <input type="text" required class="form-control" placeholder="Estado UsuarioRol" id="estado_usuarioRol" value="<%=usuarioRol.getEstado()%>" name="estado_usuarioRol"/>
             <div class="modal-footer">
                 <button id="btn_guardar" name="btn_guardar" type="submit" class="btn btn-primary" >Guardar</button>
