@@ -12,6 +12,9 @@
 <%
  List<Categoria> lista=FCategoria.categoria_buscartodos();
  Iterator<Categoria> itCategoria=lista.iterator();
+ 
+ session.getAttribute("value");
+ 
 %>
 <!DOCTYPE html>
 <html>

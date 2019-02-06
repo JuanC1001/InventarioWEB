@@ -10,6 +10,7 @@
 
 <!DOCTYPE html>
 <%
+
     try {
             Entrada entrada=new Entrada();
             int codigo_producto= Integer.parseInt(request.getParameter("producto"));

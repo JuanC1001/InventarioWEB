@@ -22,7 +22,7 @@
             usuarioRol.setRol(FRol.rol_buscarporid(codigo_rol));
             usuarioRol.setUsuario(FUsuario.usuario_buscarporid(codigo_usuario));
 
-            usuarioRol.setEstado(request.getParameter("estado_usuarioRol"));
+            usuarioRol.setEstado(Integer.parseInt(request.getParameter("estado_usuarioRol")));
             
  
             

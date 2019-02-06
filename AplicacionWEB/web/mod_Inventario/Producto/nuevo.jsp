@@ -25,6 +25,8 @@
             <input type="text" class="form-control" placeholder="Precio Venta" required id="precio_venta_producto" name="precio_venta_producto"/>
             <input type="text" class="form-control" placeholder="Precio Compra" required id="precio_compra_producto" name="precio_compra_producto"/>            
             <select  class="form-control" name="categoria">
+                
+                
                 <%
                     for(Categoria cat: listaproducto){%>
                     <option value="<%=cat.getCodigo()%>"> <%=cat.getNombre()%></option>

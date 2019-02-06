@@ -9,12 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Nueva Categoria</title>
-        
+        <title>Nueva Categoria</title>        
     </head>
     <body>
-        
-        
           <form method="POST"  action="procesa_nuevo.jsp">
             <input type="text" class="form-control" placeholder="Nombre Categoria" required id="nombre_categoria" name="nombre_categoria"/>
           

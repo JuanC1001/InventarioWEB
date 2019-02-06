@@ -1,25 +1,14 @@
-<%-- 
-    Document   : listar
-    Created on : 16-ene-2019, 17:07:24
-    Author     : Usuario
---%>
-
-<%@page import="rnegocio.funciones.*"%>
-<%@page import="rnegocio.entidades.*"%>
-<%@page import="java.util.Iterator"%>
-<%@page import="java.util.List"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
+
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">       
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-
+        <title>Home</title>
         <link href="mod_Inventario/Usuario/listar.jsp" rel="stylesheet">
         <!-- Bootstrap Core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -31,40 +20,22 @@
         <link href="vendor/morrisjs/morris.css" rel="stylesheet">
         <!-- Custom Fonts -->
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <title>Inicio</title>
+
     </head>
+
     <body>
 
-        <div id="page-wrapper">
-            <!--Sección alerta-->
-            <%
-                String alerta="";
-                try {
-                          alerta=request.getParameter("alerta").toString();
-                    } catch (Exception e) {
-                    }
-           
-        if (alerta.equals("si")){%>
-            <div class="alert alert-success" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Éxito!</strong> Bienvenido
-            </div>
-            <%} if(alerta.equals("no")){%>
-            <div class="alert alert-danger" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Falló!</strong> Datos erroneos, vuelva a ingresar los datos
-            </div>
-            <% }%>
-            <!--Fin Sección alerta-->
-            <div id="top">
+        <div id="top">
                 <nav class="navbar navbar-default navbar-static-top" role="navigation">
+                    
                     <div id="header" class="col-lg-9">
                         <div id="logo">
-                            <a class="navbar-brand" href="../../pages/index.html">
-                                <img src="../../Images/logo1.jpg" style="max-width:25%;width:auto;height:auto;">
+                            <a class="navbar-brand" href="index.html">
+                                <img src="Images/logo1.jpg" style="max-width:25%;width:auto;height:auto;">
                             </a>
                         </div>
                     </div>
+                    
                     <ul class="nav navbar-top-links navbar-right" style="float:right">
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -104,9 +75,13 @@
                                 <i class="fa fa-user fa-fw"></i> Sesion <i class="fa fa-caret-down"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-user">
-                                <div class="btniniciar">
-                                    <button type="button" onclick="return modalnuevo();" class="btn btn-primary" data-toggle="modal" data-target="#ModalNuevo"> Nuevo</button>  
-                                </div>
+                                <li><a href="#"><i class="fa fa-user fa-fw"></i> Usuario </a>
+                                </li>
+                                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuraciones</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="inicio.html"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
+                                </li>
                             </ul>
                             <!-- /.dropdown-user -->
                         </li>
@@ -114,49 +89,126 @@
                     </ul>
                     <!-- /.navbar-top-links -->
                 </nav>
-            </div>
-            <div id="inicio">
-                <div id="fondo1">
-                    <img src="Images/fondo.jpg" style="max-width:100%;width:auto;height:auto;">
-                </div>
-            </div>
-            <div class="modal fade" id="ModalNuevo" class="" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <div class="modal-body">
-                        </div>
-                    </div>
-                </div>
-            </div>       
-            <script src="vendor/jquery/jquery.min.js"></script>
-            <!-- Bootstrap Core JavaScript -->
-            <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-            <!-- Metis Menu Plugin JavaScript -->
-            <script src="vendor/metisMenu/metisMenu.min.js"></script>
-            <!-- Morris Charts JavaScript -->
-            <script src="vendor/raphael/raphael.min.js"></script>
-            <script src="vendor/morrisjs/morris.min.js"></script>
-            <script src="data/morris-data.js"></script>
-            <!-- Custom Theme JavaScript -->
-            <script src="dist/js/sb-admin-2.js"></script>
+        </div>
 
-            <script>
-                        function modalnuevo(codigo) {
-                            $('.modal-body').load('login.jsp', function () {
+        
+        
+        
+        <div id="wrapper">
+            <!-- Navigation -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="index.html"><i class="fa fa-home fa-fw"></i> Principal</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-th-large fa-fw"></i>Modulo Entidades<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="mod_Inventario/Categoria/listar.jsp">Categoria</a>
+                                </li>
+                                <li>
+                                    <a href="mod_Inventario/Producto/listar.jsp">Producto </a>
+                                </li>
+                                <li>
+                                    <a href="mod_Inventario/Proveedor/listar.jsp">Proveedor</a>
+                                </li>
+                                <li>
+                                    <a href="mod_Inventario/Destino/listar.jsp">Destino</a>
+                                </li>                               
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i>Modulo Inventario<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="mod_Inventario/Entrada/listar.jsp">Entradas</a>
+                                </li>
+                                <li>
+                                    <a href="mod_Inventario/Salida/listar.jsp">Salidas</a>
+                                </li>                              
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
 
-                            });
-                        }
-<!--Sección alerta-->
-                        window.setTimeout(function () {
-                            $(".alert").fadeTo(500, 0).slideUp(500, function () {
-                                $(this).remove();
-                            });
-                        }, 4000);
-<!--fin Sección alerta-->
-            </script>
-        </div>    
-    </body>
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Modulo Usuarios<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="mod_usuarios/Usuario/listar.jsp">Usuario</a>
+                                </li>
+                                <li>
+                                    <a href="mod_usuarios/Rol/listar.jsp">Rol</a>
+                                </li>
+                                <li>
+                                    <a href="mod_usuarios/Pagina/listar.jsp">Pagina</a>
+                                </li>
+                                <li>
+                                    <a href="mod_usuarios/UsuarioRol/listar.jsp">Usuario Rol</a>
+                                </li>
+                                <li>
+                                    <a href="mod_usuarios/RolPagina/listar.jsp"> Pagina Rol</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="login.html">Login Page</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </div>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-5">
+                </div>
+                <img src="Images/fondo.jpg" style="max-width:100%;width:auto;height:auto;">
+
+            </div>
+        </div>
+
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="vendor/raphael/raphael.min.js"></script>
+    <script src="vendor/morrisjs/morris.min.js"></script>
+    <script src="data/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="dist/js/sb-admin-2.js"></script>
+
+</body>
+
 </html>

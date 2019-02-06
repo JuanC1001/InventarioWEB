@@ -60,9 +60,9 @@
                   Destino destino=itDestino.next();%>
                 <tr>
                    <td><%= destino.getCodigo()%></td>
-                    <td><%= destino.getDescripcion()%></td>
+                    <td><%= destino.getNombre()%></td>
                         <td>
-                         <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= destino.getDescripcion()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>
+                         <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= destino.getNombre()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>
                          
                         <button type="button"  onclick="return modaledita(<%= destino.getCodigo()%>)" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditar">Editar</button>         
                    </td>
