@@ -1,40 +1,49 @@
 <%-- 
     Document   : editar
-    Created on : 16-ene-2019, 17:14:15
-    Author     : MI PC
+    Created on : 16-ene-2019, 17:29:10
+    Author     : Usuario
 --%>
 
-
-<%@page import="rnegocio.funciones.FDestino"%>
-<%@page import="rnegocio.entidades.Destino"%>
+<%@page import="rnegocio.entidades.*"%>
+<%@page import="rnegocio.funciones.*"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%!
-    Destino destino = new Destino();
+   Destino destino= new Destino();
 %>
 <%
-    int codigo = Integer.parseInt(request.getParameter("codigo"));
-    destino = FDestino.destino_buscarporid(codigo);
-
+    try {
+        
+         int codigo= Integer.parseInt(request.getParameter("codigo"));
+      //  out.print("<script>alert("+codigo+");</script>");
+         destino=FDestino.destino_buscarporid(codigo);                
+        } catch (Exception e) {
+        }
+   
+   
 %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Editar Destino</title>
+     
     </head>
+    
     <body>
-
-        <form method="POST" action="procesa_editar.jsp">
-                    <h1> Destino</h1>    
-
-            <input type="hidden" id="codigo" name="codigo" value="<%=destino.getCodigo()%>">
-            <input type="text" id="descripcion_destino" name="descripcion_destino" value="<%=destino.getDescripcion()%>"/>
-           
-            <br/>
-            <button type="submit" >Guardar</button>
-        </form>         
+          <form method="POST" action="procesa_editar.jsp">
+              <input type="hidden" id="codigo" name="codigo" value="<%=destino.getCodigo()%>">
+              
+              <input type="text" required class="form-control" placeholder="Nombre Destino" id="nombre_producto" value="<%=destino.getNombre()%>" name="nombre_destino"/>          
+            <div class="modal-footer">
+                <button id="btn_guardar" name="btn_guardar" type="submit" class="btn btn-primary" >Guardar</button>
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+        </form>
+          
+        
     </body>
+    
 </html>

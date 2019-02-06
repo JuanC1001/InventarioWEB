@@ -1,7 +1,7 @@
 <%-- 
     Document   : nuevo
-    Created on : 16-ene-2019, 17:13:44
-    Author     : MI PC
+    Created on : 16-ene-2019, 17:28:58
+    Author     : Usuario
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,14 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        
+        <title>Nueva Destino</title>        
     </head>
     <body>
-        
-        
           <form method="POST"  action="procesa_nuevo.jsp">
-            <input type="text" class="form-control" placeholder="Descripcion Destino" required id="descripcion_destino" name="descripcion_destino"/>
+            <input type="text" class="form-control" placeholder="Nombre Destino" required id="nombre_destino" name="nombre_destino"/>
           
             <div class="modal-footer">
                 <button id="btn_guardar" name="btn_guardar" type="submit" class="btn btn-primary" >Guardar</button>
@@ -26,3 +23,4 @@
           
     </body>
 </html>
+

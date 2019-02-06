@@ -8,6 +8,8 @@
 <%@page import="rnegocio.entidades.*"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
+<%@page import="java.util.Calendar"%>
+
 
 
 <%
@@ -15,6 +17,12 @@
 %>
 <%
  List<Proveedor> listaproveedor=FProveedor.proveedor_buscartodos();
+
+Calendar fecha = Calendar.getInstance();
+int a = fecha.get(Calendar.YEAR);
+int m = fecha.get(Calendar.MONTH);
+int d = fecha.get(Calendar.DAY_OF_MONTH);
+
 %>
 <!DOCTYPE html>
 
@@ -24,8 +32,11 @@
         <title>Nuevo Entrada</title>      
     </head>
     <body>
+
         <form method="POST"  action="procesa_nuevo.jsp">
-            <input type="text" class="form-control" placeholder="Fecha" required id="fecha_entrada" name="fecha_entrada"/>
+
+            <input type="text" disabled class="form-control" placeholder="<%=d+" - "+m+" - "+ a%>" required id="fecha_entrada" name="fecha_entrada"/>
+            
             <select id="producto" name="producto" class="form-control">
                 <%
                     for(Producto producto: listaproducto){%>

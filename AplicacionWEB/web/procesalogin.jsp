@@ -26,6 +26,7 @@
         usuario= FUsuario.usuario_login(nombre1, clave1);
         
         if(usuario!=null){
+            session.setAttribute("value", usuario.getCodigo());
               out.println("<script>  location.replace('index.html');</script>");
         }else{
             out.println("<script>  location.replace('inicio.html');</script>");
