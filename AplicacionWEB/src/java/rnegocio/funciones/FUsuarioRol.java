@@ -79,10 +79,10 @@ public class FUsuarioRol {
             obj = null;
             while (rs.next()) {
                 obj = new UsuarioRol();
-              obj.setCodigo(rs.getInt("pucodigo"));
-                obj.setUsuario(FUsuario.usuario_buscarporid(rs.getInt("pucodigo_usuario")));
-                obj.setRol(FRol.rol_buscarporid(rs.getInt("pucodigo_rol")));
-                obj.setEstado(rs.getInt("puestado"));
+                obj.setCodigo(rs.getInt("pcodigo"));
+                obj.setRol(FRol.rol_buscarporid(rs.getInt("pcodigo_rol")));
+                obj.setUsuario(FUsuario.usuario_buscarporid(rs.getInt("pcodigo_usuario")));
+                obj.setEstado(rs.getInt("pestado"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -95,7 +95,7 @@ public class FUsuarioRol {
 
     }
 
-    public static boolean UsuarioRol_insertar(UsuarioRol UsuarioRol) throws Exception {
+    public static boolean UsuarioRol_insertar(UsuarioRol usuariorol) throws Exception {
         boolean respuesta = false;
         Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
         try {
@@ -108,9 +108,9 @@ public class FUsuarioRol {
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
-            parametros.add(new Parametro(1, UsuarioRol.getRol().getCodigo()));
-            parametros.add(new Parametro(2, UsuarioRol.getUsuario().getCodigo()));
-            parametros.add(new Parametro(3, UsuarioRol.getEstado()));
+            parametros.add(new Parametro(1, usuariorol.getRol().getCodigo()));
+            parametros.add(new Parametro(2, usuariorol.getUsuario().getCodigo()));
+            parametros.add(new Parametro(3, usuariorol.getEstado()));
 
             //llenar el comando con los parametros
             cmd.setLstParametros(parametros);
@@ -144,7 +144,7 @@ public class FUsuarioRol {
             parametros.add(new Parametro(1, UsuarioRol.getCodigo()));
             parametros.add(new Parametro(2, UsuarioRol.getRol().getCodigo()));
             parametros.add(new Parametro(3, UsuarioRol.getUsuario().getCodigo()));
-            
+
             parametros.add(new Parametro(4, UsuarioRol.getEstado()));
 
             //llenar el comando con los parametros

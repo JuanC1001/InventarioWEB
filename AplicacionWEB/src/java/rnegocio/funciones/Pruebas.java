@@ -7,10 +7,10 @@ package rnegocio.funciones;
 
 import java.sql.Date;
 import java.util.ArrayList;
-import rnegocio.funciones.FEntrada;
-import rnegocio.entidades.Entrada;
-import rnegocio.entidades.Producto;
-import rnegocio.entidades.Proveedor;
+import rnegocio.funciones.FUsuarioRol;
+import rnegocio.entidades.UsuarioRol;
+import rnegocio.entidades.Usuario;
+import rnegocio.entidades.Rol;
 
 /**
  *
@@ -23,18 +23,17 @@ public class Pruebas {
      */
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-        ArrayList<Entrada> lista = new ArrayList<Entrada>();
-        Producto producto=new Producto();
-        Proveedor proveedor=new Proveedor();
-        producto=FProducto.producto_buscarporid(428);
-        proveedor=FProveedor.proveedor_buscarporid(1);
-
-        int clav = 1;
-        Entrada entrada=new Entrada(1,null, producto, 500, proveedor, "hola");
+        ArrayList<UsuarioRol> lista = new ArrayList<UsuarioRol>();
+        Usuario usuario=new Usuario();
+        Rol rol=new Rol();
+        usuario=FUsuario.usuario_buscarporid(1);
+        rol=FRol.rol_buscarporid(1);
+        UsuarioRol usuariorol=new UsuarioRol(1, rol, usuario, 1);
         
-//        Entrada user = new Entrada();
-        Boolean resp = FEntrada.entrada_insertar(entrada);
-//       System.err.println(">>" + user.getCodigo());
+        Usuario user = new Usuario();
+        //Boolean resp = FUsuarioRol.UsuarioRol_insertar(usuariorol);
+        user=FUsuario.usuario_buscarporid(1);
+       System.err.println(">>" + user.getNombre());
 //        System.err.println(">>" + user.getNombre());
 
     }

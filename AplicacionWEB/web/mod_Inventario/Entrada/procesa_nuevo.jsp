@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*,rnegocio.funciones.*,rnegocio.entidades.*"%>
 <%@ page import="java.util.*" %>
-<%@ page import="java.text.SimpleDateFormat"%>
+
 
 <!DOCTYPE html>
 <%
@@ -16,7 +16,7 @@
             int codigo_producto= Integer.parseInt(request.getParameter("producto"));
             int codigo_proveedor= Integer.parseInt(request.getParameter("proveedor"));
 
-entrada.setFecha(Date);
+            entrada.setFecha(Date);
             entrada.setProducto(FProducto.producto_buscarporid(codigo_producto));
             
             entrada.setCantidad(Integer.parseInt(request.getParameter("cantidad_entrada")));

@@ -27,7 +27,7 @@
     <body>
         <form method="POST"  action="procesa_nuevo.jsp">
             
-            <select name="roles" class="form-control">
+            <select id="rol" name="rol" class="form-control">
                 <%
                     for(Rol rol: listarol){%>
                 <option value="<%=rol.getCodigo()%>"><%=rol.getNombre()%></option>
@@ -36,7 +36,7 @@
                 %>
             </select>  
 
-            <select name="usuarios" class="form-control">
+            <select id="usuario" name="usuario" class="form-control">
                 <%
                     for(Usuario usuario: listausuario){%>
                 <option value="<%=usuario.getCodigo()%>"><%=usuario.getNombre()%></option>

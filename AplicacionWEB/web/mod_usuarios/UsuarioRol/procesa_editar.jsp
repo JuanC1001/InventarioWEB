@@ -10,15 +10,16 @@
 <%
     try {
            UsuarioRol usuarioRol=new UsuarioRol();
+           
            usuarioRol.setCodigo(Integer.valueOf(request.getParameter("codigo")));
-           usuarioRol.setRol(Integer.valueOf(request.getParameter("codigo_rol")));
-           usuarioRol.setUsuario(Integer.valueOf(request.getParameter("codigo_usuario")));
+           usuarioRol.setRol(Integer.valueOf(request.getParameter("rol")));
+           usuarioRol.setUsuario(Integer.valueOf(request.getParameter("usuario")));
            usuarioRol.setEstado(Integer.valueOf(request.getParameter("estado_usuarioRol")));
             
 
             
             
-           boolean result= FUsuarioRol.UsuarioRol_editar(UsuarioRol);
+           boolean result= FUsuarioRol.UsuarioRol_editar(usuarioRol);
              if (result)
                 out.println("<script> alert('Se ha guardado correctamente...'); location.replace('listar.jsp');</script>");
             else 
