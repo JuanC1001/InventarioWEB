@@ -5,7 +5,6 @@
  */
 package rnegocio.entidades;
 
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.util.Date;
 
 /**
@@ -15,7 +14,7 @@ import java.util.Date;
 public class Entrada {
 
     private int codigo;
-    private String  fecha;
+    private Date fecha;
     private Producto producto;
     private int cantidad;
     private Proveedor proveedor;
@@ -23,7 +22,7 @@ public class Entrada {
     public Entrada() {
     }
 
-    public Entrada(int codigo, String fecha, Producto producto, int cantidad, Proveedor proveedor, String detalle) {
+    public Entrada(int codigo, Date fecha, Producto producto, int cantidad, Proveedor proveedor, String detalle) {
         this.codigo = codigo;
         this.fecha = fecha;
         this.producto = producto;
@@ -41,11 +40,11 @@ public class Entrada {
         this.codigo = codigo;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 

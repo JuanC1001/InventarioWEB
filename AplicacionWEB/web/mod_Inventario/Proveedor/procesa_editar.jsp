@@ -9,12 +9,13 @@
 <%
     try {
             Proveedor proveedor=new Proveedor();
-            proveedor.setDireccion(request.getParameter("direccion_proveedor"));
-            proveedor.setTelefono(request.getParameter("telefono_proveedor"));
-            proveedor.setRuc(request.getParameter("ruc_proveedor"));
-            proveedor.setTelefono(request.getParameter("telefono_proveedor"));            
-            proveedor.setEmail(request.getParameter("email_proveedor"));
             proveedor.setCodigo(Integer.valueOf(request.getParameter("codigo")));
+            proveedor.setNombre(request.getParameter("nombre_proveedor"));
+            proveedor.setDireccion(request.getParameter("direccion_proveedor"));
+            proveedor.setTelefono(request.getParameter("telefono_proveedor"));                        
+            proveedor.setRuc(request.getParameter("ruc_proveedor"));
+            proveedor.setEmail(request.getParameter("email_proveedor"));
+            
            boolean result= FProveedor.proveedor_editar(proveedor);
              if (result)
                 out.println("<script>  location.replace('listar.jsp?alerta=si');</script>");

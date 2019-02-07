@@ -4,14 +4,27 @@
     Author     : Usuario
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*,rnegocio.funciones.FCategoria,rnegocio.entidades.*"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*,rnegocio.funciones.*,rnegocio.entidades.*"%>
+<%@page import = "java.text.SimpleDateFormat,java.text.ParseException, javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse"%>
+
 <!DOCTYPE html>
 <%
-    try {
-            Categoria categoria=new Categoria();
-            categoria.setNombre(request.getParameter("nombre_categoria"));
-            categoria.setCodigo(Integer.valueOf(request.getParameter("codigo")));
-           boolean result= FCategoria.categoria_editar(categoria);
+      try {
+            Salida salida=new Salida();
+            
+            String startDateStr = request.getParameter("fecha_salida");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date startDate = sdf.parse(startDateStr);
+            salida.setCodigo(Integer.valueOf(request.getParameter("codigo")));
+            salida.setFecha(startDate);            
+            salida.setProducto(FProducto.producto_buscarporid(Integer.parseInt(request.getParameter("product"))));             
+            salida.setCantidad(Integer.parseInt(request.getParameter("cantidad_salida")));             
+            salida.setDestino(FDestino.destino_buscarporid(Integer.parseInt(request.getParameter("proveedo"))));
+            
+            salida.setDetalle(request.getParameter("detalle_salida"));            
+          
+           boolean result= FSalida.salida_editar(salida);
+            
              if (result)
                 out.println("<script>  location.replace('listar.jsp?alerta=si');</script>");
             else 

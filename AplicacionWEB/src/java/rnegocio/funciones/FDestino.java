@@ -21,7 +21,7 @@ import rnegocio.entidades.Destino;
  */
 public class FDestino {
 
-    public static ArrayList<Destino> destino_listar() throws Exception {
+    public static ArrayList<Destino> destino_buscartodos() throws Exception {
         //CREO LISTA QUE RECIBIRA LOS DATOS DEL RESULSET
         ArrayList<Destino> lista = new ArrayList<Destino>();
         Destino obj = new Destino();

@@ -1,28 +1,19 @@
-<%-- 
-    Document   : editar
-    Created on : 16-ene-2019, 17:29:10
-    Author     : Usuario
---%>
 
 <%@page import="rnegocio.entidades.*"%>
 <%@page import="rnegocio.funciones.*"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <%!
    Categoria categoria= new Categoria();
 %>
 <%
-    try {
-        
+    try {        
          int codigo= Integer.parseInt(request.getParameter("codigo"));
       //  out.print("<script>alert("+codigo+");</script>");
          categoria=FCategoria.categoria_buscarporid(codigo);                
         } catch (Exception e) {
         }
-   
-   
 %>
 <!DOCTYPE html>
 <html>

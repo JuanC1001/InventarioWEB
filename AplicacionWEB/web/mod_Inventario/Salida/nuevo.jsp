@@ -7,7 +7,16 @@
 <%@page import="rnegocio.funciones.*"%>
 <%@page import="rnegocio.entidades.*"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="java.util.List"%>
+<%@page import="java.util.*"%>
+<%@page import="java.util.Calendar"%>
+<%@page import="java.text.SimpleDateFormat"%>
+
+<%
+   Date dNow = new Date();
+   SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd");
+   String currentDate = ft.format(dNow);
+%>
+
 
 
 <%
@@ -21,12 +30,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Nuevo Salida</title>      
+        <title>Nueva Salida</title>      
     </head>
     <body>
+
         <form method="POST"  action="procesa_nuevo.jsp">
-            <input type="text" class="form-control" placeholder="Fecha" required id="fecha_salida" name="fecha_salida"/>
-            <select id="producto" name="producto" class="form-control">
+            <h4> FECHA: <%=currentDate%></h4>
+
+            <input type="hidden" value="<%=currentDate%>" type="text"  class="form-control" required id="fecha_salida" name="fecha_salida"/>
+
+            <select id="product" name="product" class="form-control">
                 <%
                     for(Producto producto: listaproducto){%>
                 <option value="<%=producto.getCodigo()%>"><%=producto.getNombre()%></option>
@@ -36,7 +49,7 @@
             </select>  
             <input type="text" class="form-control" placeholder="Cantidad" required id="cantidad_salida" name="cantidad_salida"/>
 
-            <select id="destino" name="destino" class="form-control">
+            <select id="proveedo" name="proveedo" class="form-control">
                 <%
                     for(Destino destino: listadestino){%>
                 <option value="<%=destino.getCodigo()%>"><%=destino.getNombre()%></option>
@@ -45,7 +58,7 @@
                 %>
             </select>  
 
-            <input type="text" class="form-control" placeholder="Detalle " required id="detalle_salida" name="detalle_salida"/>
+            <input type="text" class="form-control" placeholder="Detalle " id="detalle_salida" name="detalle_salida"/>
 
             <div class="modal-footer">
                 <button id="btn_guardar" name="btn_guardar" type="submit" class="btn btn-primary" >Guardar</button>

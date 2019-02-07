@@ -7,8 +7,15 @@
 <%@page import="rnegocio.funciones.*"%>
 <%@page import="rnegocio.entidades.*"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="java.util.List"%>
+<%@page import="java.util.*"%>
 <%@page import="java.util.Calendar"%>
+<%@page import="java.text.SimpleDateFormat"%>
+
+<%
+   Date dNow = new Date();
+   SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd");
+   String currentDate = ft.format(dNow);
+%>
 
 
 
@@ -17,12 +24,6 @@
 %>
 <%
  List<Proveedor> listaproveedor=FProveedor.proveedor_buscartodos();
-
-Calendar fecha = Calendar.getInstance();
-int a = fecha.get(Calendar.YEAR);
-int m = fecha.get(Calendar.MONTH);
-int d = fecha.get(Calendar.DAY_OF_MONTH);
-
 %>
 <!DOCTYPE html>
 
@@ -34,10 +35,11 @@ int d = fecha.get(Calendar.DAY_OF_MONTH);
     <body>
 
         <form method="POST"  action="procesa_nuevo.jsp">
+            <h4> FECHA: <%=currentDate%></h4>
 
-            <input type="text" disabled class="form-control" placeholder="<%=d+" - "+m+" - "+ a%>" required id="fecha_entrada" name="fecha_entrada"/>
-            
-            <select id="producto" name="producto" class="form-control">
+            <input type="hidden" value="<%=currentDate%>" type="text"  class="form-control" required id="fecha_entrada" name="fecha_entrada"/>
+
+            <select id="product" name="product" class="form-control">
                 <%
                     for(Producto producto: listaproducto){%>
                 <option value="<%=producto.getCodigo()%>"><%=producto.getNombre()%></option>
@@ -47,7 +49,7 @@ int d = fecha.get(Calendar.DAY_OF_MONTH);
             </select>  
             <input type="text" class="form-control" placeholder="Cantidad" required id="cantidad_entrada" name="cantidad_entrada"/>
 
-            <select id="proveedor" name="proveedor" class="form-control">
+            <select id="proveedo" name="proveedo" class="form-control">
                 <%
                     for(Proveedor proveedor: listaproveedor){%>
                 <option value="<%=proveedor.getCodigo()%>"><%=proveedor.getNombre()%></option>
@@ -56,7 +58,7 @@ int d = fecha.get(Calendar.DAY_OF_MONTH);
                 %>
             </select>  
 
-            <input type="text" class="form-control" placeholder="Detalle " required id="detalle_entrada" name="detalle_entrada"/>
+            <input type="text" class="form-control" placeholder="Detalle " id="detalle_entrada" name="detalle_entrada"/>
 
             <div class="modal-footer">
                 <button id="btn_guardar" name="btn_guardar" type="submit" class="btn btn-primary" >Guardar</button>

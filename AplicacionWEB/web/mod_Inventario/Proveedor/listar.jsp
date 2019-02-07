@@ -61,6 +61,7 @@
             <th>Id</th>
             <th>Nombre</th>
             <th>Direccion</th>
+            <th>Telefono</th>            
             <th>Ruc</th>
             <th>Email</th>
             <th></th>
@@ -72,6 +73,7 @@
                 <td><%= proveedor.getCodigo()%></td>
                 <td><%= proveedor.getNombre()%></td>
                 <td><%= proveedor.getDireccion()%></td>
+                <td><%= proveedor.getTelefono()%></td>                
                 <td><%= proveedor.getRuc()%></td>
                 <td><%= proveedor.getEmail()%></td>
                 <td>

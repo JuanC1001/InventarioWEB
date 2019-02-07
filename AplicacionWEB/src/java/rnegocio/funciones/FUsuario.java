@@ -93,7 +93,6 @@ public class FUsuario {
                 obj.setUltimo_acceso(rs.getTimestamp("pultimo_acceso"));
                 obj.setUltima_ip(rs.getString("pultimo_ip"));
                 obj.setFecha_modificacion(rs.getDate("pfecha_modificacion"));
-
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -145,12 +144,14 @@ public class FUsuario {
         boolean respuesta = false;
         Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
         try {
+            StringEncrypter encriptar = new StringEncrypter("loquesea");
+            String claveencriptada = encriptar.encrypt(usuario.getClave());
             //CREAMOS EL ARRAYLIST DE LOS COMANDOS O SENTENCIAS SQL
             ArrayList<Comando> comandos = new ArrayList<Comando>();
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
             Comando cmd = new Comando();
             //SETEAMOS LA FUNCION AL COMAND0
-            cmd.setSetenciaSql("select * from usuarios.usuario_editar(?,?)");
+            cmd.setSetenciaSql("SELECT *from usuarios.usuario_editar(?,?,?,?,?,?,?,?,?,?);");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
             //llenamos el arraylist con todos los parametros
@@ -159,7 +160,7 @@ public class FUsuario {
             parametros.add(new Parametro(3, usuario.getNombre()));
             parametros.add(new Parametro(4, usuario.getEmail()));
             parametros.add(new Parametro(5, usuario.getCedula()));
-            parametros.add(new Parametro(6, usuario.getClave()));
+            parametros.add(new Parametro(6, claveencriptada));
             parametros.add(new Parametro(7, usuario.getPrimer_acceso()));
             parametros.add(new Parametro(8, usuario.getUltimo_acceso()));
             parametros.add(new Parametro(9, usuario.getUltima_ip()));

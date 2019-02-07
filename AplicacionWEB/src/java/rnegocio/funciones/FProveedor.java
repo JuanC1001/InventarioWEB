@@ -70,7 +70,7 @@ public class FProveedor {
 
         try {
             //declaro mi sql
-            String sql = "SELECT *from facturacion.proveedor_buscar(?);";
+                String sql = "SELECT *from facturacion.proveedor_buscar(?);";
             //creo mi preparedstatement
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset

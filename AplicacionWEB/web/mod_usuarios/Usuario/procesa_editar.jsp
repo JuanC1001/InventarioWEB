@@ -1,27 +1,29 @@
 <%-- 
-    Document   : procesa_editar
-    Created on : 25-ene-2019, 17:33:39
-    Author     : MI PC
+    Document   : procesa_nuevo
+    Created on : 25-ene-2019, 15:37:06
+    Author     : Usuario
 --%>
 
-<%@page import="rnegocio.funciones.FUsuario"%>
-<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*,rnegocio.entidades.*"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*,rnegocio.funciones.FUsuario,rnegocio.entidades.*"%>
+
 <!DOCTYPE html>
-<%
+
+<%   
     try {
             Usuario usuario=new Usuario();
             usuario.setCodigo(Integer.valueOf(request.getParameter("codigo")));
-            usuario.setUrl(request.getParameter("url_usuario"));
-            usuario.setDescripcion(request.getParameter("descripcion_usuario"));
-            
+            usuario.setNombre(request.getParameter("nombre_usuario"));
+            usuario.setApellido(request.getParameter("apellido_usuario"));
+            usuario.setCedula(request.getParameter("cedula_usuario")); 
+            usuario.setEmail(request.getParameter("email_usuario"));            
+            usuario.setClave(request.getParameter("clave_usuario"));
+            //out.print("<script>alert("+usuario.getClave()+");</script>");
+           boolean resultado= FUsuario.usuario_editar(usuario);
 
-            
-            
-           boolean result= FUsuario.usuario_editar(usuario);
-             if (result)
-                out.println("<script> alert('Se ha guardado correctamente...'); location.replace('listar.jsp');</script>");
+             if (resultado)
+                out.println("<script>  location.replace('listar.jsp?alerta=si');</script>");
             else 
-                out.println("<script> alert('No se ha guardado correctamente...'); location.replace('listar.jsp');</script>");
+                out.println("<script>  location.replace('listar.jsp?alerta=no');</script>");
 
         } catch (Exception e) {
             out.print(e.getMessage());

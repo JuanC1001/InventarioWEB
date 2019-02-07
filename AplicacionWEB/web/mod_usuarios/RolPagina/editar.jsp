@@ -14,18 +14,12 @@
    RolPagina rolpagina= new RolPagina();
 %>
 <%
-    try {
-        
+    try {       
          int codigo= Integer.parseInt(request.getParameter("codigo"));
       //  out.print("<script>alert("+codigo+");</script>");
          rolpagina=FPagin.rolpagina_buscarporid(codigo);
-        
-        
-        
         } catch (Exception e) {
         }
-   
-   
 %>
 <!DOCTYPE html>
 <html>
