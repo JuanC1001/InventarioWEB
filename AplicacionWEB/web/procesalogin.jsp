@@ -26,10 +26,16 @@
         usuario= FUsuario.usuario_login(nombre1, clave1);
         
         if(usuario!=null){
-            session.setAttribute("value", usuario.getCodigo());
-              out.println("<script>  location.replace('index.html');</script>");
+            session.setAttribute("usuario", usuario.getCodigo());
+            session.setAttribute("clave", usuario.getClave());
+            response.sendRedirect("inicio.html?alerta=si");
+            //out.println("<script>  location.replace('index.html');</script>");
+            
         }else{
             out.println("<script>  location.replace('inicio.html');</script>");
+            if(request.getParameter("cerrar")!=null){
+            session.invalidate();            
+            }
         }
         } catch (Exception e) {
         }

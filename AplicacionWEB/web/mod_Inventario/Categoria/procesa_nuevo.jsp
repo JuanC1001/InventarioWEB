@@ -13,7 +13,8 @@
             Categoria categoria=new Categoria();
             categoria.setNombre(request.getParameter("nombre_categoria"));
            boolean result= FCategoria.categoria_insertar(categoria);
-             if (result)
+            session.getAttribute("value");
+             if (result && value=!0)
                 out.println("<script>  location.replace('listar.jsp?alerta=si');</script>");
             else 
                 out.println("<script>  location.replace('listar.jsp?alerta=no');</script>");
