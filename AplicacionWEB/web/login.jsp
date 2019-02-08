@@ -27,7 +27,7 @@
                     <div class="login-panel panel">
 
                         <div class="panel-body">
-                            <form role="form" action="procesalogin.jsp">
+                            <form role="form" action="procesalogin.jsp" target="sessionJsp">
                                 <fieldset>
                                     <div class="form-group">
                                         <input class="form-control" placeholder="Usuario" id="nombre" name="nombre" autofocus>
@@ -66,3 +66,4 @@
     </body>
 
 </html>
+

@@ -4,11 +4,25 @@
     Author     : MI PC
 --%>
 
-<%@page import="rnegocio.funciones.FDestino"%>
-<%@page import="rnegocio.entidades.Destino"%>
+<%@page import="rnegocio.funciones.*"%>
+<%@page import="rnegocio.entidades.*"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="javax.servlet.ServletException"%>
+<%@page import="javax.servlet.http.HttpServlet"%>
+<%@page import="javax.servlet.http.HttpServletRequest"%>
+<%@page import="javax.servlet.http.HttpServletResponse"%>
+<%@page import="javax.servlet.http.HttpSession"%>
+
+        
+<%
+     String user = (String) request.getSession().getAttribute("nombre");
+        if(user==null){
+            response.sendRedirect("../../inicio.html");
+        }
+   String user = (String) request.getSession().getAttribute("nombre");
+   
 <%
  List<Destino> lista=FDestino.destino_listar();
  Iterator<Destino> itDestino=lista.iterator();

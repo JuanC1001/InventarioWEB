@@ -26,10 +26,9 @@
         usuario= FUsuario.usuario_login(nombre1, clave1);
         
         if(usuario!=null){
-            session.setAttribute("usuario", usuario.getCodigo());
-            session.setAttribute("clave", usuario.getClave());
-            response.sendRedirect("index.html?alerta=si");
-            out.println("<script>  location.replace('index.html');</script>");
+            session.setAttribute("nombre", usuario.getNombre());
+            response.sendRedirect("index.jsp");
+            //out.println("<script>  location.replace('index.jsp');</script>");
             
         }else{
             out.println("<script>  location.replace('inicio.html');</script>");
