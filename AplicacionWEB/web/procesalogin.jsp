@@ -28,8 +28,8 @@
         if(usuario!=null){
             session.setAttribute("usuario", usuario.getCodigo());
             session.setAttribute("clave", usuario.getClave());
-            response.sendRedirect("inicio.html?alerta=si");
-            //out.println("<script>  location.replace('index.html');</script>");
+            response.sendRedirect("index.html?alerta=si");
+            out.println("<script>  location.replace('index.html');</script>");
             
         }else{
             out.println("<script>  location.replace('inicio.html');</script>");
