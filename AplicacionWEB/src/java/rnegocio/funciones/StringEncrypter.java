@@ -31,7 +31,7 @@ public class StringEncrypter {
     Cipher ecipher;
     Cipher dcipher;
 
-    StringEncrypter() {
+    public StringEncrypter() {
         try {
              SecretKey Key = KeyGenerator.getInstance("DES").generateKey();
             ecipher = Cipher.getInstance("icits");
@@ -47,7 +47,7 @@ public class StringEncrypter {
         }
     }
 
-    StringEncrypter(String passPhrase) {
+   public StringEncrypter(String passPhrase) {
         byte[] salt = {
             (byte)0xA9, (byte)0x9B, (byte)0xC8, (byte)0x32,
             (byte)0x56, (byte)0x34, (byte)0xE3, (byte)0x03
