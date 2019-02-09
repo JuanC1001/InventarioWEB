@@ -11,7 +11,7 @@
 
 
 <%
-         String user = (String) request.getSession().getAttribute("nombre");
+ String user = (String) request.getSession().getAttribute("nombre");
 
     session.invalidate(); 
 

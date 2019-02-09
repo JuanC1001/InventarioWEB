@@ -9,6 +9,7 @@
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%@page import="javax.servlet.ServletException"%>
 <%@page import="javax.servlet.http.HttpServlet"%>
 <%@page import="javax.servlet.http.HttpServletRequest"%>
@@ -18,9 +19,12 @@
         
 <%
      String user = (String) request.getSession().getAttribute("nombre");
+     
         if(user==null){
             response.sendRedirect("../../inicio.html");
         }
+        
+        
  List<Categoria> lista=FCategoria.categoria_buscartodos();
  Iterator<Categoria> itCategoria=lista.iterator();
  
