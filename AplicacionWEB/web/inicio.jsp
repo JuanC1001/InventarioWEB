@@ -9,16 +9,6 @@
 <%@page import="javax.servlet.http.HttpSession"%>
 
         
-<%
-     String user = (String) request.getSession().getAttribute("nombre");
-        if(user==null){
-            response.sendRedirect("inicio.html");
-        }else{
-            response.sendRedirect("index.jsp");        
-        }
-%>
-
-
 <!DOCTYPE html>
 <html lang="en">
 

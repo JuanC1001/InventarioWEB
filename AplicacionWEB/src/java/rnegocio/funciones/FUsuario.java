@@ -210,7 +210,7 @@ public class FUsuario {
 
     }
 
-    public static Usuario usuario_login(String picedula, String piclave) throws Exception {
+    public static Usuario usuario_login2(String picedula, String piclave) throws Exception {
         //CREO LISTA QUE RECIBIRA LOS DATOS DEL RESULSET
         Usuario obj = new Usuario();
         ResultSet rs = null;
@@ -226,7 +226,6 @@ public class FUsuario {
             //creo mi preparedstatement
             preStm = con.creaPreparedSmt(sql);
             //ejecuto el prepardestatement y le asigno a mi resulset
-
             preStm.setString(1, picedula);
             preStm.setString(2, pclaveencriptada);
             rs = con.ejecutaPrepared(preStm);
@@ -244,6 +243,42 @@ public class FUsuario {
             con.desconectar();
         }
         return obj;
+    }
 
+    public static Usuario usuario_login(String picedula, String piclave, int pirol) throws Exception {
+        //CREO LISTA QUE RECIBIRA LOS DATOS DEL RESULSET
+        Usuario obj = new Usuario();
+        ResultSet rs = null;
+        StringEncrypter encriptar = new StringEncrypter("loquesea");
+        String pclaveencriptada = encriptar.encrypt(piclave);
+        //LLAMO LA CONEXION
+        Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
+        //DECLARO UN PREPAREDSTATEMENT QUE EJECUTARA LA SQL
+        PreparedStatement preStm = null;
+        try {
+            //declaro mi sql
+            String sql = "SELECT *from usuarios.usuario_login(?,?,?);";
+            //creo mi preparedstatement
+            preStm = con.creaPreparedSmt(sql);
+            //ejecuto el prepardestatement y le asigno a mi resulset
+            preStm.setString(1, picedula);
+            preStm.setString(2, pclaveencriptada);
+            preStm.setInt(3, pirol);
+            rs = con.ejecutaPrepared(preStm);
+            obj = null;
+            while (rs.next()) {
+                obj = new Usuario();
+                obj.setCodigo(rs.getInt("pcodigo"));
+                obj.setNombre(rs.getString("pnombre_rol"));
+                obj.setNombre(rs.getString("pnombre_usuario"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            rs.close();
+            preStm.close();
+            con.desconectar();
+        }
+        return obj;
     }
 }

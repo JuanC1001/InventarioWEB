@@ -19,15 +19,13 @@
     try {        
         String nombre1= request.getParameter("nombre");
         String clave1= request.getParameter("clave");
-
-        usuario= FUsuario.usuario_login(nombre1, clave1);
-        
-        if(usuario!=null){
-            
+        int rol1= Integer.parseInt(request.getParameter("rol"));
+        usuario= FUsuario.usuario_login(nombre1, clave1, rol1);        
+        if(usuario!=null){            
             session.setAttribute("nombre", usuario.getNombre());
             //response.sendRedirect("index.jsp");
-            out.println("<script>  location.replace('index.jsp');</script>");
-            
+              response.sendRedirect("index.jsp");
+            //out.println("<script>  location.replace('/index.jsp');</script>");
         }else{
             out.println("<script>  location.replace('inicio.html');</script>");
             if(request.getParameter("cerrar")!=null){

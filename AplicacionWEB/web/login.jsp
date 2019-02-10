@@ -1,7 +1,11 @@
-<!DOCTYPE html>
+<%@page import="rnegocio.funciones.*"%>
+<%@page import="rnegocio.entidades.*"%>
+<%@page import="java.util.*"%>
+<%
+ List<Rol> listarol=FRol.rol_buscartodos();
+%>
 <html lang="en">
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
@@ -34,6 +38,16 @@
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" placeholder="Password" id="clave" name="clave" type="password" value="">
+                                    </div>
+                                    <div class="form-group">
+                                    <select  class="form-control" name="rol">
+                                        <%
+                                        for(Rol rol: listarol){%>
+                                        <option value="<%=rol.getCodigo()%>"> <%=rol.getNombre()%></option>
+                                        <%
+                                           }
+                                        %>
+                                    </select>
                                     </div>
                                     <div class="checkbox">
                                         <label>

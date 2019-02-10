@@ -14,7 +14,8 @@
 <%
      String user = (String) request.getSession().getAttribute("nombre");
         if(user==null){
-            response.sendRedirect("inicio.html");
+            out.println("<script>  location.replace('inicio.jsp');</script>");
+            //response.sendRedirect("inicio.html");
         }
         %>
 <html lang="en">
