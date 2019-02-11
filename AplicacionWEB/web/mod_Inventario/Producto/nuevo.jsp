@@ -9,6 +9,18 @@
 <%@page import="rnegocio.entidades.*"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
+<%@page import="javax.servlet.ServletException"%>
+<%@page import="javax.servlet.http.HttpServlet"%>
+<%@page import="javax.servlet.http.HttpServletRequest"%>
+<%@page import="javax.servlet.http.HttpServletResponse"%>
+<%@page import="javax.servlet.http.HttpSession"%>
+
+<%
+     String rol = (String) request.getSession().getAttribute("rol");     
+        if(rol.equals("Empleado")){
+        out.println("<script>  location.replace('listar.jsp?alerta=acceso_denegado');</script>");
+        } 
+%>
 <%
  List<Categoria> listaproducto=FCategoria.categoria_buscartodos();
 %>
