@@ -13,9 +13,8 @@ import com.google.gson.Gson;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import rnegocio.entidades.*;
 import java.util.ArrayList;
-import rnegocio.entidades.Categoria;
-import rnegocio.entidades.Producto;
 
 /**
  *
@@ -236,7 +235,18 @@ public class FProducto {
 
     }
 
-    public static String producto_buscarbyapellidosjson(String pinombre_categoria) throws Exception {
+    public static String producto_buscarbycategoriajson(String pinombre_categoria) throws Exception {
+        ArrayList<Producto> lista = new ArrayList<Producto>();
+        lista = producto_buscarbycategoria(pinombre_categoria);
+
+        Gson gson = new Gson();
+        StringBuilder sb = new StringBuilder();
+        for (Producto d : lista) {
+            sb.append(gson.toJson(d));
+        }
+        return sb.toString();
+    }
+        public static String producto_buscartodosjson(String pinombre_categoria) throws Exception {
         ArrayList<Producto> lista = new ArrayList<Producto>();
         lista = producto_buscarbycategoria(pinombre_categoria);
 

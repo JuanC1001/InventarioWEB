@@ -13,37 +13,44 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
+import rnegocio.funciones.*;
+import java.util.ArrayList;
+import rnegocio.entidades.Producto;
+
 
 /**
  * REST Web Service
  *
  * @author MI PC
  */
-@Path("salida")
-public class Salida {
+@Path("producto")
+public class ProductoResourse {
+
 
     @Context
     private UriInfo context;
 
     /**
-     * Creates a new instance of Salida
+     * Creates a new instance of ProductoResource
      */
-    public Salida() {
+    public ProductoResourse() {
     }
 
     /**
-     * Retrieves representation of an instance of Servicio.web.Salida
+     * Retrieves representation of an instance of Servicio.web.ProductoResource
      * @return an instance of java.lang.String
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getXml() {
+    public ArrayList<Producto> getXml() throws Exception {
         //TODO return proper representation object
-        throw new UnsupportedOperationException();
+        ArrayList<Producto> lista=new ArrayList<Producto>();
+        lista=FProducto.producto_buscartodos();
+        return lista;
     }
 
     /**
-     * PUT method for updating or creating an instance of Salida
+     * PUT method for updating or creating an instance of ProductoResource
      * @param content representation for the resource
      */
     @PUT
