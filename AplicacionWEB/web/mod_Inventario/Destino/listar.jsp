@@ -1,8 +1,3 @@
-<%-- 
-    Document   : prueba1
-    Created on : 16-ene-2019, 17:09:32
-    Author     : MI PC
---%>
 
 <%@page import="rnegocio.funciones.*"%>
 <%@page import="rnegocio.entidades.*"%>
@@ -14,17 +9,13 @@
 <%@page import="javax.servlet.http.HttpServletRequest"%>
 <%@page import="javax.servlet.http.HttpServletResponse"%>
 <%@page import="javax.servlet.http.HttpSession"%>
-
         
 <%
      String user = (String) request.getSession().getAttribute("nombre");
         if(user==null){
             response.sendRedirect("../../inicio.html");
-        }
-   String user = (String) request.getSession().getAttribute("nombre");
-   
-<%
- List<Destino> lista=FDestino.destino_listar();
+        } 
+ List<Destino> lista=FDestino.destino_buscartodos();
  Iterator<Destino> itDestino=lista.iterator();
 %>
 <!DOCTYPE html>
@@ -56,7 +47,13 @@
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
              <strong>Falló!</strong> La transacción fue fallida!
         </div>
-       <% }%>
+       <% }if (alerta.equals("acceso_denegado")){%>
+            <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Acceso denegado!</strong> Al parecer no tiene PERMISO para realizar esta acción!!
+            </div>
+            <%}
+            %>
         <!--Fin Sección alerta-->
          <h1>Destino</h1> 
            <button type="button" onclick="return modalnuevo();" class="btn btn-primary" data-toggle="modal" data-target="#ModalNuevo"> Nuevo</button>  

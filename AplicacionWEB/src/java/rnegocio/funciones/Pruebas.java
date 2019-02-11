@@ -1,4 +1,4 @@
-    /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -12,6 +12,7 @@ import rnegocio.funciones.FEntrada;
 import rnegocio.entidades.Entrada;
 import rnegocio.entidades.Producto;
 import rnegocio.entidades.Proveedor;
+import rnegocio.entidades.Rol;
 import rnegocio.entidades.Usuario;
 
 /**
@@ -25,17 +26,22 @@ public class Pruebas {
      */
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-//        ArrayList<Entrada> lista = new ArrayList<Entrada>();
+        ArrayList<Rol> lista = new ArrayList<Rol>();
 //        Producto producto=new Producto();
 //        Proveedor proveedor=new Proveedor();
 //        producto=FProducto.producto_buscarporid(1);
 //        proveedor=FProveedor.proveedor_buscarporid(1);
 //        Entrada productoproveedor=new Entrada(1, proveedor, producto, 1);
-//        
-        Usuario user = new Usuario();
+////        
+//        Usuario user = new Usuario();
+//        //Boolean resp = FEntrada.Entrada_insertar(productoproveedor);
+//        user=FUsuario.usuario_buscarporid(13);
+//         System.err.println(">>" + user.getCodigo());
         //Boolean resp = FEntrada.Entrada_insertar(productoproveedor);
-        user=FUsuario.usuario_buscarporid(13);
-         System.err.println(">>" + user.getCodigo());
+        lista = FRol.rol_buscartodos();
+        for(Rol r: lista){
+          System.out.println(">>"+ r.getNombre());
+        }
 //        System.err.println(">>" + user.getNombre());
 
 //        Producto producto=new Producto();
@@ -50,7 +56,6 @@ public class Pruebas {
 //        user=FProducto.producto_buscarporid(1);
 //       System.err.println(">>" + usuari);
 //        System.err.println(">>" + user.getNombre());
-
     }
 
 }

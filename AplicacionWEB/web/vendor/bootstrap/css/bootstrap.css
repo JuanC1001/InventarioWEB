@@ -213,7 +213,7 @@ th {
     content: "";
   }
   pre,
-  blockquote {
+    blockquote {
     border: 1px solid #999;
 
     page-break-inside: avoid;
@@ -253,7 +253,7 @@ th {
   }
   .table td,
   .table th {
-    background-color: #fff !important;
+    background-color: #500a6f !important;
   }
   .table-bordered th,
   .table-bordered td {
@@ -2292,7 +2292,7 @@ th {
   border-top: 2px solid #ddd;
 }
 .table .table {
-  background-color: #fff;
+  background-color: #500a6f;
 }
 .table-condensed > thead > tr > th,
 .table-condensed > tbody > tr > th,
@@ -5932,8 +5932,9 @@ button.close {
   opacity: .5;
 }
 .modal-header {
-  padding: 15px;
+  padding: 10px;
   border-bottom: 1px solid #e5e5e5;
+  display: inline-block;
 }
 .modal-header .close {
   margin-top: -2px;

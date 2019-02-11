@@ -3,21 +3,19 @@
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <%@page import="javax.servlet.ServletException"%>
 <%@page import="javax.servlet.http.HttpServlet"%>
 <%@page import="javax.servlet.http.HttpServletRequest"%>
 <%@page import="javax.servlet.http.HttpServletResponse"%>
 <%@page import="javax.servlet.http.HttpSession"%>
 
-        
 <%
      String user = (String) request.getSession().getAttribute("nombre");
         if(user==null){
             out.println("<script>  location.replace('inicio.jsp');</script>");
             //response.sendRedirect("inicio.html");
         }
-        %>
+%>
 <html lang="en">
 
     <head>
@@ -26,7 +24,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Home</title>
+        <title>Indexjsp</title>
         <link href="mod_Inventario/Usuario/listar.jsp" rel="stylesheet">
         <!-- Bootstrap Core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +40,7 @@
     </head>
 
     <body>
-
+         
         <div id="top">
             <nav class="navbar navbar-default navbar-static-top" role="navigation">
 
@@ -55,7 +53,7 @@
                 </div>
 
                 <ul class="nav navbar-top-links navbar-right" style="float:right">
-                    
+
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-bell fa-fw"></i> Notificaciones<i class="fa fa-caret-down"></i>
@@ -87,7 +85,7 @@
                             </li>
                         </ul>
                         <!-- /.dropdown-alerts -->
-                        
+
                     </li>
                     <!-- /.dropdown -->
                     <li class="dropdown" style="float:right">
@@ -95,7 +93,7 @@
                             <i class="fa fa-user fa-fw"></i> <%=user%> <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user" >
-                            
+
                             <li><a href="#"><i class="fa fa-user fa-fw"></i> Usuario </a>
                             </li>
                             <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuraciones</a>
@@ -108,7 +106,7 @@
                     </li>                                               
                     <!-- /.dropdown -->
                 </ul>
-                
+
                 <!-- /.navbar-top-links -->
             </nav>
         </div>
@@ -189,10 +187,13 @@
                         </li>
 
                         <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Reportes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="login.html">Login Page</a>
+                                    <a href="login.html">Reporte de salidas</a>
+                                </li>
+                                <li>
+                                    <a href="login.html">Reporte de Entradas</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -205,6 +206,38 @@
         </div>
 
         <div id="page-wrapper">
+            <!--Sección alerta-->
+    <%
+        String alerta="";
+        try {
+            alerta=request.getParameter("alerta").toString();
+            } catch (Exception e) {
+            }           
+        if (alerta.equals("bienvenido")){%>
+            <div class="alert alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Bienvenido </strong> A iniciado sesión correctamente!
+            </div>
+            <%} if(alerta.equals("no")){%>
+            <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Falló!</strong> La transacción fue fallida!
+            </div>
+       <% }
+        if (alerta.equals("acceso_denegado")){%>
+            <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Acceso denegado!</strong> Al parecer no tiene parmisos para acceder a este modulo!!
+            </div>
+            <%} if(alerta.equals("no")){%>
+            <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Falló!</strong> La transacción fue fallida!
+            </div>
+       <% }
+       
+       %>
+        <!--Fin Sección alerta-->
             <div class="row">
                 <div class="col-lg-5">
                 </div>

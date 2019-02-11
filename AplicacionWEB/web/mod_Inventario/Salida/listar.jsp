@@ -12,6 +12,7 @@
         
 <%
      String user = (String) request.getSession().getAttribute("nombre");
+     String rol = (String) request.getSession().getAttribute("rol");
         if(user==null){
             response.sendRedirect("../../inicio.html");
         }
@@ -57,11 +58,17 @@
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
              <strong>Falló!</strong> La transacción fue fallida!
         </div>
-       <% }%>
-               <div class="col-lg-12">
+       <% }if (alerta.equals("acceso_denegado")){%>
+            <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Acceso denegado!</strong> Al parecer no tiene PERMISO para realizar esta acción!!
+            </div>
+            <%}
+            %>
+            <!--Fin Seccion alerta-->
+        <div class="col-lg-12">
             <h1 class="page-header">Salidas</h1>
         </div>
-        <!--Fin Sección alerta-->
         <button type="button" onclick="return modalnuevo();" class="btn btn-primary" data-toggle="modal" data-target="#ModalNuevo"> Nuevo</button>  
 
 

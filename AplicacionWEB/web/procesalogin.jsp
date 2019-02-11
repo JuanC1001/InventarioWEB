@@ -20,12 +20,16 @@
         String nombre1= request.getParameter("nombre");
         String clave1= request.getParameter("clave");
         int rol1= Integer.parseInt(request.getParameter("rol"));
-        usuario= FUsuario.usuario_login(nombre1, clave1, rol1);        
+        usuario= FUsuario.usuario_login(nombre1, clave1, rol1);  
+        
         if(usuario!=null){            
             session.setAttribute("nombre", usuario.getNombre());
+            session.setAttribute("rol", usuario.getApellido());
+            
             //response.sendRedirect("index.jsp");
-              response.sendRedirect("index.jsp");
-            //out.println("<script>  location.replace('/index.jsp');</script>");
+             //response.sendRedirect("index.html");
+             out.println("<script>  location.replace('index.jsp?alerta=bienvenido');</script>");              
+            //out.println("<script>  location.replace('index.jsp');</script>");
         }else{
             out.println("<script>  location.replace('inicio.html');</script>");
             if(request.getParameter("cerrar")!=null){
@@ -34,6 +38,4 @@
         }
         } catch (Exception e) {
         }
-   
-   
 %>

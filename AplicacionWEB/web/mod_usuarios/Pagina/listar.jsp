@@ -1,20 +1,28 @@
-<%@page import="rnegocio.funciones.*"%>
+
 <%@page import="rnegocio.entidades.*"%>
+<%@page import="rnegocio.funciones.*"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="javax.servlet.ServletException"%>
 <%@page import="javax.servlet.http.HttpServlet"%>
 <%@page import="javax.servlet.http.HttpServletRequest"%>
 <%@page import="javax.servlet.http.HttpServletResponse"%>
 <%@page import="javax.servlet.http.HttpSession"%>
+        
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
         
 <%
      String user = (String) request.getSession().getAttribute("nombre");
+     String rol = (String) request.getSession().getAttribute("rol");
         if(user==null){
             response.sendRedirect("../../inicio.html");
+        }else{
+        if(rol.equals("Empleado")){
+        out.println("<script>  location.replace('../../index.jsp?alerta=acceso_denegado');</script>");
         }
+        } 
+        
  List<Pagina> lista=FPagina.pagina_buscartodos();
  Iterator<Pagina> itPagina=lista.iterator();
 %>
@@ -46,7 +54,13 @@
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
              <strong>Falló!</strong> La transacción fue fallida!
         </div>
-       <% }%>
+       <% }if (alerta.equals("acceso_denegado")){%>
+            <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Acceso denegado!</strong> Al parecer no tiene parmisos para realizar esta acción!!
+            </div>
+            <%}
+            %>
         <!--Fin Sección alerta-->
          <h1>Pagina</h1> 
            <button type="button" onclick="return modalnuevo();" class="btn btn-primary" data-toggle="modal" data-target="#ModalNuevo"> Nuevo</button>  

@@ -9,6 +9,7 @@ import AccesoADatos.Comando;
 import AccesoADatos.Conexion;
 import AccesoADatos.Global;
 import AccesoADatos.Parametro;
+import com.google.gson.Gson;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -61,6 +62,7 @@ public class FProducto {
         return lista;
 
     }
+
     public static Producto producto_buscarporid(int piproductoid) throws Exception {
         //CREO LISTA QUE RECIBIRA LOS DATOS DEL RESULSET
         Producto obj = new Producto();
@@ -195,4 +197,55 @@ public class FProducto {
         return respuesta;
 
     }
+
+    public static ArrayList<Producto> producto_buscarbycategoria(String categorianom) throws Exception {
+        //CREO LISTA QUE RECIBIRA LOS DATOS DEL RESULSET
+        ArrayList<Producto> lista = new ArrayList<Producto>();
+        Producto obj = new Producto();
+        ResultSet rs = null;
+        //LLAMO LA CONEXION
+        Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
+        //DECLARO UN PREPAREDSTATEMENT QUE EJECUTARA LA SQL
+        PreparedStatement preStm = null;
+
+        try {
+            //declaro mi sql
+            String sql = "SELECT *from facturacion.producto_buscarbycategoria(?);";
+            //creo mi preparedstatement
+            preStm = con.creaPreparedSmt(sql);
+            //ejecuto el prepardestatement y le asigno a mi resulset
+            preStm.setString(1, categorianom);
+            rs = con.ejecutaPrepared(preStm);
+            obj = null;
+            while (rs.next()) {
+                obj = new Producto();
+                obj.setCodigo(rs.getInt("pcodigo"));
+                obj.setNombre(rs.getString("pnombre"));
+                obj.setStock(rs.getDouble("pstock"));
+                obj.setCategoria(FCategoria.categoria_buscarporid(rs.getInt("pcodigo_categoria")));
+                lista.add(obj);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            rs.close();
+            preStm.close();
+            con.desconectar();
+        }
+        return lista;
+
+    }
+
+    public static String producto_buscarbyapellidosjson(String pinombre_categoria) throws Exception {
+        ArrayList<Producto> lista = new ArrayList<Producto>();
+        lista = producto_buscarbycategoria(pinombre_categoria);
+
+        Gson gson = new Gson();
+        StringBuilder sb = new StringBuilder();
+        for (Producto d : lista) {
+            sb.append(gson.toJson(d));
+        }
+        return sb.toString();
+    }
+
 }

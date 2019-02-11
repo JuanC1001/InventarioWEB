@@ -13,7 +13,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Ingresar</title>
         <!-- Bootstrap Core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- MetisMenu CSS -->
@@ -22,45 +21,41 @@
         <link href="dist/css/sb-admin-2.css" rel="stylesheet">
         <!-- Custom Fonts -->
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <title>Iniciar Sesión</title>
+
     </head>
     <body>
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-1">
-
-                    <div class="login-panel panel">
-
-                        <div class="panel-body">
-                            <form role="form" action="procesalogin.jsp" target="sessionJsp">
-                                <fieldset>
-                                    <div class="form-group">
-                                        <input class="form-control" placeholder="Usuario" id="nombre" name="nombre" autofocus>
-                                    </div>
-                                    <div class="form-group">
-                                        <input class="form-control" placeholder="Password" id="clave" name="clave" type="password" value="">
-                                    </div>
-                                    <div class="form-group">
-                                    <select  class="form-control" name="rol">
-                                        <%
+                    <form role="form" action="procesalogin.jsp" target="sessionJsp">
+                        <fieldset>
+                            <div id="foto">
+                                <img src="Images/logo2.jpg" style="max-width:100%;width:auto;height:auto; padding: 1px 0px;">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Usuario" id="nombre" name="nombre" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Password" id="clave" name="clave" type="password" value="">
+                            </div>
+                            <div class="form-group">
+                                <select  class="form-control" name="rol">
+                                    <%
                                         for(Rol rol: listarol){%>
-                                        <option value="<%=rol.getCodigo()%>"> <%=rol.getNombre()%></option>
-                                        <%
-                                           }
-                                        %>
-                                    </select>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input name="remember" type="checkbox" value="Remember Me">
-                                        </label>
-                                    </div>
-                                    <!-- Change this to a button or input when using this as a form -->
-                                    <button id="btn_guardar" name="btn_guardar" type="submit" class="btn btn-primary" >ingresar</button>
-
-                                </fieldset>
-                            </form>
-                        </div>
-                    </div>
+                                    <option value="<%=rol.getCodigo()%>"> <%=rol.getNombre()%></option>
+                                    <%
+                                       }
+                                    %>
+                                </select>
+                            </div>
+                            <!-- Change this to a button or input when using this as a form -->
+                            <center>
+                                <button id="btn_guardar" name="btn_guardar" type="submit" class="btn btn-primary" >Iniciar Sesion</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            </center>
+                        </fieldset>
+                    </form>
                 </div>
             </div>
         </div>

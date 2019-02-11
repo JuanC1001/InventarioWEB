@@ -269,8 +269,8 @@ public class FUsuario {
             while (rs.next()) {
                 obj = new Usuario();
                 obj.setCodigo(rs.getInt("pcodigo"));
-                obj.setNombre(rs.getString("pnombre_rol"));
                 obj.setNombre(rs.getString("pnombre_usuario"));
+                obj.setApellido(rs.getString("pnombre_rol"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

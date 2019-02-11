@@ -19,12 +19,10 @@
         
 <%
      String user = (String) request.getSession().getAttribute("nombre");
-     
+     String rol = (String) request.getSession().getAttribute("rol");     
         if(user==null){
             response.sendRedirect("../../inicio.html");
         }
-        
-        
  List<Categoria> lista=FCategoria.categoria_buscartodos();
  Iterator<Categoria> itCategoria=lista.iterator();
  
@@ -68,7 +66,13 @@
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
              <strong>Falló!</strong> La transacción fue fallida!
         </div>
-       <% }%>
+       <% }if (alerta.equals("acceso_denegado")){%>
+            <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Acceso denegado!</strong> Al parecer no tiene PERMISO para realizar esta acción!!
+            </div>
+            <%}
+            %>
         <!--Fin Sección alerta-->
          <h1>Categoria</h1> 
            <button type="button" onclick="return modalnuevo();" class="btn btn-primary" data-toggle="modal" data-target="#ModalNuevo"> Nuevo</button>                     

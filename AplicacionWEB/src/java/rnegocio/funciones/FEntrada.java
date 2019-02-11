@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import rnegocio.entidades.Entrada;
+import rnegocio.entidades.Salida;
 
 /**
  *
@@ -42,15 +43,12 @@ public class FEntrada {
             obj = null;
             while (rs.next()) {
                 obj = new Entrada();
+
                 obj.setCodigo(rs.getInt("pcodigo"));
                 obj.setFecha(rs.getDate("pfecha"));
-
                 obj.setProducto(FProducto.producto_buscarporid(rs.getInt("pcodigo_producto")));
-
                 obj.setCantidad(rs.getInt("pcantidad"));
-
                 obj.setProveedor(FProveedor.proveedor_buscarporid(rs.getInt("pcodigo_proveedor")));
-
                 obj.setDetalle(rs.getString("pdetalle"));
 
                 lista.add(obj);

@@ -12,11 +12,16 @@
         
 <%
      String user = (String) request.getSession().getAttribute("nombre");
+     String rol = (String) request.getSession().getAttribute("rol");
         if(user==null){
             response.sendRedirect("../../inicio.html");
+        }else{
+        if(rol.equals("Empleado")){
+        out.println("<script>  location.replace('../../index.jsp?alerta=acceso_denegado');</script>");
         }
- List<RolPagina> lista=RolPagina.rolpagina_buscartodos();
- Iterator<RolPagina> itRolPagina=lista.iterator();
+        } 
+        List<RolPagina> lista=RolPagina.rolpagina_buscartodos();
+        Iterator<RolPagina> itRolPagina=lista.iterator();
 %>
 <!DOCTYPE html>
 <html>

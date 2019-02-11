@@ -2,19 +2,24 @@
 <%@page import="rnegocio.entidades.*"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="javax.servlet.ServletException"%>
 <%@page import="javax.servlet.http.HttpServlet"%>
 <%@page import="javax.servlet.http.HttpServletRequest"%>
 <%@page import="javax.servlet.http.HttpServletResponse"%>
 <%@page import="javax.servlet.http.HttpSession"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
         
 <%
      String user = (String) request.getSession().getAttribute("nombre");
+     String rol = (String) request.getSession().getAttribute("rol");
         if(user==null){
             response.sendRedirect("../../inicio.html");
+        }else{
+        if(rol.equals("Empleado")){
+        out.println("<script>  location.replace('../../index.jsp?alerta=acceso_denegado');</script>");
         }
+        } 
  List<Rol> lista=FRol.rol_buscartodos();
  Iterator<Rol> itRol=lista.iterator();
 %>
@@ -50,9 +55,7 @@
         <!--Fin Sección alerta-->
          <h1>Rol</h1> 
            <button type="button" onclick="return modalnuevo();" class="btn btn-primary" data-toggle="modal" data-target="#ModalNuevo"> Nuevo</button>  
-          
-         
-         
+                  
 <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">                <thead>
                 <th>Codigo</th>
                 <th>Nombre</th>
@@ -61,14 +64,15 @@
                 </thead>
                 <tbody>
                <%while(itRol.hasNext()){
-                  Rol rol=itRol.next();%>
+                  Rol role=itRol.next();%>
+                  
                 <tr>
-                   <td><%= rol.getCodigo()%></td>
-                    <td><%= rol.getNombre()%></td>
+                   <td><%= role.getCodigo()%></td>
+                    <td><%= role.getNombre()%></td>
                         <td>
-                         <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= rol.getCodigo()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>
+                         <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= role.getCodigo()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>
                          
-                        <button type="button"  onclick="return modaledita(<%= rol.getCodigo()%>)" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditar">Editar</button>         
+                        <button type="button"  onclick="return modaledita(<%= role.getCodigo()%>)" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditar">Editar</button>         
                    </td>
                 </tr>
                <%}%>                

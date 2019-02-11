@@ -12,9 +12,14 @@
         
 <%
      String user = (String) request.getSession().getAttribute("nombre");
+     String rol = (String) request.getSession().getAttribute("rol");
         if(user==null){
             response.sendRedirect("../../inicio.html");
-        }	
+        }else{
+        if(rol.equals("Empleado")){
+        out.println("<script>  location.replace('../../index.jsp?alerta=acceso_denegado');</script>");
+        }
+        } 	
  List<Usuario> lista=FUsuario.usuario_buscartodos();	
  Iterator<Usuario> itUsuario=lista.iterator();	
 %>	
