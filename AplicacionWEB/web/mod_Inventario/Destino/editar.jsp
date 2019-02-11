@@ -8,12 +8,21 @@
 <%@page import="rnegocio.funciones.*"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
+<%@page import="javax.servlet.ServletException"%>
+<%@page import="javax.servlet.http.HttpServlet"%>
+<%@page import="javax.servlet.http.HttpServletRequest"%>
+<%@page import="javax.servlet.http.HttpServletResponse"%>
+<%@page import="javax.servlet.http.HttpSession"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%!
    Destino destino= new Destino();
 %>
 <%
+    String rol = (String) request.getSession().getAttribute("rol");     
+        if(rol.equals("Empleado")){
+        out.println("<script>  location.replace('listar.jsp?alerta=acceso_denegado');</script>");
+        }
     try {
         
          int codigo= Integer.parseInt(request.getParameter("codigo"));
