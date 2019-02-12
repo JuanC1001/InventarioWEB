@@ -20,7 +20,7 @@
         out.println("<script>  location.replace('../../index.jsp?alerta=acceso_denegado');</script>");
         }
         } 
-        List<RolPagina> lista=RolPagina.rolpagina_buscartodos();
+        List<RolPagina> lista=FRolPagina.rolpagina_buscartodos();
         Iterator<RolPagina> itRolPagina=lista.iterator();
 %>
 <!DOCTYPE html>

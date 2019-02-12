@@ -20,7 +20,7 @@ import rnegocio.entidades.RolPagina;
  * @author MI PC
  */
 public class FRolPagina {
-    public static ArrayList<RolPagina> paginaRol_buscartodos() throws Exception {
+    public static ArrayList<RolPagina> rolpagina_buscartodos() throws Exception {
         //CREO LISTA QUE RECIBIRA LOS DATOS DEL RESULSET
         ArrayList<RolPagina> lista = new ArrayList<RolPagina>();
         RolPagina obj = new RolPagina();
@@ -90,7 +90,7 @@ public class FRolPagina {
 
     }
 
-    public static boolean PaginaRol_insertar(RolPagina PaginaRol) throws Exception {
+    public static boolean PaginaRol_insertar(RolPagina paginarol) throws Exception {
         boolean respuesta = false;
         Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
         try {
@@ -102,8 +102,10 @@ public class FRolPagina {
             cmd.setSetenciaSql("SELECT *from usuarios.rol_pagina_insertar(?,?);");
             //CREAMOS EL ARRALIST DE PARAMETROS PARA ASIGANR A MI PRIMER COMANDO
             ArrayList<Parametro> parametros = new ArrayList<Parametro>();
+            
             //llenamos el arraylist con todos los parametros
-            parametros.add(new Parametro(1, PaginaRol.getCodigo()));
+            parametros.add(new Parametro(1, paginarol.getPagina().getCodigo()));
+            parametros.add(new Parametro(2, paginarol.getRol().getCodigo()));
 
             //llenar el comando con los parametros
             cmd.setLstParametros(parametros);
@@ -154,7 +156,7 @@ public class FRolPagina {
 
     }
 
-    public static boolean PaginaRol_eliminar(int pscactbevidenid) throws Exception {
+    public static boolean rolpagina_eliminar(int pscactbevidenid) throws Exception {
         boolean respuesta = false;
         Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
         try {

@@ -4,25 +4,20 @@
     Author     : MI PC
 --%>
 
-<%@page import="rnegocio.funciones.FRolPaginaRol"%>
-<%@page import="rnegocio.entidades.RolPagina"%>
-<% 
-    String prueba=request.getParameter("pagina_RolPagina");
-    String prueba=request.getParameter("rol_RolPagina");
-  
-  
- 
- out.println(prueba);
-  
-  
-%>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*,rnegocio.funciones.*,rnegocio.entidades.*"%>
+<%@ page import="java.util.*" %>
 
 <%
     try {
             RolPagina rolpagina=new RolPagina();
-               rolpagina.setpagina(request.getParameter("pagina_rolpagina")); 
-               rolpagina.setrol(request.getParameter("rol_rolpagina"));
-           boolean result= FRolPaginaRol.rolpagina_insertar(rolpagina);
+             int codigo_pagina= Integer.parseInt(request.getParameter("pagina1"));
+             
+            int codigo_rol= Integer.parseInt(request.getParameter("rol1"));
+     
+               rolpagina.setPagina(FPagina.pagina_buscarporid(codigo_pagina)); 
+               rolpagina.setRol(FRol.rol_buscarporid(codigo_rol));
+               
+           boolean result= FRolPagina.PaginaRol_insertar(rolpagina);
              if (result)
                 out.println("<script> alert('Se ha guardado correctamente...'); location.replace('listar.jsp');</script>");
             else 

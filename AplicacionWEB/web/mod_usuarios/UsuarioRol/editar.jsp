@@ -25,7 +25,7 @@
         
          int codigo= Integer.parseInt(request.getParameter("codigo"));
       //  out.print("<script>alert("+codigo+");</script>");
-         usuarioRol=FUsuarioRol.UsuarioRol_buscarporid(codigo);                      
+         usuarioRol=FUsuarioRol.usuariorol_buscarporid(codigo);                      
         } catch (Exception e) {
         }      
 %>
@@ -51,6 +51,15 @@
                 <option value="<%=rol.getCodigo()%>"><%=rol.getNombre()%></option>
                 <%
                     }
+                %>
+            </select>
+            <select class="form-control" name="categoria" >
+                 <option value="<%=producto.getCategoria().getCodigo()%>"> <%=producto.getCategoria().getNombre()%></option>
+                <%
+                    for(Categoria cat: lista){%>
+                <option value="<%=cat.getCodigo()%>"> <%=cat.getNombre()%></option>
+                <%
+                   }
                 %>
             </select>
             <select id="usuario" name="usuario" class="form-control">

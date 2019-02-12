@@ -8,8 +8,24 @@
 <%@page import="rnegocio.entidades.*"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
+<%@page import="javax.servlet.ServletException"%>
+<%@page import="javax.servlet.http.HttpServlet"%>
+<%@page import="javax.servlet.http.HttpServletRequest"%>
+<%@page import="javax.servlet.http.HttpServletResponse"%>
+<%@page import="javax.servlet.http.HttpSession"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
+    String user = (String) request.getSession().getAttribute("nombre");
+     String rol = (String) request.getSession().getAttribute("rol");
+     
+     if(user==null){
+            response.sendRedirect("../../inicio.html");
+        } else{
+        if(rol.equals("Empleado")){
+        out.println("<script>  location.replace('../../index.jsp?alerta=acceso_denegado');</script>");
+        }
+        } 
+     
  List<UsuarioRol> lista=FUsuarioRol.UsuarioRol_buscartodos();
  Iterator<UsuarioRol> itUsuarioRol=lista.iterator();
 %>

@@ -60,7 +60,7 @@ public class FUsuarioRol {
 
     }
 
-    public static UsuarioRol UsuarioRol_buscarporid(int piUsuarioRolid) throws Exception {
+    public static UsuarioRol usuariorol_buscarporid(int piUsuarioRolid) throws Exception {
         //CREO LISTA QUE RECIBIRA LOS DATOS DEL RESULSET
         UsuarioRol obj = new UsuarioRol();
         ResultSet rs = null;
