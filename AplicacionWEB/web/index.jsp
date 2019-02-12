@@ -11,6 +11,8 @@
 
 <%
      String user = (String) request.getSession().getAttribute("nombre");
+     String rol = (String) request.getSession().getAttribute("rol");
+     
         if(user==null){
             out.println("<script>  location.replace('inicio.jsp');</script>");
             //response.sendRedirect("inicio.html");
@@ -94,7 +96,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-user" >
 
-                            <li><a href="#"><i class="fa fa-user fa-fw"></i> Usuario </a>
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i> <%=rol%> </a>
                             </li>
                             <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuraciones</a>
                             </li>
@@ -131,7 +133,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-home fa-fw"></i> Principal</a>
+                            <a href="index.jsp"><i class="fa fa-home fa-fw"></i> Principal</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-th-large fa-fw"></i>Modulo Entidades<span class="fa arrow"></span></a>
