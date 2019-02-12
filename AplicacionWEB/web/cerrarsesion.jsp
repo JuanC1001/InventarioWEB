@@ -16,6 +16,6 @@
     session.invalidate(); 
 
         if(user!=null){
-            response.sendRedirect("inicio.html");
+            response.sendRedirect("inicio.jsp");
         }
 %>

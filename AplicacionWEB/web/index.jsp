@@ -12,8 +12,8 @@
 <%
      String user = (String) request.getSession().getAttribute("nombre");
      String rol = (String) request.getSession().getAttribute("rol");
-        
-     if(user==null){
+     
+        if(user==null){
             out.println("<script>  location.replace('inicio.jsp');</script>");
             //response.sendRedirect("inicio.html");
         }
@@ -96,7 +96,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-user" >
 
-                            <li><a href="#"><i class="fa fa-user fa-fw"></i> <%=rol%>  </a>
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i> <%=rol%> </a>
                             </li>
                             <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuraciones</a>
                             </li>

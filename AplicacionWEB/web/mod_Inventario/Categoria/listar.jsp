@@ -208,7 +208,6 @@
 }, 4000);
          <!--fin Sección alerta-->
  
- 
     </script>
 </div>    
     </body>

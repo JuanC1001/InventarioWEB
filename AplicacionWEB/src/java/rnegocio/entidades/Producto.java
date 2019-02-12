@@ -1,8 +1,10 @@
 package rnegocio.entidades;
 
 import AccesoADatos.*;
+import com.google.gson.Gson;
 import java.sql.*;
 import java.util.*;
+import rnegocio.funciones.FCategoria;
 
 /**
  *
@@ -76,5 +78,6 @@ public class Producto {
     public void setPrecio_compra(Double precio_compra) {
         this.precio_compra = precio_compra;
     }
+
 
 }

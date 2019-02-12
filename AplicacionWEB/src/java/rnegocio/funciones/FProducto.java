@@ -13,9 +13,9 @@ import com.google.gson.Gson;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import rnegocio.entidades.*;
 import java.util.ArrayList;
-import rnegocio.entidades.Categoria;
-import rnegocio.entidades.Producto;
+import java.util.List;
 
 /**
  *
@@ -236,7 +236,7 @@ public class FProducto {
 
     }
 
-    public static String producto_buscarbyapellidosjson(String pinombre_categoria) throws Exception {
+    public static String producto_buscarbycategoriajson(String pinombre_categoria) throws Exception {
         ArrayList<Producto> lista = new ArrayList<Producto>();
         lista = producto_buscarbycategoria(pinombre_categoria);
 
@@ -247,5 +247,44 @@ public class FProducto {
         }
         return sb.toString();
     }
+
+//       public static ArrayList<Producto> reporte_general() throws Exception {
+//        //CREO LISTA QUE RECIBIRA LOS DATOS DEL RESULSET
+//        ArrayList<List> lista = new ArrayList<>();
+//        Producto obj = new Producto();
+//        ResultSet rs = null;
+//        //LLAMO LA CONEXION
+//        Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
+//        //DECLARO UN PREPAREDSTATEMENT QUE EJECUTARA LA SQL
+//        PreparedStatement preStm = null;
+//
+//        try {
+//            //declaro mi sql
+//            String sql = "SELECT *from facturacion.producto_listar_reporte_general();";
+//            //creo mi preparedstatement
+//            preStm = con.creaPreparedSmt(sql);
+//            //ejecuto el prepardestatement y le asigno a mi resulset
+//
+//            rs = con.ejecutaPrepared(preStm);
+//            obj = null;
+//            while (rs.next()) {
+//               .setCodigo(rs.getInt("pcodigo"));
+//                obj.setNombre(rs.getString("pnombre"));
+//                obj.setStock(rs.getDouble("pstock"));
+//                obj.setPrecio_venta(rs.getDouble("pprecio_venta"));
+//                obj.setPrecio_compra(rs.getDouble("pprecio_compra"));
+//                obj.setCategoria(FCategoria.categoria_buscarporid(rs.getInt("pcodigo_categoria")));
+//                lista.add(obj);
+//            }
+//        } catch (SQLException e) {
+//            System.out.println(e.getMessage());
+//        } finally {
+//            rs.close();
+//            preStm.close();
+//            con.desconectar();
+//        }
+////        return lista;
+//
+//    }
 
 }

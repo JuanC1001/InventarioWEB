@@ -3,12 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Servicio.web;
+package rnegocio.entidades;
 
 /**
  *
  * @author MI PC
  */
-public class Entrada {
-    
+public class Reporte {
+String nombre_producto;
+String nombre_categoria;
+Double cantidad_entrada;
+Double cantidad_salida;
+
 }
