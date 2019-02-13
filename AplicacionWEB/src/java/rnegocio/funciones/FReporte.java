@@ -169,9 +169,9 @@ public class FReporte {
             obj = null;
             while (rs.next()) {
                 obj = new Reporte();
-                obj.setFecha_entrada(rs.getDate("pfecha_salida"));
-                obj.setNombre_producto(rs.getString("pnombre_salida"));
-                obj.setCantidad_entrada(rs.getDouble("pcantidad_salida"));
+                obj.setFecha_salida(rs.getDate("pfecha_salida"));
+                obj.setNombre_producto(rs.getString("pnombre_producto"));
+                obj.setCantidad_salida(rs.getDouble("pcantidad_salida"));
                 obj.setNombre_destino(rs.getString("pdestino"));
                 lista.add(obj);
             }

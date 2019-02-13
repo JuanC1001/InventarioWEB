@@ -63,7 +63,7 @@
             %>
         <!--Fin Sección alerta-->
             <h2 class="page-header">Resumen Productos</h2>
-           <button type="button" onclick="return modalnuevo();" class="btn btn-primary" data-toggle="modal" data-target="#ModalNuevo"> Imprimir Lista</button>  
+             <a type="button" href="ReporteProducto.jsp" class="btn btn-primary" target="black"> Imprimir Lista</a>  
                             
 <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">                
     <thead>
