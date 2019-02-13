@@ -29,7 +29,7 @@
 <html>
     <head>
          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Producto</title>
+        <title>Reporte Productos</title>
         <%@include file="../cabecera3.html" %>
     </head>
     <body>   
@@ -62,7 +62,7 @@
             <%}
             %>
         <!--Fin Sección alerta-->
-         <h1>Producto</h1> 
+            <h2 class="page-header">Resumen Productos</h2>
            <button type="button" onclick="return modalnuevo();" class="btn btn-primary" data-toggle="modal" data-target="#ModalNuevo"> Imprimir Lista</button>  
                             
 <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">                

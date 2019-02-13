@@ -33,7 +33,7 @@
         <meta name="author" content="">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>Reporte</title>
+        <title>Reporte Salidas</title>
 
     <%@include file="../cabecera3.html" %>
     </head>
@@ -72,7 +72,7 @@
         <div class="col-lg-12">
             <h2 class="page-header">Resumen Salidas</h2>
         </div>
-
+           <button type="button" onclick="return modalnuevo();" class="btn btn-primary" data-toggle="modal" data-target="#ModalNuevo"> Imprimir Lista</button>  
         <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">                <thead>
             <th>Fecha</th>
             <th>Producto</th>
