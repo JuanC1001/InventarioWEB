@@ -25,9 +25,7 @@
         if(usuario!=null){            
             session.setAttribute("nombre", usuario.getNombre());
             session.setAttribute("rol", usuario.getApellido());
-            
-            //response.sendRedirect("index.jsp");
-             //response.sendRedirect("index.html");
+
              out.println("<script>  location.replace('index.jsp?alerta=bienvenido');</script>");              
             //out.println("<script>  location.replace('index.jsp');</script>");
         }else{

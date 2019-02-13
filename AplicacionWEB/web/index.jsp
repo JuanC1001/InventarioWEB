@@ -26,7 +26,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Indexjsp</title>
+        <title>Principal</title>
         <link href="mod_Inventario/Usuario/listar.jsp" rel="stylesheet">
         <!-- Bootstrap Core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -192,7 +192,7 @@
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Reportes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="mod_Reportes/ClienteRe.jsp">Reporte de salidas</a>
+                                    <a href="mod_Reportes/listar.jsp">Reporte de salidas</a>
                                 </li>
                                 <li>
                                     <a href="mod_Reportes/ClienteRe.jsp">Reporte de Entradas</a>
