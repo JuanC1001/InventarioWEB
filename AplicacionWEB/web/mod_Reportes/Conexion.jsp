@@ -18,7 +18,7 @@
         Connection con = null;
         try{
         Class.forName("org.postgresql.Driver");
-        con = (Connection)DriverManager.getConnection("jdbc:postgresql://localhost:5432/sistema_inventario","postgres","sexto");
+        con = (Connection)DriverManager.getConnection("jdbc:postgresql://node77935-env-9304891.whelastic.net:5432/sistema_inventario","webadmin","ZCAoea11849");
         out.print("Conexion en Linea");
         }catch(Exception ex){
         out.print("Error: "+ex.getMessage());

@@ -109,8 +109,11 @@ public class FUsuario {
         boolean respuesta = false;
         Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
         try {
+            String ppaswd = "";
+
             StringEncrypter encriptar = new StringEncrypter("loquesea");
-            String claveencriptada = encriptar.encrypt(usuario.getClave());
+            ppaswd = encriptar.encrypt(usuario.getClave());
+            
             //CREAMOS EL ARRAYLIST DE LOS COMANDOS O SENTENCIAS SQL
             ArrayList<Comando> comandos = new ArrayList<Comando>();
             //CREAMOS EL PRIMER COMANDO QUE SERA AÃ‘ADIDO AL ARRAYLIST D COMANDOS
@@ -124,7 +127,7 @@ public class FUsuario {
             parametros.add(new Parametro(2, usuario.getApellido()));
             parametros.add(new Parametro(3, usuario.getCedula()));
             parametros.add(new Parametro(4, usuario.getEmail()));
-            parametros.add(new Parametro(5, claveencriptada));
+            parametros.add(new Parametro(5, ppaswd));
             //llenar el comando con los parametros
             cmd.setLstParametros(parametros);
             comandos.add(cmd);

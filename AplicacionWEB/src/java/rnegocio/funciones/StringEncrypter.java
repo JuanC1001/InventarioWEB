@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package rnegocio.funciones;
+
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.KeyGenerator;
@@ -22,18 +23,20 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import java.io.UnsupportedEncodingException;
 import java.io.IOException;
+
 /**
  *
  * @author Cristian
  */
 
 public class StringEncrypter {
+
     Cipher ecipher;
     Cipher dcipher;
 
     public StringEncrypter() {
         try {
-             SecretKey Key = KeyGenerator.getInstance("DES").generateKey();
+            SecretKey Key = KeyGenerator.getInstance("DES").generateKey();
             ecipher = Cipher.getInstance("icits");
             dcipher = Cipher.getInstance("icits");
             ecipher.init(Cipher.ENCRYPT_MODE, Key);
@@ -47,10 +50,10 @@ public class StringEncrypter {
         }
     }
 
-   public StringEncrypter(String passPhrase) {
+    public StringEncrypter(String passPhrase) {
         byte[] salt = {
-            (byte)0xA9, (byte)0x9B, (byte)0xC8, (byte)0x32,
-            (byte)0x56, (byte)0x34, (byte)0xE3, (byte)0x03
+            (byte) 0xA9, (byte) 0x9B, (byte) 0xC8, (byte) 0x32,
+            (byte) 0x56, (byte) 0x34, (byte) 0xE3, (byte) 0x03
         };
         // Iteration count
         int iterationCount = 19;
@@ -87,24 +90,7 @@ public class StringEncrypter {
         } catch (BadPaddingException e) {
         } catch (IllegalBlockSizeException e) {
         } catch (UnsupportedEncodingException e) {
-        } catch (IOException e) {
-        }
-        return null;
-    }
-
-    public String decrypt(String str) {
-        
-        try {
-            // Decode base64 to get bytes
-            byte[] dec = new sun.misc.BASE64Decoder().decodeBuffer(str);
-            // Decrypt
-            byte[] utf8 = dcipher.doFinal(dec);
-            // Decode using utf-8
-            return new String(utf8, "UTF8");
-        } catch (BadPaddingException e) {
-        } catch (IllegalBlockSizeException e) {
-        } catch (UnsupportedEncodingException e) {
-        } catch (IOException e) {
+        } catch (Exception e) {
         }
         return null;
     }
