@@ -1,15 +1,19 @@
+<%-- 
+    Document   : listar
+    Created on : 16-ene-2019, 17:07:24
+    Author     : Usuario
+--%>
 
-<%@page import="rnegocio.entidades.*"%>
 <%@page import="rnegocio.funciones.*"%>
+<%@page import="rnegocio.entidades.*"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="javax.servlet.ServletException"%>
 <%@page import="javax.servlet.http.HttpServlet"%>
 <%@page import="javax.servlet.http.HttpServletRequest"%>
 <%@page import="javax.servlet.http.HttpServletResponse"%>
 <%@page import="javax.servlet.http.HttpSession"%>
-        
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
         
 <%
@@ -17,24 +21,20 @@
      String rol = (String) request.getSession().getAttribute("rol");
         if(user==null){
             response.sendRedirect("../../inicio.html");
-        }else{
-        if(rol.equals("Empleado")){
-        out.println("<script>  location.replace('../../index.jsp?alerta=acceso_denegado');</script>");
         }
-        } 
-        
- List<Pagina> lista=FPagina.pagina_buscartodos();
- Iterator<Pagina> itPagina=lista.iterator();
+ List<Producto> lista=FReporte.reporte_productos();
+ Iterator<Producto> itProducto=lista.iterator();
 %>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Pagina</title>
-    <%@include file="../../cabecera2.html" %>
+         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Producto</title>
+        <%@include file="../cabecera3.html" %>
     </head>
-    <body>
-    <%@include file="../../menu2.html" %>
+    <body>   
+    <%@include file="../menu3.html" %>
+    
     <div id="page-wrapper">
          <!--Sección alerta-->
         <%
@@ -57,37 +57,31 @@
        <% }if (alerta.equals("acceso_denegado")){%>
             <div class="alert alert-danger" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <strong>Acceso denegado!</strong> Al parecer no tiene parmisos para realizar esta acción!!
+            <strong>Acceso denegado!</strong> Al parecer no tiene PERMISO para realizar esta acción!!
             </div>
             <%}
             %>
         <!--Fin Sección alerta-->
-         <h1>Pagina</h1> 
-           <button type="button" onclick="return modalnuevo();" class="btn btn-primary" data-toggle="modal" data-target="#ModalNuevo"> Nuevo</button>  
-          
-         
-         
-<table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">                <thead>
+         <h1>Producto</h1> 
+           <button type="button" onclick="return modalnuevo();" class="btn btn-primary" data-toggle="modal" data-target="#ModalNuevo"> Imprimir Lista</button>  
+                            
+<table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">                
+    <thead>
                 <th>Codigo</th>
-                <th>Url</th>
-                <th>Descripcion</th>
-                
-                
-                 <th></th>
+                <th>Nombre</th>
+                <th>Stock</th>
+                <th>precio_venta</th>
+                <th>Categoria</th>                 
                 </thead>
                 <tbody>
-               <%while(itPagina.hasNext()){
-                  Pagina pagina=itPagina.next();%>
+               <%while(itProducto.hasNext()){
+                  Producto producto=itProducto.next();%>
                 <tr>
-                   <td><%= pagina.getCodigo()%></td>
-                    <td><%= pagina.getUrl()%></td>
-                    <td><%= pagina.getDescripcion()%></td>
-                    
-                        <td>
-                            <a class="btn btn-danger" href='procesa_eliminar.jsp?codigo=<%= pagina.getCodigo()%>' onclick="return confirm('¿Está seguro que desea eliminar este registro?');">Eliminar</a>
-                                                    
-                        <button type="button"  onclick="return modaledita(<%= pagina.getCodigo()%>)" class="btn btn-primary" data-toggle="modal" data-target="#ModalEditar">Editar</button>         
-                   </td>
+                   <td><%= producto.getCodigo()%></td>
+                    <td><%= producto.getNombre()%></td>
+                   <td><%= producto.getStock()%></td>
+                    <td><%= producto.getPrecio_venta()%></td>
+                    <td><%= producto.getCategoria().getNombre()%></td>                    
                 </tr>
                <%}%>                
                 </tbody>           
@@ -98,14 +92,12 @@
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Editar Pagina</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Editar Producto</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
-
-
                       </div>
               </div>
             </div>
@@ -117,7 +109,7 @@
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Nuevo Pagina</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Nuevo Producto</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -130,18 +122,7 @@
             </div>
           </div>       
                 
-                
-    <script src="vendor/jquery/jquery.min.js"></script>
-<!-- Bootstrap Core JavaScript -->
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!-- Metis Menu Plugin JavaScript -->
-<script src="vendor/metisMenu/metisMenu.min.js"></script>
-<!-- Morris Charts JavaScript -->
-<script src="vendor/raphael/raphael.min.js"></script>
-<script src="vendor/morrisjs/morris.min.js"></script>
-<script src="data/morris-data.js"></script>
-<!-- Custom Theme JavaScript -->
-<script src="dist/js/sb-admin-2.js"></script>
+
     <script>
            function modaledita(codigo){
            
@@ -204,6 +185,6 @@
  
  
     </script>
-    </div>
+</div>    
     </body>
 </html>

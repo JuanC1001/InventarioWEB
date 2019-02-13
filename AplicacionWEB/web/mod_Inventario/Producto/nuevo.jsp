@@ -33,9 +33,9 @@
     <body>
           <form method="POST"  action="procesa_nuevo.jsp">
             <input type="text" class="form-control" placeholder="Nombre Producto" required id="nombre_producto" name="nombre_producto"/>
-            <input type="text" class="form-control" placeholder="Stock Actual" required id="stock_producto" name="stock_producto"/>
-            <input type="text" class="form-control" placeholder="Precio Venta" required id="precio_venta_producto" name="precio_venta_producto"/>
-            <input type="text" class="form-control" placeholder="Precio Compra" required id="precio_compra_producto" name="precio_compra_producto"/>            
+            <input type="text" class="form-control" placeholder="Stock Actual" pattern="^[0-9]+" required id="stock_producto" name="stock_producto"/>
+            <input type="text" class="form-control" placeholder="Precio Venta" pattern="^[0-9]+" required id="precio_venta_producto" name="precio_venta_producto"/>
+            <input type="text" class="form-control" placeholder="Precio Compra" pattern="^[0-9]+" required id="precio_compra_producto" name="precio_compra_producto"/>            
             <select  class="form-control" name="categoria">
                 
                 

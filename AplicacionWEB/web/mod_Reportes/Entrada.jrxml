@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="50bc95ba-4f71-4f46-a3b8-e6d74bfb16de">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
@@ -80,10 +83,6 @@ FROM
 				</textElement>
 				<text><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce auctor purus gravida arcu aliquam mattis. Donec et nulla libero, ut varius massa. Nulla sed turpis elit. Etiam aliquet mauris a ligula hendrerit in auctor leo lobortis.]]></text>
 			</staticText>
-			<image>
-				<reportElement x="433" y="-115" width="267" height="209" uuid="6a519a9d-caa5-4e8b-948e-acf7d93b4269"/>
-				<imageExpression><![CDATA["coffee_stain.png"]]></imageExpression>
-			</image>
 		</band>
 	</title>
 	<pageHeader>
@@ -99,15 +98,15 @@ FROM
 			</line>
 			<staticText>
 				<reportElement style="Column header" x="0" y="0" width="185" height="15" forecolor="#736343" uuid="b3e58f9b-f720-46a7-a61e-2ab0b6979423"/>
-				<text><![CDATA[producto_nombre]]></text>
+				<text><![CDATA[Productos]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="185" y="0" width="185" height="15" forecolor="#736343" uuid="8f80b31c-a4de-4878-ba22-2117d92e324d"/>
-				<text><![CDATA[entrada_cantidad]]></text>
+				<text><![CDATA[Cantidad]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="370" y="0" width="185" height="15" forecolor="#736343" uuid="b5be07f8-156f-4828-9d5f-12769e36dc2b"/>
-				<text><![CDATA[proveedor_nombre]]></text>
+				<text><![CDATA[Proveedor]]></text>
 			</staticText>
 		</band>
 	</columnHeader>

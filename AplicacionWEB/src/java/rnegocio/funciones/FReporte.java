@@ -110,5 +110,119 @@ public class FReporte {
            return lista;
 
     }
+    public static ArrayList<Reporte> reporte_entrada() throws Exception {
+        //CREO LISTA QUE RECIBIRA LOS DATOS DEL RESULSET
+        ArrayList<Reporte> lista = new ArrayList<Reporte>();
+        Reporte obj = new Reporte();
+        ResultSet rs = null;
+        //LLAMO LA CONEXION
+        Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
+        //DECLARO UN PREPAREDSTATEMENT QUE EJECUTARA LA SQL
+        PreparedStatement preStm = null;
+
+        try {
+            //declaro mi sql
+            String sql = "SELECT *from facturacion.reporte_entrada();";
+            //creo mi preparedstatement
+            preStm = con.creaPreparedSmt(sql);
+            //ejecuto el prepardestatement y le asigno a mi resulset
+
+            rs = con.ejecutaPrepared(preStm);
+            obj = null;
+            while (rs.next()) {
+                obj = new Reporte();
+
+                obj.setFecha_entrada(rs.getDate("pfecha_entrada"));
+                obj.setNombre_producto(rs.getString("pnombre_producto"));
+                obj.setCantidad_entrada(rs.getDouble("pcantidad_entrada"));
+                obj.setNombre_proveedor(rs.getString("pproveedor"));
+                lista.add(obj);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            rs.close();
+            preStm.close();
+            con.desconectar();
+        }
+           return lista;
+
+    }
+    public static ArrayList<Reporte> reporte_salida() throws Exception {
+        //CREO LISTA QUE RECIBIRA LOS DATOS DEL RESULSET
+        ArrayList<Reporte> lista = new ArrayList<Reporte>();
+        Reporte obj = new Reporte();
+        ResultSet rs = null;
+        //LLAMO LA CONEXION
+        Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
+        //DECLARO UN PREPAREDSTATEMENT QUE EJECUTARA LA SQL
+        PreparedStatement preStm = null;
+
+        try {
+            //declaro mi sql
+            String sql = "SELECT *from facturacion.reporte_salida();";
+            //creo mi preparedstatement
+            preStm = con.creaPreparedSmt(sql);
+            //ejecuto el prepardestatement y le asigno a mi resulset
+
+            rs = con.ejecutaPrepared(preStm);
+            obj = null;
+            while (rs.next()) {
+                obj = new Reporte();
+                obj.setFecha_entrada(rs.getDate("pfecha_salida"));
+                obj.setNombre_producto(rs.getString("pnombre_salida"));
+                obj.setCantidad_entrada(rs.getDouble("pcantidad_salida"));
+                obj.setNombre_destino(rs.getString("pdestino"));
+                lista.add(obj);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            rs.close();
+            preStm.close();
+            con.desconectar();
+        }
+           return lista;
+
+    }
+    
+    public static ArrayList<Producto> reporte_productos() throws Exception {
+        //CREO LISTA QUE RECIBIRA LOS DATOS DEL RESULSET
+        ArrayList<Producto> lista = new ArrayList<Producto>();
+        Producto obj = new Producto();
+        ResultSet rs = null;
+        //LLAMO LA CONEXION
+        Conexion con = new Conexion(Global.driver, Global.url, Global.user, Global.pass);
+        //DECLARO UN PREPAREDSTATEMENT QUE EJECUTARA LA SQL
+        PreparedStatement preStm = null;
+
+        try {
+            //declaro mi sql
+            String sql = "SELECT *from facturacion.producto_listar();";
+            //creo mi preparedstatement
+            preStm = con.creaPreparedSmt(sql);
+            //ejecuto el prepardestatement y le asigno a mi resulset
+
+            rs = con.ejecutaPrepared(preStm);
+            obj = null;
+            while (rs.next()) {
+                obj = new Producto();
+                obj.setCodigo(rs.getInt("pcodigo"));
+                obj.setNombre(rs.getString("pnombre"));
+                obj.setStock(rs.getDouble("pstock"));
+                obj.setPrecio_venta(rs.getDouble("pprecio_venta"));
+                obj.setCategoria(FCategoria.categoria_buscarporid(rs.getInt("pcodigo_categoria")));
+                lista.add(obj);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            rs.close();
+            preStm.close();
+            con.desconectar();
+        }
+        return lista;
+
+    }
 
 }

@@ -34,10 +34,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Usuario Rol</title>
-    <%@include file="../../cabecera_1.html" %>
+    <%@include file="../../cabecera2.html" %>
     </head>
     <body>
-    <%@include file="../../menu_1.html" %>
+    <%@include file="../../menu2.html" %>
     <div id="page-wrapper">
          <!--Sección alerta-->
         <%

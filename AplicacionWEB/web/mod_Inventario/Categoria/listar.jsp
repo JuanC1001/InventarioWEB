@@ -38,13 +38,7 @@
         <%@include file="../../cabecera.html" %>
     </head>
     <body>   
-        
-        
-        
-        
-        
-        
-        
+         
     <%@include file="../../menu.html" %>
     
     <div id="page-wrapper">
@@ -136,18 +130,8 @@
             </div>
           </div>       
                 
-    <script src="vendor/jquery/jquery.min.js"></script>
-<!-- Bootstrap Core JavaScript -->
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!-- Metis Menu Plugin JavaScript -->
-<script src="vendor/metisMenu/metisMenu.min.js"></script>
-<!-- Morris Charts JavaScript -->
-<script src="vendor/raphael/raphael.min.js"></script>
-<script src="vendor/morrisjs/morris.min.js"></script>
-<script src="data/morris-data.js"></script>
-<!-- Custom Theme JavaScript -->
-<script src="dist/js/sb-admin-2.js"></script>
-    
+ 
+
     <script>
            function modaledita(codigo){
            
@@ -168,7 +152,6 @@
             
                 var table = $('#example').DataTable( {
                     lengthChange: false,
-                    buttons: [ 'copy', 'excel', 'csv', 'pdf', 'colvis' ],
                         language: {
                         "decimal": "",
                         "emptyTable": "No hay información",
@@ -177,27 +160,13 @@
                         "infoFiltered": "(Filtrado de _MAX_ total entradas)",
                         "infoPostFix": "",
                         "thousands": ",",
-                        "lengthMenu": "Mostrar _MENU_ Entradas",
                         "loadingRecords": "Cargando...",
                         "processing": "Procesando...",
                         "search": "Buscar:",
-                        "zeroRecords": "Sin resultados encontrados",
-                        "paginate": {
-                            "first": "Primero",
-                            "last": "Ultimo",
-                            "next": "Siguiente",
-                            "previous": "Anterior"
-                        },
-                          "buttons": {
-                            "copy": "Copiar",
-                            "colvis": "Columnas visibles",
-
-                        }}
-
+                        "zeroRecords": "Sin resultados encontrados"
+                        }
                 } );
 
-                table.buttons().container()
-                    .appendTo( '#example_wrapper .col-md-6:eq(0)' );
             } );
          <!--fin Sección datatable-->
              <!--Sección alerta-->

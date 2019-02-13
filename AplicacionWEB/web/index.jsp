@@ -42,7 +42,7 @@
     </head>
 
     <body>
-         
+
         <div id="top">
             <nav class="navbar navbar-default navbar-static-top" role="navigation">
 
@@ -192,10 +192,13 @@
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Reportes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="mod_Reportes/listar.jsp">Reporte de salidas</a>
+                                    <a href="mod_Reportes/listarEntradas.jsp">Reporte Entradas</a>
                                 </li>
                                 <li>
-                                    <a href="mod_Reportes/ClienteRe.jsp">Reporte de Entradas</a>
+                                    <a href="mod_Reportes/listarSalidas.jsp">Reporte Salidas</a>
+                                </li>
+                                <li>
+                                    <a href="mod_Reportes/listarProductos.jsp">Reporte Productos</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -209,37 +212,37 @@
 
         <div id="page-wrapper">
             <!--Sección alerta-->
-    <%
-        String alerta="";
-        try {
-            alerta=request.getParameter("alerta").toString();
-            } catch (Exception e) {
-            }           
-        if (alerta.equals("bienvenido")){%>
+            <%
+                String alerta="";
+                try {
+                    alerta=request.getParameter("alerta").toString();
+                    } catch (Exception e) {
+                    }           
+                if (alerta.equals("bienvenido")){%>
             <div class="alert alert-success" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <strong>Bienvenido </strong> A iniciado sesión correctamente!
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Bienvenido </strong> A iniciado sesión correctamente!
             </div>
             <%} if(alerta.equals("no")){%>
             <div class="alert alert-danger" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <strong>Falló!</strong> La transacción fue fallida!
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Falló!</strong> La transacción fue fallida!
             </div>
-       <% }
+            <% }
         if (alerta.equals("acceso_denegado")){%>
             <div class="alert alert-danger" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <strong>Acceso denegado!</strong> Al parecer no tiene parmisos para acceder a este modulo!!
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Acceso denegado!</strong> Al parecer no tiene parmisos para acceder a este modulo!!
             </div>
             <%} if(alerta.equals("no")){%>
             <div class="alert alert-danger" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <strong>Falló!</strong> La transacción fue fallida!
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Falló!</strong> La transacción fue fallida!
             </div>
-       <% }
+            <% }
        
-       %>
-        <!--Fin Sección alerta-->
+            %>
+            <!--Fin Sección alerta-->
             <div class="row">
                 <div class="col-lg-5">
                 </div>
