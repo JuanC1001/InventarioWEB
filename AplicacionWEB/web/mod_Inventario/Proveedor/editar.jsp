@@ -33,13 +33,15 @@
     <body>                       
         <form method="POST" action="procesa_editar.jsp">
             <input type="hidden" id="codigo" name="codigo" value="<%=proveedor.getCodigo()%>">
+            <label>Nombre:</label>
             <input type="text" required class="form-control" placeholder="Nombre Proveedor" id="nombre_proveedor" value="<%=proveedor.getNombre()%>" name="nombre_proveedor"/>
+            <label>Direccion:</label>
             <input type="text" required class="form-control" placeholder="Direccion Proveedor" id="direccion_proveedor" value="<%=proveedor.getDireccion()%>" name="direccion_proveedor"/>
-
+            <label>Teléfono:</label>
             <input type="text" required class="form-control" placeholder="Telefono Proveedor" id="telefono_proveedor" value="<%=proveedor.getTelefono()%>" name="telefono_proveedor"/>
-
-            
+            <label>Ruc:</label>            
             <input type="text" required class="form-control" placeholder="Ruc Proveedor" id="ruc_proveedor" value="<%=proveedor.getRuc()%>" name="ruc_proveedor"/>
+            <label>Email:</label>
             <input type="text" required class="form-control" placeholder="Email Proveedor" id="email_proveedor" value="<%=proveedor.getEmail()%>" name="email_proveedor"/>
             
             <div class="modal-footer">

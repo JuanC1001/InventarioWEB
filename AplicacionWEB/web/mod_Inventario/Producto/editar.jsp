@@ -43,10 +43,15 @@
     <body>                       
         <form method="POST" action="procesa_editar.jsp">
             <input type="hidden" id="codigo" name="codigo" value="<%=producto.getCodigo()%>">
+            <label>Nombre:</label>            
             <input type="text" required class="form-control" placeholder="Nombre Producto" id="nombre_producto" value="<%=producto.getNombre()%>" name="nombre_producto"/>
-            <input type="text" required class="form-control" placeholder="Stock Actual"  id="stock_producto" value="<%=producto.getStock()%>" name="stock_producto"/>
-            <input type="text" required class="form-control" placeholder="Precio Venta"  id="precio_venta_producto" value="<%=producto.getPrecio_venta()%>" name="precio_venta_producto"/>
-            <input type="text" required class="form-control" placeholder="Precio Compra"  id="precio_compra_producto" value="<%=producto.getPrecio_compra()%>" name="precio_compra_producto"/>            
+            <label>Stock:</label>            
+            <input pattern="^[0-9]+" type="text" required class="form-control" placeholder="Stock Actual"  id="stock_producto" value="<%=producto.getStock()%>" name="stock_producto"/>
+            <label>Precio de Venta:</label>            
+            <input pattern="^[0-9]+" type="text" required class="form-control" placeholder="Precio Venta"  id="precio_venta_producto" value="<%=producto.getPrecio_venta()%>" name="precio_venta_producto"/>
+            <label>Precio de Compra:</label>            
+            <input pattern="^[0-9]+" type="text" required class="form-control" placeholder="Precio Compra"  id="precio_compra_producto" value="<%=producto.getPrecio_compra()%>" name="precio_compra_producto"/>            
+            <label>Categoria:</label>            
             <select class="form-control" name="categoria" >
                  <option value="<%=producto.getCategoria().getCodigo()%>"> <%=producto.getCategoria().getNombre()%></option>
                 <%

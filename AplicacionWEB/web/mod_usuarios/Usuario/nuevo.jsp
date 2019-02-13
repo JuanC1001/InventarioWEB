@@ -18,13 +18,16 @@
 
 
         <form method="POST"  action="procesa_nuevo.jsp">
-            <input type="text" class="form-control" placeholder="usuario nombre" required id="nombre_usuario" name="nombre_usuario"/>
-            <input type="text" class="form-control" placeholder="usuario apellido" required id="apellido_usuario" name="apellido_usuario"/>
-            <input type="text" class="form-control" placeholder="usuario cedula" required id="cedula_usuario" name="cedula_usuario"/>
-            <input type="text" class="form-control" placeholder="usuario email" required id="email_usuario" name="email_usuario"/>
+            <label>Nombres:</label>
+            <input type="text" class="form-control" placeholder="Ejm: Juan Carlos" required id="nombre_usuario" name="nombre_usuario"/>
+            <label>Apellidos:</label>
+            <input type="text" class="form-control" placeholder="Ejm: Malca Yumi" required id="apellido_usuario" name="apellido_usuario"/>
+            <label>Cèdula:</label>
+            <input type="text" class="form-control" placeholder="Ejm: 0604632893" required id="cedula_usuario" name="cedula_usuario"/>
+            <label>Email:</label>
+            <input type="email" class="form-control" placeholder="Ejm: juancarlosjk2@hotmail.com" required id="email_proveedor" name="email_usuario"/>
+            <label>Contraseña:</label>
             <input type="text" class="form-control" placeholder="usuario clave" required id="clave_usuario" name="clave_usuario"/>
-            <input type="text" class="form-control" placeholder="confirmar clave" required id="clave1_usuario" name="clave1_usuario"/>
-
             <div class="modal-footer">
                 <button id="btn_guardar" name="btn_guardar" type="submit" class="btn btn-primary" >Guardar</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

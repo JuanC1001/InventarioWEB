@@ -50,7 +50,7 @@
             <h4> FECHA: <%=entrada.getFecha()%></h4>
 
             <input type="hidden" value="<%=entrada.getFecha()%>" type="text"  class="form-control" required id="fecha_entrada" name="fecha_entrada"/>
-
+            <label>Producto:</label>
             <select id="product" name="product" class="form-control">
                 <option value="<%=entrada.getProducto().getCodigo()%>"> <%=entrada.getProducto().getNombre()%></option>
 
@@ -61,8 +61,9 @@
                     }
                 %>
             </select>  
-            <input value="<%=entrada.getCantidad()%>" type="text" class="form-control" placeholder="Cantidad" required id="cantidad_entrada" name="cantidad_entrada" />
-
+            <label>Cantidad:</label>            
+            <input pattern="^[0-9]+" value="<%=entrada.getCantidad()%>" type="text" class="form-control" placeholder="Ejem: 10" required id="cantidad_entrada" name="cantidad_entrada" />
+            <label>Proveedor:</label>
             <select id="proveedo" name="proveedo" class="form-control">
                 <option value="<%=entrada.getProveedor().getCodigo()%>"> <%=entrada.getProveedor().getNombre()%></option>
                 
@@ -73,8 +74,8 @@
                     }
                 %>
             </select>  
-
-            <input value="<%=entrada.getDetalle()%>" type="text" class="form-control" placeholder="Detalle " id="detalle_entrada" name="detalle_entrada"/>
+            <label>Observaciones:</label>
+            <input value="<%=entrada.getDetalle()%>" type="text" class="form-control" placeholder="Sin Observaciones " id="detalle_entrada" name="detalle_entrada"/>
 
             <div class="modal-footer">
                 <button id="btn_guardar" name="btn_guardar" type="submit" class="btn btn-primary" >Guardar</button>

@@ -27,11 +27,16 @@
 
 
         <form method="POST"  action="procesa_nuevo.jsp">
-            <input type="text" class="form-control" placeholder="Nombre Proveedor" required id="nombre_proveedor" name="nombre_proveedor"/>
-            <input type="text" class="form-control" placeholder="Direccion Proveedor" required id="direccion_proveedor" name="direccion_proveedor"/>
-            <input type="text" class="form-control" placeholder="Telefono Proveedor" required id="telefono_proveedor" name="telefono_proveedor"/>
-            <input type="text" class="form-control" placeholder="Ruc Proveedor" required id="ruc_proveedor" name="ruc_proveedor"/>
-            <input type="text" class="form-control" placeholder="Email Proveedor" required id="email_proveedor" name="email_proveedor"/>
+            <label>Nombre:</label>
+            <input type="text" class="form-control" placeholder="Ejm: Dislac" required id="nombre_proveedor" name="nombre_proveedor"/>
+            <label>Direccion:</label>
+            <input type="text" class="form-control" placeholder="Avenida Pedro Vicente Maldonado y ...." required id="direccion_proveedor" name="direccion_proveedor"/>
+            <label>Teléfono:</label>
+            <input type="text" pattern="[0]{1}[9]{1}[0-9]{8}" class="form-control" placeholder="0979123008" required id="telefono_proveedor" name="telefono_proveedor"/>
+            <label>Ruc:</label>
+            <input type="text" class="form-control" placeholder="10006034632893" required id="ruc_proveedor" name="ruc_proveedor"/>
+            <label>Email:</label>
+            <input type="email" class="form-control" placeholder="juancarlosjk2@hotmail.com" required id="email_proveedor" name="email_proveedor"/>
 
             <div class="modal-footer">
                 <button id="btn_guardar" name="btn_guardar" type="submit" class="btn btn-primary" >Guardar</button>

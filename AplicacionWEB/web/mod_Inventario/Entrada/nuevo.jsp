@@ -30,7 +30,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Nuevo Entrada</title>      
+        <title>Nueva Entrada</title>      
     </head>
     <body>
 
@@ -38,7 +38,7 @@
             <h4> FECHA: <%=currentDate%></h4>
 
             <input type="hidden" value="<%=currentDate%>" type="text"  class="form-control" required id="fecha_entrada" name="fecha_entrada"/>
-
+            <label>Producto:</label>
             <select id="product" name="product" class="form-control">
                 <%
                     for(Producto producto: listaproducto){%>
@@ -46,9 +46,10 @@
                 <%
                     }
                 %>
-            </select>  
-            <input type="text" class="form-control" placeholder="Cantidad" required id="cantidad_entrada" name="cantidad_entrada"/>
-
+            </select> 
+            <label>Cantidad:</label>            
+            <input pattern="^[0-9]+" type="text" class="form-control" placeholder="Ejm: 10" required id="cantidad_entrada" name="cantidad_entrada"/>
+            <label>Proveedor:</label>
             <select id="proveedo" name="proveedo" class="form-control">
                 <%
                     for(Proveedor proveedor: listaproveedor){%>
@@ -57,9 +58,8 @@
                     }
                 %>
             </select>  
-
-            <input type="text" class="form-control" placeholder="Detalle " id="detalle_entrada" name="detalle_entrada"/>
-
+            <label>Observaciones:</label>
+            <input type="text" class="form-control" placeholder="Sin observaciones " id="detalle_entrada" name="detalle_entrada"/>
             <div class="modal-footer">
                 <button id="btn_guardar" name="btn_guardar" type="submit" class="btn btn-primary" >Guardar</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

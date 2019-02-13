@@ -38,7 +38,7 @@
             <h4> FECHA: <%=currentDate%></h4>
 
             <input type="hidden" value="<%=currentDate%>" type="text"  class="form-control" required id="fecha_salida" name="fecha_salida"/>
-
+            <label>Producto:</label>
             <select id="product" name="product" class="form-control">
                 <%
                     for(Producto producto: listaproducto){%>
@@ -47,8 +47,9 @@
                     }
                 %>
             </select>  
-            <input type="text" class="form-control" placeholder="Cantidad" required id="cantidad_salida" name="cantidad_salida"/>
-
+            <label>Cantidad:</label>
+            <input pattern="^[0-9]+" type="text" class="form-control" placeholder="Ejm: 10" required id="cantidad_salida" name="cantidad_salida"/>
+            <label>Proveedor:</label>
             <select id="proveedo" name="proveedo" class="form-control">
                 <%
                     for(Destino destino: listadestino){%>
@@ -57,8 +58,8 @@
                     }
                 %>
             </select>  
-
-            <input type="text" class="form-control" placeholder="Detalle " id="detalle_salida" name="detalle_salida"/>
+            <label>Observaciones:</label>
+            <input type="text" class="form-control" placeholder="Sin Observaciones " id="detalle_salida" name="detalle_salida"/>
 
             <div class="modal-footer">
                 <button id="btn_guardar" name="btn_guardar" type="submit" class="btn btn-primary" >Guardar</button>

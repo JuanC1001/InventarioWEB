@@ -32,10 +32,15 @@
     </head>
     <body>
           <form method="POST"  action="procesa_nuevo.jsp">
-            <input type="text" class="form-control" placeholder="Nombre Producto (ejm: Galletas)" required id="nombre_producto" name="nombre_producto"/>
-            <input type="text" class="form-control" placeholder="Stock Actual (ejm: 100)" pattern="^[0-9]+" required id="stock_producto" name="stock_producto"/>
-            <input type="text" class="form-control" placeholder="Precio Venta (ejm: 0.50)" pattern="^[0-9]+" required id="precio_venta_producto" name="precio_venta_producto"/>
-            <input type="text" class="form-control" placeholder="Precio Compra (ejm: 0.40)" pattern="^[0-9]+" required id="precio_compra_producto" name="precio_compra_producto"/>            
+            <label>Nombre:</label>
+            <input type="text" class="form-control" placeholder="Ejm: Galletas" required id="nombre_producto" name="nombre_producto"/>
+            <label>Stock:</label>
+            <input type="text" class="form-control" placeholder="Ejm: 100" pattern="^[0-9]+" required id="stock_producto" name="stock_producto"/>
+            <label>Precio de Venta:</label>
+            <input type="text" class="form-control" placeholder="Ejm: 0.50" pattern="^[0-9]+" required id="precio_venta_producto" name="precio_venta_producto"/>
+            <label>Precio de Compra:</label>
+            <input type="text" class="form-control" placeholder="Ejm: 0.40" pattern="^[0-9]+" required id="precio_compra_producto" name="precio_compra_producto"/>            
+            <label>Categoria:</label>
             <select  class="form-control" name="categoria">
                 
                 
