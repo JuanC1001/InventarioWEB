@@ -32,9 +32,7 @@
             //out.println("<script>  location.replace('index.jsp');</script>");
         }else{
             out.println("<script>  location.replace('inicio.html');</script>");
-            if(request.getParameter("cerrar")!=null){
-            session.invalidate();            
-            }
+ 
         }
         } catch (Exception e) {
         }

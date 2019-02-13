@@ -192,10 +192,10 @@
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Reportes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="login.html">Reporte de salidas</a>
+                                    <a href="mod_Reportes/ClienteRe.jsp">Reporte de salidas</a>
                                 </li>
                                 <li>
-                                    <a href="login.html">Reporte de Entradas</a>
+                                    <a href="mod_Reportes/ClienteRe.jsp">Reporte de Entradas</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

@@ -28,7 +28,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-1">
-                    <form role="form" action="procesalogin.jsp" target="sessionJsp">
+                    <form role="form" action="procesalogin.jsp">
                         <fieldset>
                             <div id="foto">
                                 <img src="Images/logo2.jpg" style="max-width:100%;width:auto;height:auto; padding: 1px 0px;">
@@ -51,7 +51,7 @@
                             </div>
                             <!-- Change this to a button or input when using this as a form -->
                             <center>
-                                <button id="btn_guardar" name="btn_guardar" type="submit" class="btn btn-primary" >Iniciar Sesion</button>
+                                <button id="btn_guardar" name="btn_guardar" type="submit" class="btn btn-primary">Iniciar Sesion</button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                             </center>
                         </fieldset>
