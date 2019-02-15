@@ -18,15 +18,16 @@
         <title>Nueva Categoria</title>        
     </head>
     <body>
-          <form method="POST"  action="procesa_nuevo.jsp">
-            <input type="text" class="form-control" placeholder="Nombre Categoria" required id="nombre_categoria" name="nombre_categoria"/>
-          
+        <form method="POST"  action="procesa_nuevo.jsp">
+            <label>Nombre:</label>
+            <input type="text" class="form-control" placeholder="Ejm: Bebidas" required id="nombre_categoria" name="nombre_categoria"/>
+
             <div class="modal-footer">
                 <button id="btn_guardar" name="btn_guardar" type="submit" class="btn btn-primary" >Guardar</button>
-                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
             </div>
         </form>
-          
+
     </body>
 </html>
 
