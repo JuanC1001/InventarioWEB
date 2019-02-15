@@ -7,6 +7,7 @@ package rnegocio.funciones;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Iterator;
 import rnegocio.entidades.RolPagina;
 import rnegocio.funciones.FRolPagina;
 import rnegocio.entidades.RolPagina;
@@ -26,17 +27,31 @@ public class Pruebas {
      */
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-        ArrayList<Rol> lista = new ArrayList<Rol>();
+//        ArrayList<Rol> lista = new ArrayList<Rol>();
         Rol rol=new Rol();
-        Pagina pagina=new Pagina();
         rol=FRol.rol_buscarporid(1);
-        pagina=FPagina.pagina_buscarporid(3);
-        RolPagina rolpagina=new RolPagina(1,pagina,rol);
+//        Pagina pagina=new Pagina();
+//        lista=FRol.rol_buscartodos();
+        
+        
+//ArrayList<Rol> cat=new ArrayList<Rol>();
+//cat=FRol.rol_buscartodos();
+//        for (Iterator<Rol> iterator = cat.iterator(); iterator.hasNext();) {
+//            Rol next = iterator.next();
+//            System.out.println(next.getNombre());
+//
+//        }
+//         
+        
+        
+//        pagina=FPagina.pagina_buscarporid(3);
+
+//        RolPagina rolpagina=new RolPagina(1,pagina,rol);
 //        
 //        Usuario user = new Usuario();
-        Boolean resp = FRolPagina.PaginaRol_insertar(rolpagina);
+//        Boolean resp = FRolPagina.PaginaRol_insertar(rolpagina);
 //        user=FUsuario.usuario_buscarporid(13);
-         System.err.println(">>" + resp);
+//         System.err.println(">>" + resp);
 //        Boolean resp = FRolPagina.RolPagina_insertar(rolpagina);
 //        lista = FRol.rol_buscartodos();
 //        for(Rol r: lista){

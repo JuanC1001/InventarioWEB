@@ -47,6 +47,7 @@ public class FRol {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
+            
             rs.close();
             preStm.close();
             con.desconectar();

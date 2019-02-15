@@ -1,11 +1,12 @@
 <%@page import="rnegocio.funciones.*"%>
 <%@page import="rnegocio.entidades.*"%>
 <%@page import="java.util.*"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%
  List<Rol> listarol=FRol.rol_buscartodos();
 %>
 <html lang="en">
-    <%@page contentType="text/html" pageEncoding="UTF-8"%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
