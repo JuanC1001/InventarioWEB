@@ -60,8 +60,8 @@ FROM
 	<title>
 		<band height="136" splitType="Stretch">
 			<image>
-				<reportElement x="433" y="-115" width="267" height="209" uuid="f80ee3be-25e8-4a1d-b0d0-7f488a49d095"/>
-				<imageExpression><![CDATA["coffee_stain.png"]]></imageExpression>
+				<reportElement x="154" y="-29" width="384" height="165" uuid="defabb4a-5689-4a11-93e3-f98a6ece407d"/>
+				<imageExpression><![CDATA["D:\\RepositorioGITHUB\\InventarioWEB\\AplicacionWEB\\web\\Images\\logo2.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -78,19 +78,19 @@ FROM
 			</line>
 			<staticText>
 				<reportElement style="Column header" x="0" y="0" width="138" height="15" forecolor="#736343" uuid="1b062229-cf79-4f52-81d9-f3ff864eda7c"/>
-				<text><![CDATA[producto_codigo]]></text>
+				<text><![CDATA[Código]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="138" y="0" width="138" height="15" forecolor="#736343" uuid="08c7c95d-8784-4f88-be56-f8a00d5aa579"/>
-				<text><![CDATA[producto_nombre]]></text>
+				<text><![CDATA[Nombre del producto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="276" y="0" width="138" height="15" forecolor="#736343" uuid="c470cccb-2246-42dc-a849-1c0c1178d0fa"/>
-				<text><![CDATA[producto_precio_venta]]></text>
+				<text><![CDATA[Precio de Venta]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="414" y="0" width="138" height="15" forecolor="#736343" uuid="33fa93c9-f34b-4bf8-aa8f-888c940d43c5"/>
-				<text><![CDATA[producto_stock]]></text>
+				<text><![CDATA[Cantidad]]></text>
 			</staticText>
 		</band>
 	</columnHeader>

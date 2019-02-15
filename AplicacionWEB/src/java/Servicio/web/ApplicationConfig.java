@@ -40,7 +40,9 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(Servicio.web.EntradaResourse.class);
         resources.add(Servicio.web.ProductoResourse.class);
+        resources.add(Servicio.web.SalidaResourse.class);
     }
     
     
