@@ -20,7 +20,7 @@
      String user = (String) request.getSession().getAttribute("nombre");
      String rol = (String) request.getSession().getAttribute("rol");
         if(user==null){
-            response.sendRedirect("../../inicio.html");
+            response.sendRedirect("../../inicio.jsp");
         }
  List<Producto> lista=FProducto.producto_buscartodos();
  Iterator<Producto> itProducto=lista.iterator();

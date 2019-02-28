@@ -181,13 +181,13 @@
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Reportes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a target="black" href="mod_Reportes/listarEntradas.jsp">Reporte Entradas</a>
+                                    <a href="mod_Reportes/listarEntradas.jsp">Reporte Entradas</a>
                                 </li>
                                 <li>
-                                    <a href="mod_Reportes/listarSalidas.jsp" target="black">Reporte Salidas</a>
+                                    <a href="mod_Reportes/listarSalidas.jsp">Reporte Salidas</a>
                                 </li>
                                 <li>
-                                    <a href="mod_Reportes/listarProductos.jsp" target="black">Reporte Productos</a>
+                                    <a href="mod_Reportes/listarProductos.jsp">Reporte Productos</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

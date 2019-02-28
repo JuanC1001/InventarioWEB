@@ -21,7 +21,7 @@
      String user = (String) request.getSession().getAttribute("nombre");
      String rol = (String) request.getSession().getAttribute("rol");     
         if(user==null){
-            response.sendRedirect("../../inicio.html");
+            response.sendRedirect("../../inicio.jsp");
         }
  List<Categoria> lista=FCategoria.categoria_buscartodos();
  Iterator<Categoria> itCategoria=lista.iterator();

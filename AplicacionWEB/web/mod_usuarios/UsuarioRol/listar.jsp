@@ -19,7 +19,7 @@
      String rol = (String) request.getSession().getAttribute("rol");
      
      if(user==null){
-            response.sendRedirect("../../inicio.html");
+            response.sendRedirect("../../inicio.jsp");
         } else{
         if(rol.equals("Empleado")){
         out.println("<script>  location.replace('../../index.jsp?alerta=acceso_denegado');</script>");

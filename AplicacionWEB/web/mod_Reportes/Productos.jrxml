@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2e909a3c-4679-4346-b9d5-d58a76d5e47d">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="5"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
@@ -43,7 +43,7 @@ FROM
 					<textField>
 						<reportElement style="SubTitle" x="68" y="0" width="413" height="24" forecolor="#736343" uuid="b5dbf528-132c-4714-9394-6f6edae37f35"/>
 						<textElement>
-							<font isBold="true"/>
+							<font fontName="Dialog" isBold="true"/>
 						</textElement>
 						<textFieldExpression><![CDATA[$F{categoria_nombre}]]></textFieldExpression>
 					</textField>
@@ -78,18 +78,30 @@ FROM
 			</line>
 			<staticText>
 				<reportElement style="Column header" x="0" y="0" width="138" height="15" forecolor="#736343" uuid="1b062229-cf79-4f52-81d9-f3ff864eda7c"/>
+				<textElement>
+					<font fontName="Dialog"/>
+				</textElement>
 				<text><![CDATA[Código]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="138" y="0" width="138" height="15" forecolor="#736343" uuid="08c7c95d-8784-4f88-be56-f8a00d5aa579"/>
+				<textElement>
+					<font fontName="Dialog"/>
+				</textElement>
 				<text><![CDATA[Nombre del producto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="276" y="0" width="138" height="15" forecolor="#736343" uuid="c470cccb-2246-42dc-a849-1c0c1178d0fa"/>
+				<textElement>
+					<font fontName="Dialog"/>
+				</textElement>
 				<text><![CDATA[Precio de Venta]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="414" y="0" width="138" height="15" forecolor="#736343" uuid="33fa93c9-f34b-4bf8-aa8f-888c940d43c5"/>
+				<textElement>
+					<font fontName="Dialog"/>
+				</textElement>
 				<text><![CDATA[Cantidad]]></text>
 			</staticText>
 		</band>
@@ -100,18 +112,30 @@ FROM
 				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="15" uuid="ef5965e9-5e66-4d81-bfba-6c5e1c4fe360"/>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="0" y="0" width="138" height="15" uuid="6592d9cb-a6f9-4894-bf01-c7d666f38bec"/>
+					<textElement>
+						<font fontName="Dialog"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{producto_codigo}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="138" y="0" width="138" height="15" uuid="fb258a17-a2a7-4191-9244-814f0a4cd9bc"/>
+					<textElement>
+						<font fontName="Dialog"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{producto_nombre}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="276" y="0" width="138" height="15" uuid="50ff3a9e-a339-4bcc-aecd-2e4716e8a2db"/>
+					<textElement>
+						<font fontName="Dialog"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{producto_precio_venta}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement style="Detail" x="414" y="0" width="138" height="15" uuid="ba9e251e-cfc8-422a-ab05-92c94669b519"/>
+					<textElement>
+						<font fontName="Dialog"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{producto_stock}]]></textFieldExpression>
 				</textField>
 			</frame>
@@ -134,21 +158,21 @@ FROM
 				<textField evaluationTime="Report">
 					<reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343" uuid="dd3bb563-c3d4-499d-a2d6-d558d9bbd992"/>
 					<textElement verticalAlignment="Middle">
-						<font size="10" isBold="false"/>
+						<font fontName="Dialog" size="10" isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343" uuid="fe3f8bad-6ed7-491d-ae75-56293296e808"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font size="10" isBold="false"/>
+						<font fontName="Dialog" size="10" isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 				</textField>
 				<textField pattern="EEEEE dd MMMMM yyyy">
 					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="096ae560-c9d5-4b5f-a7ff-83ece221f948"/>
 					<textElement verticalAlignment="Middle">
-						<font size="10" isBold="false"/>
+						<font fontName="Dialog" size="10" isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 				</textField>

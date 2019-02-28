@@ -15,7 +15,7 @@
      String rol = (String) request.getSession().getAttribute("rol");     
      
         if(user==null){
-            response.sendRedirect("../../inicio.html");
+            response.sendRedirect("../../inicio.jsp");
         } 
  List<Destino> lista=FDestino.destino_buscartodos();
  Iterator<Destino> itDestino=lista.iterator();

@@ -63,7 +63,7 @@
             %>
         <!--Fin Sección alerta-->
             <h2 class="page-header">Resumen Productos</h2>
-             <a type="button" href="ReporteProducto.jsp" class="btn btn-primary" target="black"> Imprimir Lista</a>  
+             <a target="black" type="button" href="ReporteProducto.jsp" class="btn btn-primary"> Imprimir Lista</a>  
                             
 <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">                
     <thead>

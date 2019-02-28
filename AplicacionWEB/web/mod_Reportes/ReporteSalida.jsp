@@ -17,12 +17,12 @@
 
         try {
         File reportfile = new File (application.getRealPath("mod_Reportes/Salidas.jasper"));        
-        //Map<String,Object> parameter = new HashMap<String,Object>();   
+        Map<String,Object> parameter = new HashMap<String,Object>();   
         
         //String valor = request.getParameter("txtparametro");
         //parameter.put("mar",new String(valor));     
         
-        byte[] bytes = JasperRunManager.runReportToPdf(reportfile.getPath(), null, con);        
+        byte[] bytes = JasperRunManager.runReportToPdf(reportfile.getPath(), parameter, con);        
         response.setContentType("application/pdf");
         response.setContentLength(bytes.length);
         ServletOutputStream outputstream = response.getOutputStream();
